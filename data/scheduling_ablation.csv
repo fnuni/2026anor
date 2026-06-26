@@ -1,0 +1,6 @@
+variant,f1,p95,fairness,hv
+Full C-R-EoH,98.00,119.21,9.59,1.009
+No OWA risk objective,96.57,123.50,10.84,1.045
+No fairness objective,97.19,120.80,10.09,1.038
+No robustness buffer,97.53,123.06,10.67,0.968
+No archive (scalarized),97.19,120.80,10.09,1.038

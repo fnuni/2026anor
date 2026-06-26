@@ -1,0 +1,22 @@
+cff-version: 1.2.0
+message: "If you use this repository, please cite the associated article."
+title: "C-R-EoH: Collaborative Robust Evolution of Heuristics under Fuzzy Uncertainty"
+authors:
+  - family-names: Nucci
+    given-names: Francesco
+    orcid: "https://orcid.org/0000-0003-4228-119X"
+    affiliation: University of Salento
+  - family-names: Papadia
+    given-names: Gabriele
+    orcid: "https://orcid.org/0000-0003-1507-8188"
+    affiliation: University of Salento
+version: 2.0.0
+date-released: 2026-06-26
+license: MIT
+# TODO before submission: replace <user> with the public GitHub account and,
+# after archiving the v2.0.0 release on Zenodo, fill in the DOI below.
+repository-code: "https://github.com/<user>/creoh-fuzzy-ahd"
+identifiers:
+  - type: doi
+    value: "10.5281/zenodo.XXXXXXX"   # assigned on Zenodo archival of the v2.0.0 release
+    description: "Archived snapshot of the v2.0.0 reproducibility release"

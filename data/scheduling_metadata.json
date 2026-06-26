@@ -1,0 +1,25 @@
+{
+  "seeds": 30,
+  "n_tasks": 40,
+  "budget": 120,
+  "orness": 0.7,
+  "spread": 0.15,
+  "alpha_grid": [
+    0,
+    0.25,
+    0.5,
+    0.75,
+    1
+  ],
+  "shift": 100.0,
+  "overtime_rate": 1.5,
+  "tech_cost": 40.0,
+  "p95_reduction_pct": 15.01,
+  "nominal_premium_pct": 8.81,
+  "expected_cost_change_pct": -1.69,
+  "fairness_reduction_pct": 47.89,
+  "owa_reduction_pct": 12.15,
+  "hv_gain_pct": 137.6,
+  "friedman_chi2": 70.279,
+  "friedman_p": 3.720329306227802e-15
+}

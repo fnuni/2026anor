@@ -1,0 +1,4 @@
+backbone,feasible_rate,repair_rate,hv,p95,relative_cost,relative_cost_per_feasible
+Model A,82.0,14.0,0.74,108.4,5.8,4.5
+Model B,76.0,18.0,0.68,111.2,4.6,3.9
+Model C,64.0,24.0,0.59,116.3,1.0,1.0

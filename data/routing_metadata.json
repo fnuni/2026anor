@@ -1,0 +1,18 @@
+{
+  "seeds": 30,
+  "n_customers": 25,
+  "budget": 80,
+  "orness": 0.7,
+  "alpha_grid": [
+    0,
+    0.25,
+    0.5,
+    0.75,
+    1.0
+  ],
+  "train_spread": 0.15,
+  "ood_extra": 1.6,
+  "friedman_stat": 31.38461538461537,
+  "friedman_p": 7.054167451321216e-07,
+  "index_scale": "Classical mean f1 := 100"
+}
