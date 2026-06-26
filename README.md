@@ -2,8 +2,8 @@
 
 Reproducibility repository for the manuscript *Collaborative Intelligence for
 Robust Automatic Heuristic Design under Fuzzy Uncertainty: A Human–AI
-Decision-Support Framework for Operations Research* (submitted to *Annals of
-Operations Research*, Springer).
+Decision-Support Framework for Operations Research* (prepared for submission to
+*Annals of Operations Research*, Springer).
 
 **Every number in the paper is computed by the code in this repository, from
 fixed seeds, using only `numpy` and `scipy`.** No LLM key is required: the
@@ -73,8 +73,8 @@ The fuzzy multi-objective evaluator vs. deterministic (nominal) AHD:
 | Nominal-cost premium (price of robustness) | +8.8% | - | - |
 | Expected-cost change | -1.7% | - | -0.11 (ns) |
 
-On the routing contrast the same machinery yields a negligible, non-significant
-tail change: minimizing nominal travel cost already absorbs most of the
+On the routing contrast the same machinery yields a negligible tail change:
+minimizing nominal travel cost already absorbs most of the
 available robustness. The scheduling-vs-routing contrast is deliberate — it
 identifies *when* a robust evaluator earns its cost.
 

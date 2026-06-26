@@ -13,10 +13,4 @@ authors:
 version: 2.0.0
 date-released: 2026-06-26
 license: MIT
-# TODO before submission: replace <user> with the public GitHub account and,
-# after archiving the v2.0.0 release on Zenodo, fill in the DOI below.
-repository-code: "https://github.com/<user>/creoh-fuzzy-ahd"
-identifiers:
-  - type: doi
-    value: "10.5281/zenodo.XXXXXXX"   # assigned on Zenodo archival of the v2.0.0 release
-    description: "Archived snapshot of the v2.0.0 reproducibility release"
+repository-code: "https://github.com/fnuni/2026anor"

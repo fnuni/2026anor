@@ -511,7 +511,7 @@ def holm(pvals: dict[str, float]) -> dict[str, float]:
 # --------------------------------------------------------------------------
 # Experiment driver
 # --------------------------------------------------------------------------
-def run(seeds: int = 20, n: int = 25, budget: int = 80, orness: float = 0.7,
+def run(seeds: int = 30, n: int = 25, budget: int = 80, orness: float = 0.7,
         outdir: str = "."):
     gen = FuzzyInstanceGenerator(n=n, spread=0.15, regime="regional", n_regions=6)
     eb = EndpointBuilder(reps=3)
@@ -542,9 +542,9 @@ def run(seeds: int = 20, n: int = 25, budget: int = 80, orness: float = 0.7,
 
         for m in methods:
             sel, arch = m.select(pool)
-            # hypervolume is measured in the canonical (f1,f2,f3) objective
-            # space for every method, recomputed from the retained candidates,
-            # so it reflects true robustness coverage and is comparable.
+            # Hypervolume is measured on the normalized 2D cost-risk plane
+            # (f1, f2). Fairness remains part of archive dominance and
+            # selection, but not of the reported HV indicator.
             narch = ParetoArchive()
             for _fv, p in arch.items:
                 narch.add(norm(p.fitness(f1, f2, f3)), p)
