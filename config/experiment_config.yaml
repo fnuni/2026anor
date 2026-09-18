@@ -11,7 +11,7 @@ uncertainty:
   n_zones: 6
 
 owa:
-  selected_orness: 0.70            # planner dial theta used in the tables
+  selected_orness: 0.70            # legacy key: theta, NOT induced OWA orness
 
 
 proposer:
