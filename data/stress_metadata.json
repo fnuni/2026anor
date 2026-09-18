@@ -1,0 +1,66 @@
+{
+  "seeds": 30,
+  "levels": {
+    "mild": 1.2,
+    "medium": 1.6,
+    "severe": 2.2
+  },
+  "summary": {
+    "Classical heuristic": {
+      "mild": [
+        41.88,
+        3.308
+      ],
+      "medium": [
+        60.824,
+        4.728
+      ],
+      "severe": [
+        89.316,
+        6.881
+      ]
+    },
+    "Deterministic AHD": {
+      "mild": [
+        42.998,
+        3.631
+      ],
+      "medium": [
+        62.519,
+        5.135
+      ],
+      "severe": [
+        91.876,
+        7.384
+      ]
+    },
+    "MO AHD (no fuzzy risk)": {
+      "mild": [
+        35.67,
+        5.134
+      ],
+      "medium": [
+        54.083,
+        7.301
+      ],
+      "severe": [
+        82.43,
+        10.305
+      ]
+    },
+    "C-R-EoH": {
+      "mild": [
+        29.566,
+        2.882
+      ],
+      "medium": [
+        49.274,
+        4.339
+      ],
+      "severe": [
+        79.412,
+        6.543
+      ]
+    }
+  }
+}

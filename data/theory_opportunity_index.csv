@@ -1,0 +1,6 @@
+family,units,roi_mean,roi_ci,roi_p95_mean,roi_p95_ci,realised_p95_mean,realised_p95_ci,rank_corr_mean,rank_corr_ci,bound_violations
+Synthetic scheduling (primary),15,0.0810,0.0067,0.0999,0.0094,0.0956,0.0102,-0.0514,0.1275,0
+Synthetic routing (contrast),15,0.0022,0.0027,0.0051,0.0045,0.0040,0.0044,0.9381,0.0260,0
+Solomon-derived scheduling (public),4,0.0784,0.0175,0.1077,0.0141,0.1020,0.0183,-0.4752,0.1725,0
+CVRPLIB X-set (public),15,0.0039,0.0032,0.0083,0.0058,0.0061,0.0054,0.9793,0.0095,0
+Solomon routing (public),6,0.0007,0.0013,0.0004,0.0008,0.0004,0.0008,0.9837,0.0111,0

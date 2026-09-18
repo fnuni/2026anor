@@ -1,0 +1,501 @@
+{
+  "propositions": [
+    {
+      "proposition": "P1 tail premium f2 >= f1",
+      "trials": 500,
+      "failures": 0,
+      "holds": true
+    },
+    {
+      "proposition": "P2 OWA equals empirical CVaR",
+      "trials": 500,
+      "failures": 0,
+      "holds": true
+    },
+    {
+      "proposition": "P3 f2 non-decreasing in theta",
+      "trials": 500,
+      "failures": 0,
+      "holds": true
+    },
+    {
+      "proposition": "P4 consistency with the increasing convex order",
+      "trials": 500,
+      "failures": 0,
+      "holds": true
+    },
+    {
+      "proposition": "P5 hypervolume non-decreasing along the search",
+      "trials": 500,
+      "failures": 0,
+      "holds": true
+    },
+    {
+      "proposition": "P6 nominal premium decomposition",
+      "trials": 500,
+      "failures": 0,
+      "holds": true
+    },
+    {
+      "proposition": "P7 rank invariance under single-zone homogeneous cost",
+      "trials": 500,
+      "failures": 0,
+      "holds": true
+    },
+    {
+      "proposition": "P8 opportunity index is an upper bound",
+      "trials": 500,
+      "failures": 0,
+      "holds": true
+    }
+  ],
+  "invariance_breaking": [
+    {
+      "exposure_spread": 0.0,
+      "overtime_rate": 0.0,
+      "roi_mean": 0.0,
+      "roi_ci": 0.0
+    },
+    {
+      "exposure_spread": 0.0,
+      "overtime_rate": 0.5,
+      "roi_mean": 0.0228,
+      "roi_ci": 7e-05
+    },
+    {
+      "exposure_spread": 0.0,
+      "overtime_rate": 1.5,
+      "roi_mean": 0.1707,
+      "roi_ci": 0.00065
+    },
+    {
+      "exposure_spread": 0.0,
+      "overtime_rate": 3.0,
+      "roi_mean": 0.33432,
+      "roi_ci": 0.00072
+    },
+    {
+      "exposure_spread": 0.25,
+      "overtime_rate": 0.0,
+      "roi_mean": 0.00665,
+      "roi_ci": 0.0003
+    },
+    {
+      "exposure_spread": 0.25,
+      "overtime_rate": 0.5,
+      "roi_mean": 0.0266,
+      "roi_ci": 0.00035
+    },
+    {
+      "exposure_spread": 0.25,
+      "overtime_rate": 1.5,
+      "roi_mean": 0.16018,
+      "roi_ci": 0.0006
+    },
+    {
+      "exposure_spread": 0.25,
+      "overtime_rate": 3.0,
+      "roi_mean": 0.32163,
+      "roi_ci": 0.00075
+    },
+    {
+      "exposure_spread": 0.5,
+      "overtime_rate": 0.0,
+      "roi_mean": 0.00862,
+      "roi_ci": 0.0004
+    },
+    {
+      "exposure_spread": 0.5,
+      "overtime_rate": 0.5,
+      "roi_mean": 0.02818,
+      "roi_ci": 0.00045
+    },
+    {
+      "exposure_spread": 0.5,
+      "overtime_rate": 1.5,
+      "roi_mean": 0.16012,
+      "roi_ci": 0.00071
+    },
+    {
+      "exposure_spread": 0.5,
+      "overtime_rate": 3.0,
+      "roi_mean": 0.32096,
+      "roi_ci": 0.00082
+    },
+    {
+      "exposure_spread": 1.0,
+      "overtime_rate": 0.0,
+      "roi_mean": 0.01231,
+      "roi_ci": 0.00058
+    },
+    {
+      "exposure_spread": 1.0,
+      "overtime_rate": 0.5,
+      "roi_mean": 0.03099,
+      "roi_ci": 0.0006
+    },
+    {
+      "exposure_spread": 1.0,
+      "overtime_rate": 1.5,
+      "roi_mean": 0.16185,
+      "roi_ci": 0.00084
+    },
+    {
+      "exposure_spread": 1.0,
+      "overtime_rate": 3.0,
+      "roi_mean": 0.32073,
+      "roi_ci": 0.0009
+    }
+  ],
+  "families": [
+    {
+      "roi": [
+        0.08100005963109377,
+        0.006701420514409529
+      ],
+      "roi_p95": [
+        0.09994183492690996,
+        0.009439584503611409
+      ],
+      "realised_p95": [
+        0.0956403044722136,
+        0.010159798146672916
+      ],
+      "rank_corr": [
+        -0.051365033609623516,
+        0.12746394415849205
+      ],
+      "units": 15,
+      "family": "Synthetic scheduling (primary)",
+      "bound_violations": 0,
+      "instances": [
+        [
+          0.103567,
+          0.103567
+        ],
+        [
+          0.102059,
+          0.102059
+        ],
+        [
+          0.097727,
+          0.097727
+        ],
+        [
+          0.092205,
+          0.085679
+        ],
+        [
+          0.095435,
+          0.089919
+        ],
+        [
+          0.106658,
+          0.103919
+        ],
+        [
+          0.12913,
+          0.127748
+        ],
+        [
+          0.067455,
+          0.067455
+        ],
+        [
+          0.081186,
+          0.057911
+        ],
+        [
+          0.115806,
+          0.115806
+        ],
+        [
+          0.127401,
+          0.127401
+        ],
+        [
+          0.086738,
+          0.086738
+        ],
+        [
+          0.123012,
+          0.098822
+        ],
+        [
+          0.098167,
+          0.098167
+        ],
+        [
+          0.072582,
+          0.071687
+        ]
+      ]
+    },
+    {
+      "roi": [
+        0.0022423560727828835,
+        0.0027209172413478694
+      ],
+      "roi_p95": [
+        0.005076246872197063,
+        0.004510933614306992
+      ],
+      "realised_p95": [
+        0.003963080383557608,
+        0.004437979553290843
+      ],
+      "rank_corr": [
+        0.9381424530441886,
+        0.02604597284942867
+      ],
+      "units": 15,
+      "family": "Synthetic routing (contrast)",
+      "bound_violations": 0,
+      "instances": [
+        [
+          0.011611,
+          0.0
+        ],
+        [
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0
+        ],
+        [
+          0.022028,
+          0.022028
+        ],
+        [
+          0.0,
+          0.0
+        ],
+        [
+          0.027744,
+          0.027744
+        ],
+        [
+          0.007124,
+          0.007124
+        ],
+        [
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          -0.0
+        ],
+        [
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0
+        ],
+        [
+          0.007636,
+          0.00255
+        ]
+      ]
+    },
+    {
+      "roi": [
+        0.07842446436783361,
+        0.01746698224443501
+      ],
+      "roi_p95": [
+        0.10770603159586564,
+        0.014069806229133352
+      ],
+      "realised_p95": [
+        0.1020487714172487,
+        0.01828879592415498
+      ],
+      "rank_corr": [
+        -0.4752302952270651,
+        0.17251348883069773
+      ],
+      "units": 4,
+      "family": "Solomon-derived scheduling (public)",
+      "bound_violations": 0,
+      "instances": [
+        [
+          0.099186,
+          0.09575
+        ],
+        [
+          0.09353,
+          0.079849
+        ],
+        [
+          0.112449,
+          0.109012
+        ],
+        [
+          0.125659,
+          0.123585
+        ]
+      ]
+    },
+    {
+      "roi": [
+        0.003906778709862903,
+        0.003210468559808502
+      ],
+      "roi_p95": [
+        0.008270579625350306,
+        0.005841655970366476
+      ],
+      "realised_p95": [
+        0.006111207829960867,
+        0.005368822966022242
+      ],
+      "rank_corr": [
+        0.9792506501155823,
+        0.009547888191701097
+      ],
+      "units": 15,
+      "family": "CVRPLIB X-set (public)",
+      "bound_violations": 0,
+      "instances": [
+        [
+          0.0,
+          0.0
+        ],
+        [
+          0.028349,
+          0.028349
+        ],
+        [
+          0.0,
+          0.0
+        ],
+        [
+          0.000272,
+          0.000272
+        ],
+        [
+          0.026025,
+          0.016316
+        ],
+        [
+          0.000298,
+          0.0
+        ],
+        [
+          0.012424,
+          0.0
+        ],
+        [
+          0.0,
+          -0.003575
+        ],
+        [
+          0.0,
+          0.0
+        ],
+        [
+          0.029239,
+          0.025408
+        ],
+        [
+          0.0,
+          -0.002554
+        ],
+        [
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0
+        ],
+        [
+          0.010242,
+          0.010242
+        ],
+        [
+          0.017209,
+          0.017209
+        ]
+      ]
+    },
+    {
+      "roi": [
+        0.0006659809094749278,
+        0.0013053225825708586
+      ],
+      "roi_p95": [
+        0.0003980765326133231,
+        0.0007802300039221133
+      ],
+      "realised_p95": [
+        0.0003980765326133231,
+        0.0007802300039221133
+      ],
+      "rank_corr": [
+        0.9837006465348365,
+        0.011105089080352126
+      ],
+      "units": 6,
+      "family": "Solomon routing (public)",
+      "bound_violations": 0,
+      "instances": [
+        [
+          0.002388,
+          0.002388
+        ],
+        [
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0
+        ]
+      ]
+    }
+  ],
+  "association": {
+    "instance_spearman": 0.9615,
+    "p_value": 2.1588789890546824e-31,
+    "units": 55,
+    "n_families": 5,
+    "bound_violations": 0,
+    "captured_share": [
+      0.957,
+      0.7807,
+      0.9475,
+      0.7389,
+      1.0
+    ]
+  }
+}

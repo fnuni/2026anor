@@ -1,0 +1,21 @@
+variant_vs_full,metric,wilcoxon_p_raw,wilcoxon_p_holm,cliffs_delta
+No OWA risk objective,p95,0.000805,0.008053,0.117
+No OWA risk objective,f2,0.000655,0.007205,0.092
+No OWA risk objective,f3,0.000805,0.008053,0.263
+No OWA risk objective,hv,0.179712,1.000000,-0.004
+No stability objective,p95,0.179712,1.000000,-0.011
+No stability objective,f2,0.179712,1.000000,-0.004
+No stability objective,f3,0.465209,1.000000,-0.051
+No stability objective,hv,nan,1.000000,0.000
+No robustness buffer,p95,0.000157,0.002192,0.097
+No robustness buffer,f2,0.000041,0.000615,0.076
+No robustness buffer,f3,0.000180,0.002334,0.122
+No robustness buffer,hv,0.000004,0.000061,-0.854
+No Pareto archive (scalarised),p95,0.317311,1.000000,0.003
+No Pareto archive (scalarised),f2,0.317311,1.000000,0.001
+No Pareto archive (scalarised),f3,0.108809,0.870475,0.008
+No Pareto archive (scalarised),hv,0.000438,0.005253,-0.244
+No alpha-cut ensemble (modal only),p95,0.000000,0.000000,0.536
+No alpha-cut ensemble (modal only),f2,0.000000,0.000000,0.458
+No alpha-cut ensemble (modal only),f3,0.000000,0.000000,0.891
+No alpha-cut ensemble (modal only),hv,0.000000,0.000000,-1.000

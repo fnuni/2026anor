@@ -1,0 +1,9 @@
+proposition,trials,failures,holds
+P1 tail premium f2 >= f1,500,0,True
+P2 OWA equals empirical CVaR,500,0,True
+P3 f2 non-decreasing in theta,500,0,True
+P4 consistency with the increasing convex order,500,0,True
+P5 hypervolume non-decreasing along the search,500,0,True
+P6 nominal premium decomposition,500,0,True
+P7 rank invariance under single-zone homogeneous cost,500,0,True
+P8 opportunity index is an upper bound,500,0,True

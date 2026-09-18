@@ -1,0 +1,423 @@
+{
+  "seeds": 30,
+  "correlations": {
+    "crossing_vs_p95": [
+      0.4152,
+      0.0
+    ],
+    "crossing_vs_overtime_p95": [
+      0.6996,
+      0.0
+    ],
+    "buffer_vs_stability": [
+      -0.4466,
+      0.0
+    ],
+    "archive_size_vs_hv": [
+      0.7341,
+      0.0
+    ],
+    "collinearity_vs_hv": [
+      0.6388,
+      0.0001
+    ]
+  },
+  "work_identity_max_abs_diff": 2.2737367544323206e-13,
+  "collinearity_defined_units": {
+    "Classical heuristic": 0,
+    "Deterministic AHD": 0,
+    "MO AHD (no fuzzy risk)": 2,
+    "C-R-EoH": 30
+  },
+  "comparison_reference": {
+    "arch_size": "MO AHD (no fuzzy risk)",
+    "arch_spread_f2": "MO AHD (no fuzzy risk)",
+    "other": "Deterministic AHD"
+  },
+  "summary": {
+    "Classical heuristic": {
+      "technicians": [
+        5.6333,
+        0.1754
+      ],
+      "opening": [
+        225.3333,
+        7.0157
+      ],
+      "work_mean": [
+        548.3602,
+        12.3505
+      ],
+      "overtime_mean": [
+        64.7761,
+        6.8575
+      ],
+      "overtime_p95": [
+        169.7764,
+        18.5211
+      ],
+      "overtime_share_of_tail": [
+        0.5624,
+        0.0048
+      ],
+      "crossing_frac": [
+        0.4078,
+        0.0943
+      ],
+      "workload_gini": [
+        0.1066,
+        0.0201
+      ],
+      "workload_mad": [
+        16.8577,
+        3.0942
+      ],
+      "overtime_gini": [
+        0.4048,
+        0.0207
+      ],
+      "max_tech_overtime": [
+        16.1535,
+        1.5056
+      ],
+      "arch_size": [
+        1.0,
+        0.0
+      ],
+      "arch_spread_f1": [
+        0.0,
+        0.0
+      ],
+      "arch_spread_f2": [
+        0.0,
+        0.0
+      ],
+      "arch_collinearity": [
+        null,
+        null
+      ],
+      "p95": [
+        1027.0765,
+        41.6906
+      ],
+      "f3": [
+        91.233,
+        10.0596
+      ],
+      "hv": [
+        0.4783,
+        0.0762
+      ],
+      "mean_buffer": [
+        0.0,
+        0.0
+      ],
+      "mean_pack": [
+        1.0,
+        0.0
+      ]
+    },
+    "Deterministic AHD": {
+      "technicians": [
+        5.2,
+        0.1456
+      ],
+      "opening": [
+        208.0,
+        5.8234
+      ],
+      "work_mean": [
+        548.3602,
+        12.3505
+      ],
+      "overtime_mean": [
+        69.9425,
+        10.6597
+      ],
+      "overtime_p95": [
+        177.5518,
+        24.5869
+      ],
+      "overtime_share_of_tail": [
+        0.565,
+        0.011
+      ],
+      "crossing_frac": [
+        0.5489,
+        0.1356
+      ],
+      "workload_gini": [
+        0.0418,
+        0.0095
+      ],
+      "workload_mad": [
+        6.9286,
+        1.4622
+      ],
+      "overtime_gini": [
+        0.3526,
+        0.0237
+      ],
+      "max_tech_overtime": [
+        16.5319,
+        2.1384
+      ],
+      "arch_size": [
+        1.0,
+        0.0
+      ],
+      "arch_spread_f1": [
+        0.0,
+        0.0
+      ],
+      "arch_spread_f2": [
+        0.0,
+        0.0
+      ],
+      "arch_collinearity": [
+        null,
+        null
+      ],
+      "p95": [
+        1017.5162,
+        43.3062
+      ],
+      "f3": [
+        92.1979,
+        11.306
+      ],
+      "hv": [
+        0.5703,
+        0.0798
+      ],
+      "mean_buffer": [
+        0.0562,
+        0.0337
+      ],
+      "mean_pack": [
+        1.0265,
+        0.0206
+      ]
+    },
+    "MO AHD (no fuzzy risk)": {
+      "technicians": [
+        6.0333,
+        0.3698
+      ],
+      "opening": [
+        241.3333,
+        14.7912
+      ],
+      "work_mean": [
+        548.3602,
+        12.3505
+      ],
+      "overtime_mean": [
+        35.9667,
+        13.5534
+      ],
+      "overtime_p95": [
+        100.5706,
+        31.6342
+      ],
+      "overtime_share_of_tail": [
+        0.387,
+        0.0765
+      ],
+      "crossing_frac": [
+        0.2056,
+        0.1375
+      ],
+      "workload_gini": [
+        0.0336,
+        0.0031
+      ],
+      "workload_mad": [
+        4.8693,
+        0.4819
+      ],
+      "overtime_gini": [
+        0.261,
+        0.0553
+      ],
+      "max_tech_overtime": [
+        8.7266,
+        2.8793
+      ],
+      "arch_size": [
+        1.4333,
+        0.224
+      ],
+      "arch_spread_f1": [
+        0.1337,
+        0.082
+      ],
+      "arch_spread_f2": [
+        0.0866,
+        0.055
+      ],
+      "arch_collinearity": [
+        0.8525,
+        0.2892
+      ],
+      "p95": [
+        973.9253,
+        41.0588
+      ],
+      "f3": [
+        69.731,
+        12.1652
+      ],
+      "hv": [
+        0.8854,
+        0.0877
+      ],
+      "mean_buffer": [
+        0.1015,
+        0.0486
+      ],
+      "mean_pack": [
+        0.9081,
+        0.0514
+      ]
+    },
+    "C-R-EoH": {
+      "technicians": [
+        6.4,
+        0.2414
+      ],
+      "opening": [
+        256.0,
+        9.657
+      ],
+      "work_mean": [
+        548.3602,
+        12.3505
+      ],
+      "overtime_mean": [
+        5.5434,
+        1.6046
+      ],
+      "overtime_p95": [
+        25.5323,
+        6.6674
+      ],
+      "overtime_share_of_tail": [
+        0.2624,
+        0.0496
+      ],
+      "crossing_frac": [
+        0.0,
+        0.0
+      ],
+      "workload_gini": [
+        0.037,
+        0.004
+      ],
+      "workload_mad": [
+        4.8722,
+        0.4622
+      ],
+      "overtime_gini": [
+        0.2131,
+        0.0396
+      ],
+      "max_tech_overtime": [
+        1.9337,
+        0.5028
+      ],
+      "arch_size": [
+        4.7667,
+        0.4669
+      ],
+      "arch_spread_f1": [
+        0.6554,
+        0.1024
+      ],
+      "arch_spread_f2": [
+        0.5481,
+        0.0959
+      ],
+      "arch_collinearity": [
+        0.9017,
+        0.0593
+      ],
+      "p95": [
+        912.3666,
+        29.1385
+      ],
+      "f3": [
+        48.0972,
+        4.759
+      ],
+      "hv": [
+        1.0972,
+        0.0029
+      ],
+      "mean_buffer": [
+        0.3727,
+        0.0929
+      ],
+      "mean_pack": [
+        0.9384,
+        0.0348
+      ]
+    }
+  },
+  "stats": [
+    [
+      "overtime_mean",
+      1.862645149230957e-09,
+      1.6763806343078613e-08,
+      -1.0
+    ],
+    [
+      "overtime_p95",
+      1.862645149230957e-09,
+      1.6763806343078613e-08,
+      -1.0
+    ],
+    [
+      "technicians",
+      1.0700037414337345e-06,
+      4.991888999938965e-06,
+      0.84
+    ],
+    [
+      "crossing_frac",
+      1.5760922252980475e-05,
+      3.152184450596095e-05,
+      -0.8
+    ],
+    [
+      "workload_gini",
+      0.5027610473334789,
+      0.5027610473334789,
+      0.087
+    ],
+    [
+      "overtime_gini",
+      9.98377799987793e-07,
+      4.991888999938965e-06,
+      -0.727
+    ],
+    [
+      "max_tech_overtime",
+      1.862645149230957e-09,
+      1.6763806343078613e-08,
+      -0.998
+    ],
+    [
+      "arch_size",
+      3.2761182739557136e-06,
+      9.82835482186714e-06,
+      0.987
+    ],
+    [
+      "arch_spread_f2",
+      3.725290298461914e-09,
+      2.2351741790771484e-08,
+      0.889
+    ]
+  ]
+}

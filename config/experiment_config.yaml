@@ -1,0 +1,43 @@
+# Experimental protocol, for documentation.  The modules do not read this
+# file: the same values are the defaults of the classes in creoh_*.py.
+seeds: 30                          # R = 30 repetitions per stochastic method
+alpha_grid: [0.0, 0.25, 0.50, 0.75, 1.0]
+scenario_modes: [endpoint, latin_hypercube, stress]
+
+uncertainty:
+  model: regional_common_mode      # latent congestion zones, shared shocks
+  train_spread_delta: 0.15
+  ood_stress_extra: 1.6            # skewed-pessimistic OOD amplification
+  n_zones: 6
+
+owa:
+  selected_orness: 0.70            # planner dial theta used in the tables
+
+
+proposer:
+  type: reproducible_search        # seeded evolutionary search; isolates the evaluator
+  budget: 120                      # candidate programs per seed (scheduling families)
+  budget_routing: 80               # synthetic routing and public routing families
+  public_scenario_seeds: 3         # scenario-construction seeds averaged within each public unit
+
+routing_problem:                   # contrast benchmark
+  n_customers: 25
+
+scheduling_problem:                # primary benchmark
+  n_tasks: 40
+  shift_length: 100.0
+  overtime_rate: 1.5               # convex penalty beyond the shift
+  technician_cost: 40.0
+  zone_volatility: [0.05, 0.85]      # times delta/0.15
+
+methods: [classical, deterministic_ahd, mo_ahd_no_fuzzy, c_r_eoh]
+
+metrics:
+  primary: [f1_mean_cost, f2_owa_risk, f3_stability, p95, ood_degradation, hypervolume]
+  secondary: [nominal_premium, feasible_rate, repair_rate, runtime, relative_generation_cost]
+
+statistics:
+  pairwise_test: wilcoxon_signed_rank
+  correction: holm
+  omnibus_test: friedman
+  effect_size: cliffs_delta

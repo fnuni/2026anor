@@ -1,0 +1,198 @@
+{
+  "machine": {
+    "platform": "Linux-6.18.44-fc-v33-x86_64-with-glibc2.39",
+    "python": "3.11.15",
+    "processor": "x86_64",
+    "cpu_model": "Intel(R) Xeon(R) Processor @ 2.10GHz",
+    "logical_cpus": 2
+  },
+  "max_relative_prediction_error": 0.0751,
+  "by_instance_size": [
+    {
+      "n": 20,
+      "M": 40,
+      "t_det_ms": 0.031303000014304416,
+      "t_fuzzy_ms": 0.4233280001244566,
+      "overhead_factor": 13.523560039964538
+    },
+    {
+      "n": 40,
+      "M": 40,
+      "t_det_ms": 0.06624699994972616,
+      "t_fuzzy_ms": 0.8033540000269568,
+      "overhead_factor": 12.126647254013161
+    },
+    {
+      "n": 80,
+      "M": 40,
+      "t_det_ms": 0.14852300000711693,
+      "t_fuzzy_ms": 1.5841549998185656,
+      "overhead_factor": 10.666058453860048
+    },
+    {
+      "n": 160,
+      "M": 40,
+      "t_det_ms": 0.4081070001120679,
+      "t_fuzzy_ms": 3.3293310000317433,
+      "overhead_factor": 8.15798552614264
+    },
+    {
+      "n": 320,
+      "M": 40,
+      "t_det_ms": 1.248583000005965,
+      "t_fuzzy_ms": 7.2157350000452425,
+      "overhead_factor": 5.779139232242286
+    },
+    {
+      "n": 640,
+      "M": 40,
+      "t_det_ms": 4.2254340000909,
+      "t_fuzzy_ms": 15.671214000121836,
+      "overhead_factor": 3.708782103751877
+    }
+  ],
+  "by_ensemble_size": [
+    {
+      "M": 1,
+      "t_ms": 0.08575800006838108,
+      "overhead_factor": 1.043271978353891
+    },
+    {
+      "M": 9,
+      "t_ms": 0.23227100018630153,
+      "overhead_factor": 2.825646886417349
+    },
+    {
+      "M": 18,
+      "t_ms": 0.39193299994622066,
+      "overhead_factor": 4.7679833474431454
+    },
+    {
+      "M": 37,
+      "t_ms": 0.7527339998887328,
+      "overhead_factor": 9.157236509853007
+    },
+    {
+      "M": 40,
+      "t_ms": 0.8125179999751708,
+      "overhead_factor": 9.884526931672015
+    },
+    {
+      "M": 40,
+      "t_ms": 0.7948980000946904,
+      "overhead_factor": 9.6701743101178
+    }
+  ],
+  "by_budget": [
+    {
+      "B": 30,
+      "t_full_run_s": 0.027028510999798527,
+      "t_per_candidate_ms": 0.9009503666599509
+    },
+    {
+      "B": 60,
+      "t_full_run_s": 0.05539001400006782,
+      "t_per_candidate_ms": 0.9231669000011303
+    },
+    {
+      "B": 120,
+      "t_full_run_s": 0.11012024600017867,
+      "t_per_candidate_ms": 0.9176687166681555
+    },
+    {
+      "B": 240,
+      "t_full_run_s": 0.2360144690001107,
+      "t_per_candidate_ms": 0.9833936208337946
+    }
+  ],
+  "power_law": {
+    "deterministic": {
+      "a": 0.0003655324521570862,
+      "exponent": 1.416
+    },
+    "fuzzy": {
+      "a": 0.017204826709788738,
+      "exponent": 1.046
+    }
+  },
+  "decomposition": [
+    {
+      "n": 20,
+      "M": 40,
+      "t_struct_ms": 0.019744000155696995,
+      "t_scenario_ms": 0.009217174994091692,
+      "t_det_ms": 0.03107199995611154,
+      "t_fuzzy_ms": 0.3884309999193647,
+      "predicted_factor": 13.41,
+      "observed_factor": 12.5,
+      "parallel_bound_p8": 2.12
+    },
+    {
+      "n": 40,
+      "M": 40,
+      "t_struct_ms": 0.04986499993719917,
+      "t_scenario_ms": 0.01856519999705597,
+      "t_det_ms": 0.06327999994937272,
+      "t_fuzzy_ms": 0.792472999819438,
+      "predicted_factor": 11.58,
+      "observed_factor": 12.52,
+      "parallel_bound_p8": 2.25
+    },
+    {
+      "n": 80,
+      "M": 40,
+      "t_struct_ms": 0.10564600006546243,
+      "t_scenario_ms": 0.03521714999692449,
+      "t_det_ms": 0.14625199992224225,
+      "t_fuzzy_ms": 1.514331999942442,
+      "predicted_factor": 10.75,
+      "observed_factor": 10.35,
+      "parallel_bound_p8": 1.93
+    },
+    {
+      "n": 160,
+      "M": 40,
+      "t_struct_ms": 0.33219300007658603,
+      "t_scenario_ms": 0.07427414999483517,
+      "t_det_ms": 0.41815899999164685,
+      "t_fuzzy_ms": 3.303158999869993,
+      "predicted_factor": 8.13,
+      "observed_factor": 7.9,
+      "parallel_bound_p8": 1.68
+    },
+    {
+      "n": 320,
+      "M": 40,
+      "t_struct_ms": 1.0836899998594163,
+      "t_scenario_ms": 0.14171132500564454,
+      "t_det_ms": 1.2430740000581864,
+      "t_fuzzy_ms": 6.752143000085198,
+      "predicted_factor": 5.51,
+      "observed_factor": 5.43,
+      "parallel_bound_p8": 1.44
+    },
+    {
+      "n": 640,
+      "M": 40,
+      "t_struct_ms": 4.029902999945989,
+      "t_scenario_ms": 0.2886630249975042,
+      "t_det_ms": 3.9944239999840647,
+      "t_fuzzy_ms": 15.576423999846156,
+      "predicted_factor": 3.61,
+      "observed_factor": 3.9,
+      "parallel_bound_p8": 1.37
+    }
+  ],
+  "cost_benefit": {
+    "seeds": 30,
+    "n_tasks": 40,
+    "budget": 120,
+    "t_deterministic_search_s": 0.007592564001242863,
+    "t_fuzzy_search_s": 0.07863061200077937,
+    "extra_seconds_per_run": 0.0710380479995365,
+    "p95_reduction_pct": 10.33,
+    "seconds_per_pct_tail_reduction": 0.007
+  },
+  "theoretical_overhead_factor": 40,
+  "measured_overhead_factor": 9.41
+}

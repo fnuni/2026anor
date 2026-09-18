@@ -1,0 +1,7 @@
+variant,owa,stability,buffer,archive,ensemble,f1_mean,f1_ci,f2_mean,f2_ci,f3_mean,f3_ci,p95_mean,p95_ci,hv_mean,hv_ci,ood_mean,ood_ci,nominal_mean,nominal_ci,portfolio_mean,portfolio_ci
+Full C-R-EoH,True,True,True,True,True,96.593,2.504,105.319,3.200,5.736,0.568,108.813,3.475,1.097,0.003,49.274,4.339,90.500,2.058,5.567,0.669
+No OWA risk objective,False,True,True,True,True,95.846,2.347,106.989,3.591,7.184,0.953,111.957,4.301,1.097,0.003,56.589,5.415,88.273,1.704,5.200,0.575
+No stability objective,True,False,True,True,True,96.785,2.529,105.288,3.196,5.608,0.553,108.644,3.457,1.097,0.003,48.212,4.375,90.818,2.092,2.067,0.375
+No robustness buffer,True,True,False,True,True,96.791,2.437,106.108,3.235,6.064,0.673,110.339,3.699,1.047,0.017,49.934,4.473,90.341,1.962,3.800,0.567
+No Pareto archive (scalarised),True,True,True,False,True,96.504,2.429,105.358,3.231,5.811,0.611,108.926,3.571,1.067,0.017,49.795,4.564,90.341,1.935,1.000,0.000
+No alpha-cut ensemble (modal only),False,False,True,True,False,98.549,2.784,115.062,4.523,10.996,1.348,121.354,5.165,0.612,0.087,62.519,5.135,85.531,1.723,2.967,1.276

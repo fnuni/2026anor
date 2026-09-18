@@ -1,0 +1,6 @@
+comparison,metric,wilcoxon_p_raw,wilcoxon_p_holm,cliffs_delta
+C-R-EoH vs deterministic AHD,P95,0.125000,0.625000,-0.375
+C-R-EoH vs deterministic AHD,OOD degradation,0.125000,0.625000,-1.000
+C-R-EoH vs MO AHD,Hypervolume,0.125000,0.625000,1.000
+C-R-EoH vs deterministic AHD,Expected cost,0.125000,0.625000,-0.250
+C-R-EoH vs deterministic AHD,Scenario stability,0.125000,0.625000,-0.500

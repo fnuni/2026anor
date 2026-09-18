@@ -1,0 +1,3 @@
+# Exact versions used to produce the released results (Python 3.10+).
+numpy==1.26.4
+scipy==1.15.3

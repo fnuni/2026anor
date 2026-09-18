@@ -1,0 +1,7 @@
+profile,w_cost,w_tail,w_stability,theta,regret_dial,regret_dial_ci,regret_deterministic,regret_deterministic_ci,regret_random,wilcoxon_p_holm,cliffs_delta
+Cost-driven (budget-bound),0.8,0.15,0.05,0.3,0.0049,0.0075,0.5864,0.1743,0.3968,0.000003,-0.988
+Balanced,0.4,0.4,0.2,0.5,0.0718,0.0338,1.671,0.6852,0.2006,0.000000,-1.000
+Service-level (SLA-bound),0.2,0.65,0.15,0.7,0.0139,0.0127,1.5827,0.516,0.3307,0.000000,-1.000
+Overtime-averse,0.25,0.5,0.25,0.7,0.0387,0.024,2.0692,0.8553,0.2969,0.000000,-1.000
+Stability-driven,0.25,0.25,0.5,0.6,0.2611,0.0657,3.4744,1.748,0.2749,0.000000,-1.000
+Worst-case (regulatory),0.05,0.85,0.1,0.9,0.0125,0.014,1.452,0.3606,0.4609,0.000000,-1.000

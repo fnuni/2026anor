@@ -1,0 +1,36 @@
+c_r_eoh_vs,metric,wilcoxon_p_raw,wilcoxon_p_holm,cliffs_delta
+Deterministic AHD (nominal),p95,0.000000,0.000000,-0.489
+Deterministic AHD (nominal),f2,0.000000,0.000000,-0.447
+Deterministic AHD (nominal),f3,0.000000,0.000000,-0.853
+Deterministic AHD (nominal),nominal,0.000002,0.000047,0.511
+Deterministic AHD (nominal),hv,0.000000,0.000000,1.000
+Robust min-max (Wald),p95,0.191878,0.959389,-0.041
+Robust min-max (Wald),f2,0.000403,0.008458,-0.097
+Robust min-max (Wald),f3,0.000240,0.005278,0.197
+Robust min-max (Wald),nominal,0.000086,0.002246,-0.244
+Robust min-max (Wald),hv,0.000006,0.000188,0.817
+Min-max regret (Savage),p95,0.000029,0.000815,-0.090
+Min-max regret (Savage),f2,0.000133,0.003337,-0.061
+Min-max regret (Savage),f3,0.000162,0.003726,-0.112
+Min-max regret (Savage),nominal,0.072603,0.580820,0.029
+Min-max regret (Savage),hv,0.000021,0.000613,0.606
+Budgeted robust ($\Gamma$=2 zones),p95,0.649434,1.000000,0.002
+Budgeted robust ($\Gamma$=2 zones),f2,0.123045,0.738269,-0.027
+Budgeted robust ($\Gamma$=2 zones),f3,0.020271,0.182439,0.140
+Budgeted robust ($\Gamma$=2 zones),nominal,0.003456,0.034560,-0.120
+Budgeted robust ($\Gamma$=2 zones),hv,0.000057,0.001535,0.599
+SAA mean-CVaR ($\beta$=0.90),p95,0.637870,1.000000,-0.007
+SAA mean-CVaR ($\beta$=0.90),f2,0.552493,1.000000,-0.001
+SAA mean-CVaR ($\beta$=0.90),f3,0.100525,0.703676,0.026
+SAA mean-CVaR ($\beta$=0.90),nominal,0.684470,1.000000,-0.014
+SAA mean-CVaR ($\beta$=0.90),hv,0.000780,0.012756,0.357
+Iterated racing (irace-style),p95,0.001474,0.020633,-0.079
+Iterated racing (irace-style),f2,0.002865,0.031513,-0.056
+Iterated racing (irace-style),f3,0.002329,0.027953,-0.213
+Iterated racing (irace-style),nominal,0.001553,0.020633,0.158
+Iterated racing (irace-style),hv,0.000655,0.012218,0.352
+Choice-function hyper-heuristic,p95,0.000438,0.008756,-0.093
+Choice-function hyper-heuristic,f2,0.000776,0.012756,-0.071
+Choice-function hyper-heuristic,f3,0.000643,0.012218,-0.269
+Choice-function hyper-heuristic,nominal,0.000750,0.012756,0.151
+Choice-function hyper-heuristic,hv,0.000155,0.003722,0.427

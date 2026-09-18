@@ -1,0 +1,361 @@
+seed,method,level,amplification,degradation
+0,Classical heuristic,mild,1.2,31.7395
+0,Classical heuristic,medium,1.6,45.5091
+0,Classical heuristic,severe,2.2,66.1634
+0,Deterministic AHD,mild,1.2,33.6053
+0,Deterministic AHD,medium,1.6,47.8186
+0,Deterministic AHD,severe,2.2,69.1385
+0,MO AHD (no fuzzy risk),mild,1.2,25.3922
+0,MO AHD (no fuzzy risk),medium,1.6,40.198
+0,MO AHD (no fuzzy risk),severe,2.2,62.4102
+0,C-R-EoH,mild,1.2,25.4737
+0,C-R-EoH,medium,1.6,40.2917
+0,C-R-EoH,severe,2.2,62.5188
+1,Classical heuristic,mild,1.2,43.1458
+1,Classical heuristic,medium,1.6,62.0205
+1,Classical heuristic,severe,2.2,90.3326
+1,Deterministic AHD,mild,1.2,45.701
+1,Deterministic AHD,medium,1.6,65.3916
+1,Deterministic AHD,severe,2.2,94.9275
+1,MO AHD (no fuzzy risk),mild,1.2,17.9286
+1,MO AHD (no fuzzy risk),medium,1.6,27.9124
+1,MO AHD (no fuzzy risk),severe,2.2,49.1903
+1,C-R-EoH,mild,1.2,36.1264
+1,C-R-EoH,medium,1.6,56.4126
+1,C-R-EoH,severe,2.2,86.8419
+2,Classical heuristic,mild,1.2,24.3986
+2,Classical heuristic,medium,1.6,36.4611
+2,Classical heuristic,severe,2.2,54.5549
+2,Deterministic AHD,mild,1.2,25.9774
+2,Deterministic AHD,medium,1.6,38.5893
+2,Deterministic AHD,severe,2.2,57.5072
+2,MO AHD (no fuzzy risk),mild,1.2,9.9893
+2,MO AHD (no fuzzy risk),medium,1.6,14.7386
+2,MO AHD (no fuzzy risk),severe,2.2,23.7204
+2,C-R-EoH,mild,1.2,16.5724
+2,C-R-EoH,medium,1.6,28.6439
+2,C-R-EoH,severe,2.2,47.6555
+3,Classical heuristic,mild,1.2,46.6541
+3,Classical heuristic,medium,1.6,67.9186
+3,Classical heuristic,severe,2.2,99.8153
+3,Deterministic AHD,mild,1.2,46.9604
+3,Deterministic AHD,medium,1.6,68.2693
+3,Deterministic AHD,severe,2.2,100.2326
+3,MO AHD (no fuzzy risk),mild,1.2,36.6666
+3,MO AHD (no fuzzy risk),medium,1.6,58.4914
+3,MO AHD (no fuzzy risk),severe,2.2,91.2542
+3,C-R-EoH,mild,1.2,36.8517
+3,C-R-EoH,medium,1.6,58.7259
+3,C-R-EoH,severe,2.2,91.5373
+4,Classical heuristic,mild,1.2,53.1584
+4,Classical heuristic,medium,1.6,78.7061
+4,Classical heuristic,severe,2.2,117.0277
+4,Deterministic AHD,mild,1.2,53.695
+4,Deterministic AHD,medium,1.6,79.3322
+4,Deterministic AHD,severe,2.2,117.788
+4,MO AHD (no fuzzy risk),mild,1.2,54.8931
+4,MO AHD (no fuzzy risk),medium,1.6,80.7302
+4,MO AHD (no fuzzy risk),severe,2.2,119.4858
+4,C-R-EoH,mild,1.2,30.7618
+4,C-R-EoH,medium,1.6,56.2442
+4,C-R-EoH,severe,2.2,94.7115
+5,Classical heuristic,mild,1.2,40.8597
+5,Classical heuristic,medium,1.6,59.137
+5,Classical heuristic,severe,2.2,86.5531
+5,Deterministic AHD,mild,1.2,40.7616
+5,Deterministic AHD,medium,1.6,59.0262
+5,Deterministic AHD,severe,2.2,86.4232
+5,MO AHD (no fuzzy risk),mild,1.2,40.7616
+5,MO AHD (no fuzzy risk),medium,1.6,59.0262
+5,MO AHD (no fuzzy risk),severe,2.2,86.4232
+5,C-R-EoH,mild,1.2,29.6084
+5,C-R-EoH,medium,1.6,48.1918
+5,C-R-EoH,severe,2.2,76.1645
+6,Classical heuristic,mild,1.2,53.0321
+6,Classical heuristic,medium,1.6,76.2715
+6,Classical heuristic,severe,2.2,111.1305
+6,Deterministic AHD,mild,1.2,55.8209
+6,Deterministic AHD,medium,1.6,80.0758
+6,Deterministic AHD,severe,2.2,116.4581
+6,MO AHD (no fuzzy risk),mild,1.2,55.8209
+6,MO AHD (no fuzzy risk),medium,1.6,80.0758
+6,MO AHD (no fuzzy risk),severe,2.2,116.4581
+6,C-R-EoH,mild,1.2,31.9952
+6,C-R-EoH,medium,1.6,55.822
+6,C-R-EoH,severe,2.2,92.6006
+7,Classical heuristic,mild,1.2,35.4158
+7,Classical heuristic,medium,1.6,51.9185
+7,Classical heuristic,severe,2.2,76.6726
+7,Deterministic AHD,mild,1.2,35.4158
+7,Deterministic AHD,medium,1.6,51.9185
+7,Deterministic AHD,severe,2.2,76.6726
+7,MO AHD (no fuzzy risk),mild,1.2,14.3435
+7,MO AHD (no fuzzy risk),medium,1.6,23.0136
+7,MO AHD (no fuzzy risk),severe,2.2,42.6112
+7,C-R-EoH,mild,1.2,21.69
+7,C-R-EoH,medium,1.6,38.1466
+7,C-R-EoH,severe,2.2,63.0134
+8,Classical heuristic,mild,1.2,23.6439
+8,Classical heuristic,medium,1.6,34.9287
+8,Classical heuristic,severe,2.2,51.8558
+8,Deterministic AHD,mild,1.2,23.6439
+8,Deterministic AHD,medium,1.6,34.9287
+8,Deterministic AHD,severe,2.2,51.8558
+8,MO AHD (no fuzzy risk),mild,1.2,21.7759
+8,MO AHD (no fuzzy risk),medium,1.6,34.4269
+8,MO AHD (no fuzzy risk),severe,2.2,53.4035
+8,C-R-EoH,mild,1.2,21.9952
+8,C-R-EoH,medium,1.6,34.6691
+8,C-R-EoH,severe,2.2,53.6799
+9,Classical heuristic,mild,1.2,46.5224
+9,Classical heuristic,medium,1.6,67.5829
+9,Classical heuristic,severe,2.2,99.1736
+9,Deterministic AHD,mild,1.2,46.5224
+9,Deterministic AHD,medium,1.6,67.5829
+9,Deterministic AHD,severe,2.2,99.1736
+9,MO AHD (no fuzzy risk),mild,1.2,48.7475
+9,MO AHD (no fuzzy risk),medium,1.6,72.2168
+9,MO AHD (no fuzzy risk),severe,2.2,107.4207
+9,C-R-EoH,mild,1.2,35.7122
+9,C-R-EoH,medium,1.6,59.0277
+9,C-R-EoH,severe,2.2,94.0743
+10,Classical heuristic,mild,1.2,39.5126
+10,Classical heuristic,medium,1.6,57.9692
+10,Classical heuristic,severe,2.2,85.6542
+10,Deterministic AHD,mild,1.2,42.6964
+10,Deterministic AHD,medium,1.6,61.7637
+10,Deterministic AHD,severe,2.2,90.3648
+10,MO AHD (no fuzzy risk),mild,1.2,34.291
+10,MO AHD (no fuzzy risk),medium,1.6,54.0269
+10,MO AHD (no fuzzy risk),severe,2.2,83.6307
+10,C-R-EoH,mild,1.2,20.5023
+10,C-R-EoH,medium,1.6,37.9516
+10,C-R-EoH,severe,2.2,66.7923
+11,Classical heuristic,mild,1.2,33.4687
+11,Classical heuristic,medium,1.6,49.9304
+11,Classical heuristic,severe,2.2,74.623
+11,Deterministic AHD,mild,1.2,33.5154
+11,Deterministic AHD,medium,1.6,49.9829
+11,Deterministic AHD,severe,2.2,74.6841
+11,MO AHD (no fuzzy risk),mild,1.2,33.5154
+11,MO AHD (no fuzzy risk),medium,1.6,49.9829
+11,MO AHD (no fuzzy risk),severe,2.2,74.6841
+11,C-R-EoH,mild,1.2,21.4201
+11,C-R-EoH,medium,1.6,38.0817
+11,C-R-EoH,severe,2.2,63.1734
+12,Classical heuristic,mild,1.2,49.674
+12,Classical heuristic,medium,1.6,71.8409
+12,Classical heuristic,severe,2.2,105.0913
+12,Deterministic AHD,mild,1.2,52.8437
+12,Deterministic AHD,medium,1.6,76.1303
+12,Deterministic AHD,severe,2.2,111.0602
+12,MO AHD (no fuzzy risk),mild,1.2,52.8437
+12,MO AHD (no fuzzy risk),medium,1.6,76.1303
+12,MO AHD (no fuzzy risk),severe,2.2,111.0602
+12,C-R-EoH,mild,1.2,44.5809
+12,C-R-EoH,medium,1.6,68.6739
+12,C-R-EoH,severe,2.2,104.8134
+13,Classical heuristic,mild,1.2,48.849
+13,Classical heuristic,medium,1.6,70.6653
+13,Classical heuristic,severe,2.2,103.3898
+13,Deterministic AHD,mild,1.2,47.9022
+13,Deterministic AHD,medium,1.6,71.7731
+13,Deterministic AHD,severe,2.2,107.7678
+13,MO AHD (no fuzzy risk),mild,1.2,47.8004
+13,MO AHD (no fuzzy risk),medium,1.6,71.6549
+13,MO AHD (no fuzzy risk),severe,2.2,107.6248
+13,C-R-EoH,mild,1.2,35.0534
+13,C-R-EoH,medium,1.6,59.0197
+13,C-R-EoH,severe,2.2,94.9907
+14,Classical heuristic,mild,1.2,48.3626
+14,Classical heuristic,medium,1.6,69.6262
+14,Classical heuristic,severe,2.2,102.1222
+14,Deterministic AHD,mild,1.2,48.3626
+14,Deterministic AHD,medium,1.6,69.6262
+14,Deterministic AHD,severe,2.2,102.1222
+14,MO AHD (no fuzzy risk),mild,1.2,49.9635
+14,MO AHD (no fuzzy risk),medium,1.6,73.2938
+14,MO AHD (no fuzzy risk),severe,2.2,108.2893
+14,C-R-EoH,mild,1.2,37.3244
+14,C-R-EoH,medium,1.6,60.6019
+14,C-R-EoH,severe,2.2,95.5448
+15,Classical heuristic,mild,1.2,36.4488
+15,Classical heuristic,medium,1.6,52.5826
+15,Classical heuristic,severe,2.2,76.7832
+15,Deterministic AHD,mild,1.2,38.6189
+15,Deterministic AHD,medium,1.6,55.5621
+15,Deterministic AHD,severe,2.2,80.9769
+15,MO AHD (no fuzzy risk),mild,1.2,27.7867
+15,MO AHD (no fuzzy risk),medium,1.6,45.0223
+15,MO AHD (no fuzzy risk),severe,2.2,70.965
+15,C-R-EoH,mild,1.2,27.7867
+15,C-R-EoH,medium,1.6,45.0223
+15,C-R-EoH,severe,2.2,70.965
+16,Classical heuristic,mild,1.2,43.0096
+16,Classical heuristic,medium,1.6,62.5378
+16,Classical heuristic,severe,2.2,91.8301
+16,Deterministic AHD,mild,1.2,43.0096
+16,Deterministic AHD,medium,1.6,62.5378
+16,Deterministic AHD,severe,2.2,91.8301
+16,MO AHD (no fuzzy risk),mild,1.2,46.0959
+16,MO AHD (no fuzzy risk),medium,1.6,66.4575
+16,MO AHD (no fuzzy risk),severe,2.2,96.9999
+16,C-R-EoH,mild,1.2,28.8741
+16,C-R-EoH,medium,1.6,49.125
+16,C-R-EoH,severe,2.2,80.897
+17,Classical heuristic,mild,1.2,35.5411
+17,Classical heuristic,medium,1.6,52.3627
+17,Classical heuristic,severe,2.2,77.595
+17,Deterministic AHD,mild,1.2,35.5411
+17,Deterministic AHD,medium,1.6,52.3627
+17,Deterministic AHD,severe,2.2,77.595
+17,MO AHD (no fuzzy risk),mild,1.2,13.2787
+17,MO AHD (no fuzzy risk),medium,1.6,19.2137
+17,MO AHD (no fuzzy risk),severe,2.2,29.0312
+17,C-R-EoH,mild,1.2,23.2221
+17,C-R-EoH,medium,1.6,40.058
+17,C-R-EoH,severe,2.2,65.5923
+18,Classical heuristic,mild,1.2,48.3068
+18,Classical heuristic,medium,1.6,69.4156
+18,Classical heuristic,severe,2.2,101.0787
+18,Deterministic AHD,mild,1.2,50.9158
+18,Deterministic AHD,medium,1.6,72.8286
+18,Deterministic AHD,severe,2.2,105.6979
+18,MO AHD (no fuzzy risk),mild,1.2,50.9158
+18,MO AHD (no fuzzy risk),medium,1.6,72.8286
+18,MO AHD (no fuzzy risk),severe,2.2,105.6979
+18,C-R-EoH,mild,1.2,31.213
+18,C-R-EoH,medium,1.6,53.0684
+18,C-R-EoH,severe,2.2,86.906
+19,Classical heuristic,mild,1.2,28.4664
+19,Classical heuristic,medium,1.6,42.3527
+19,Classical heuristic,severe,2.2,63.1821
+19,Deterministic AHD,mild,1.2,25.31
+19,Deterministic AHD,medium,1.6,39.1096
+19,Deterministic AHD,severe,2.2,61.2947
+19,MO AHD (no fuzzy risk),mild,1.2,24.7707
+19,MO AHD (no fuzzy risk),medium,1.6,39.7383
+19,MO AHD (no fuzzy risk),severe,2.2,62.1898
+19,C-R-EoH,mild,1.2,25.3238
+19,C-R-EoH,medium,1.6,40.3578
+19,C-R-EoH,severe,2.2,62.9088
+20,Classical heuristic,mild,1.2,45.6727
+20,Classical heuristic,medium,1.6,65.727
+20,Classical heuristic,severe,2.2,97.4884
+20,Deterministic AHD,mild,1.2,47.8361
+20,Deterministic AHD,medium,1.6,70.4588
+20,Deterministic AHD,severe,2.2,104.3929
+20,MO AHD (no fuzzy risk),mild,1.2,47.8681
+20,MO AHD (no fuzzy risk),medium,1.6,70.4957
+20,MO AHD (no fuzzy risk),severe,2.2,104.4371
+20,C-R-EoH,mild,1.2,32.3525
+20,C-R-EoH,medium,1.6,54.8771
+20,C-R-EoH,severe,2.2,88.664
+21,Classical heuristic,mild,1.2,42.4763
+21,Classical heuristic,medium,1.6,61.4679
+21,Classical heuristic,severe,2.2,89.9553
+21,Deterministic AHD,mild,1.2,45.2548
+21,Deterministic AHD,medium,1.6,65.1964
+21,Deterministic AHD,severe,2.2,95.1088
+21,MO AHD (no fuzzy risk),mild,1.2,36.2234
+21,MO AHD (no fuzzy risk),medium,1.6,56.8327
+21,MO AHD (no fuzzy risk),severe,2.2,87.7467
+21,C-R-EoH,mild,1.2,36.2234
+21,C-R-EoH,medium,1.6,56.8327
+21,C-R-EoH,severe,2.2,87.7467
+22,Classical heuristic,mild,1.2,41.1375
+22,Classical heuristic,medium,1.6,59.4287
+22,Classical heuristic,severe,2.2,86.8656
+22,Deterministic AHD,mild,1.2,41.1891
+22,Deterministic AHD,medium,1.6,59.4871
+22,Deterministic AHD,severe,2.2,86.934
+22,MO AHD (no fuzzy risk),mild,1.2,27.7617
+22,MO AHD (no fuzzy risk),medium,1.6,46.1953
+22,MO AHD (no fuzzy risk),severe,2.2,73.8457
+22,C-R-EoH,mild,1.2,27.7617
+22,C-R-EoH,medium,1.6,46.1953
+22,C-R-EoH,severe,2.2,73.8457
+23,Classical heuristic,mild,1.2,50.8513
+23,Classical heuristic,medium,1.6,72.8366
+23,Classical heuristic,severe,2.2,105.8144
+23,Deterministic AHD,mild,1.2,53.0753
+23,Deterministic AHD,medium,1.6,75.9246
+23,Deterministic AHD,severe,2.2,110.1987
+23,MO AHD (no fuzzy risk),mild,1.2,53.0753
+23,MO AHD (no fuzzy risk),medium,1.6,75.9246
+23,MO AHD (no fuzzy risk),severe,2.2,110.1987
+23,C-R-EoH,mild,1.2,47.7036
+23,C-R-EoH,medium,1.6,71.7737
+23,C-R-EoH,severe,2.2,107.8787
+24,Classical heuristic,mild,1.2,54.9812
+24,Classical heuristic,medium,1.6,80.1662
+24,Classical heuristic,severe,2.2,117.9438
+24,Deterministic AHD,mild,1.2,58.5441
+24,Deterministic AHD,medium,1.6,84.9833
+24,Deterministic AHD,severe,2.2,124.6421
+24,MO AHD (no fuzzy risk),mild,1.2,36.647
+24,MO AHD (no fuzzy risk),medium,1.6,63.7077
+24,MO AHD (no fuzzy risk),severe,2.2,104.3681
+24,C-R-EoH,mild,1.2,36.647
+24,C-R-EoH,medium,1.6,63.7077
+24,C-R-EoH,severe,2.2,104.3681
+25,Classical heuristic,mild,1.2,33.8154
+25,Classical heuristic,medium,1.6,48.3216
+25,Classical heuristic,severe,2.2,70.0808
+25,Deterministic AHD,mild,1.2,32.4904
+25,Deterministic AHD,medium,1.6,48.3751
+25,Deterministic AHD,severe,2.2,72.2022
+25,MO AHD (no fuzzy risk),mild,1.2,14.4976
+25,MO AHD (no fuzzy risk),medium,1.6,20.5091
+25,MO AHD (no fuzzy risk),severe,2.2,34.2353
+25,C-R-EoH,mild,1.2,16.6872
+25,C-R-EoH,medium,1.6,29.1356
+25,C-R-EoH,severe,2.2,52.0061
+26,Classical heuristic,mild,1.2,48.2291
+26,Classical heuristic,medium,1.6,69.8424
+26,Classical heuristic,severe,2.2,102.2625
+26,Deterministic AHD,mild,1.2,51.8239
+26,Deterministic AHD,medium,1.6,74.5532
+26,Deterministic AHD,severe,2.2,108.6472
+26,MO AHD (no fuzzy risk),mild,1.2,29.8975
+26,MO AHD (no fuzzy risk),medium,1.6,52.4581
+26,MO AHD (no fuzzy risk),severe,2.2,87.2824
+26,C-R-EoH,mild,1.2,29.8975
+26,C-R-EoH,medium,1.6,52.4581
+26,C-R-EoH,severe,2.2,87.2824
+27,Classical heuristic,mild,1.2,43.1472
+27,Classical heuristic,medium,1.6,61.9955
+27,Classical heuristic,severe,2.2,90.268
+27,Deterministic AHD,mild,1.2,43.3349
+27,Deterministic AHD,medium,1.6,62.208
+27,Deterministic AHD,severe,2.2,90.5175
+27,MO AHD (no fuzzy risk),mild,1.2,30.9017
+27,MO AHD (no fuzzy risk),medium,1.6,49.9645
+27,MO AHD (no fuzzy risk),severe,2.2,78.628
+27,C-R-EoH,mild,1.2,30.9858
+27,C-R-EoH,medium,1.6,50.1138
+27,C-R-EoH,severe,2.2,78.8059
+28,Classical heuristic,mild,1.2,58.7702
+28,Classical heuristic,medium,1.6,85.5829
+28,Classical heuristic,severe,2.2,125.8019
+28,Deterministic AHD,mild,1.2,62.0693
+28,Deterministic AHD,medium,1.6,89.7246
+28,Deterministic AHD,severe,2.2,131.2075
+28,MO AHD (no fuzzy risk),mild,1.2,58.1412
+28,MO AHD (no fuzzy risk),medium,1.6,87.1792
+28,MO AHD (no fuzzy risk),severe,2.2,130.7362
+28,C-R-EoH,mild,1.2,33.9371
+28,C-R-EoH,medium,1.6,61.4833
+28,C-R-EoH,severe,2.2,104.4949
+29,Classical heuristic,mild,1.2,27.119
+29,Classical heuristic,medium,1.6,39.6204
+29,Classical heuristic,severe,2.2,58.3725
+29,Deterministic AHD,mild,1.2,27.5082
+29,Deterministic AHD,medium,1.6,40.0479
+29,Deterministic AHD,severe,2.2,58.8575
+29,MO AHD (no fuzzy risk),mild,1.2,27.5082
+29,MO AHD (no fuzzy risk),medium,1.6,40.0479
+29,MO AHD (no fuzzy risk),severe,2.2,58.8575
+29,C-R-EoH,mild,1.2,12.6906
+29,C-R-EoH,medium,1.6,23.5056
+29,C-R-EoH,severe,2.2,41.8937

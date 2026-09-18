@@ -1,0 +1,68 @@
+{
+  "status": "SCRIPTED_REHEARSAL_NOT_HUMAN_DATA",
+  "seed": 20260915,
+  "scripted_role_instances": 16,
+  "episodes_per_condition": 4,
+  "conditions": {
+    "A": "single nominal recommendation",
+    "B": "portfolio and risk dial"
+  },
+  "role_level_mean_regret_A": 0.2576,
+  "role_level_mean_regret_B": 0.1693,
+  "role_level_mean_paired_regret_difference_A_minus_B": 0.0883,
+  "role_level_mean_time_s_A": 89.8,
+  "role_level_mean_time_s_B": 121.0,
+  "mean_time_ratio_B_to_A": 1.347,
+  "tail_or_workforce_citation_rate_A": 0.453,
+  "tail_or_workforce_citation_rate_B": 0.703,
+  "median_SUS_B": 72.5,
+  "overall_regret_reduction_percent": 34.3,
+  "overall_extra_time_s": 31.2,
+  "time_headroom_to_1p5_ratio_s": 13.7,
+  "additional_B_time_that_breaches_1p5_s": 14,
+  "portfolio_regret_increase_to_erase_gain_percent": 52.2,
+  "risk_mention_gain_percentage_points": 25.0,
+  "grouped_tradeoff": {
+    "cost_driven": {
+      "n": 3,
+      "regret_A": 0.049,
+      "regret_B": 0.05,
+      "extra_time_s": 32.7,
+      "risk_mention_rate_A": 0.417,
+      "risk_mention_rate_B": 0.417
+    },
+    "balanced": {
+      "n": 3,
+      "regret_A": 0.247,
+      "regret_B": 0.18,
+      "extra_time_s": 29.1,
+      "risk_mention_rate_A": 0.333,
+      "risk_mention_rate_B": 0.583
+    },
+    "risk_sensitive": {
+      "n": 10,
+      "regret_A": 0.324,
+      "regret_B": 0.202,
+      "extra_time_s": 31.4,
+      "risk_mention_rate_A": 0.5,
+      "risk_mention_rate_B": 0.825
+    }
+  },
+  "assumption_note": "Profile weights and initial dial settings are those of the archive-based regret analysis; regret is on an assumed per-profile scale that is not the archive regret of that analysis; behavioural effects, timing, confidence, SUS and variation are generator assumptions. No expert observations were available for calibration or validation.",
+  "regret_baseline_assumptions_by_profile": {
+    "cost-driven": 0.08,
+    "balanced": 0.25,
+    "service-level": 0.33,
+    "overtime-averse": 0.32,
+    "stability-driven": 0.3,
+    "worst-case": 0.38
+  },
+  "portfolio_regret_factor_assumptions_by_profile": {
+    "cost-driven": 0.92,
+    "balanced": 0.69,
+    "service-level": 0.58,
+    "overtime-averse": 0.63,
+    "stability-driven": 0.68,
+    "worst-case": 0.55
+  }
+}
