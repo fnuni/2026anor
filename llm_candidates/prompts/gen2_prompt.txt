@@ -1,0 +1,15 @@
+[The generation-1 prompt above, with the following reflection block appended.]
+
+REFLECTION ON THE PREVIOUS GENERATION
+The evaluator reports, for the previous candidates:
+  - all candidates are feasible after repair; two required repair for omitted tasks;
+  - candidates pack technicians close to the shift limit and are therefore excellent on
+    the modal scenario but dominated on tail risk: the archive diagnosis is
+    "low nominal cost, high tail premium, high inter-scenario dispersion";
+  - the worst scenarios are those in which one or two high-volatility zones take their
+    pessimistic alpha-cut value simultaneously; technicians whose load is dominated by a
+    single volatile zone cross the shift boundary together;
+  - dispersion is driven by the same technicians.
+Prefer mutations that reserve capacity in proportion to the volatility actually carried by
+each technician, or that avoid concentrating one volatile zone on one technician, while
+preserving feasibility. Do not simply lower the packing fraction uniformly.

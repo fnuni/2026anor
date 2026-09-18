@@ -1,0 +1,14 @@
+[The generation-1 prompt above, with the following reflection block appended.]
+
+REFLECTION ON THE PREVIOUS GENERATION
+The evaluator reports, for the previous candidates:
+  - volatility-aware reserve lowers the tail substantially, but the cheapest buffered
+    candidates now open more technicians than necessary: the tail premium is paid on the
+    nominal instance as additional technician_cost;
+  - candidates that reserve uniformly over all tasks waste capacity on calm zones;
+  - the non-dominated front is short: most candidates cluster at one cost-risk compromise,
+    so the planner has little to choose from.
+Prefer mutations that (i) make the reserve selective, concentrating it where the realised
+volatility is high, (ii) recover technician count by consolidating calm-zone work, and
+(iii) expose a tunable aggressiveness so that different members of the family occupy
+different points of the cost-risk frontier.
