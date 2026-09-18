@@ -5,10 +5,9 @@ Intelligence for Robust Automatic Heuristic Design under Fuzzy Uncertainty*
 (revision of ANOR-D-26-02279, Annals of Operations Research, Special Issue on
 Collaborative Intelligence in Operations Research).
 
-**Every reported result in the manuscript is computed by the code in this
-repository and typeset from generated macros.** `run_all.py` regenerates the
+**Benchmark results are computed by the released evaluators and typeset from generated macros. Rehearsal records are generated from stated assumptions and are not empirical findings.** `run_all.py` regenerates the
 deterministic artefacts in `data/`, `results_macros.tex`, and the scripted
-planner-rehearsal records and `planner_rehearsal_macros.tex`. Runtime values are hardware-specific
+planner-rehearsal records and `planner_rehearsal_macros.tex`, plus the computed Figure 2 in `interface_example.tex`. Runtime values are hardware-specific
 and are regenerated only when that stage is included.
 
 ```bash
@@ -38,7 +37,7 @@ re-query a model.
 | `creoh_theory.py` | 5, 8.9 | Numerical verification of the eight propositions, the invariance-breaking study, and the robustness opportunity index with the realised reduction on the same pools. |
 | `creoh_stress.py` | Fig. 4 | Out-of-distribution degradation at three amplification levels. |
 | `creoh_planner.py` | 9 | Dial response sweep, selection stability, planner regret over six risk profiles, two-way parameter guidance. |
-| `generate_planner_rehearsal.py` | 9.4 | Fixed-seed **scripted prototype rehearsal** (feasibility dry-run) of the planner-study protocol. **No human participants**: every record is generated from the per-profile assumptions stated in the script and is flagged `SCRIPTED_REHEARSAL_NOT_HUMAN_DATA`. Writes `data/planner_rehearsal_records.csv`, `data/planner_rehearsal_summary.json` and `planner_rehearsal_macros.tex`. |
+| `generate_planner_rehearsal.py` | 9.4 | Fixed-seed **scripted prototype rehearsal** (feasibility dry-run) of the planner-study protocol. **No human participants**: every record is generated from the per-profile assumptions stated in the script and is flagged `SCRIPTED_REHEARSAL_NOT_HUMAN_DATA`. Writes `data/planner_rehearsal_records.csv`, `data/planner_rehearsal_summary.json` and `planner_rehearsal_macros.tex`, plus the computed Figure 2 in `interface_example.tex`. |
 | `make_macros.py` | — | Emits `results_macros.tex` from `data/`. |
 
 ## Instances
@@ -84,34 +83,34 @@ manuscript. The program files are not edited.
 
 `data/` holds, for every study, the aggregated table, the statistics with raw
 and Holm-adjusted p-values and effect sizes, the raw per-unit records, and a
-metadata JSON with the full protocol. `*_raw_runs.csv` files include the
-per-scenario cost vector of each selected solution.
+metadata JSON with the full protocol. `scheduling_raw_runs.csv` and `routing_raw_runs.csv` include rounded per-scenario cost vectors. Other studies release unit-level summaries and the code needed to reconstruct scenario evaluations.
 
 ## Notes
 
 - Archive dominance uses all three objectives `(f1,f2,f3)`; the reported
   hypervolume is the 2-D cost–risk indicator on `(f1,f2)`.
-- The hypervolume sweep released with the first submission was incorrect (it
-  advanced the wrong frontier and collapsed to a single archive member). It is
-  fixed here and verified against Monte Carlo integration in `test_smoke.py`;
-  see Appendix G of the manuscript.
+- The exact 2-D hypervolume sweep is checked against Monte Carlo integration in `test_smoke.py`. Historical corrections are described in the response letter, not in the standalone manuscript.
 - The experimental unit is a distinct model input. On public families,
   duplicates after removal of unused fields are collapsed and scenario seeds
   are averaged within the remaining unit before any test.
 - The legacy Python argument name `orness` denotes the dial value θ, which is
-  the empirical-CVaR confidence level. Its induced OWA orness for uniform
+  a tail-confidence parameter: the exact empirical-CVaR level is beta = 1 - q/M, with q = max(1, ceil((1-theta)*M)). Its induced OWA orness for uniform
   top-q weights is `[M-(q+1)/2]/(M-1)`; the two values are not identical.
 - The dial rule `(1-θ)·ñ1 + θ·ñ2` over the archive (`creoh_routing.dial_scores`)
   is the single selection rule of every C-R-EoH component; stability acts
   through archive dominance.
-- Corrections made before the revision release (Appendix G of the manuscript):
-  the placement-rule parameter of the scheduling family now switches between
-  best fit and worst fit; the Latin hypercube builder stratifies each zone
-  independently; zone volatility is U(0.05, 0.85)·δ/0.15 in every family; the
-  tail cutoff `q(θ)` is computed without floating-point round-up; the nominal
-  multi-objective baseline uses modal cost and nominal load imbalance.
+- The placement rule switches between best fit and worst fit; zones are independently stratified. The tail cutoff is `max(1, ceil((1-theta)*M))`, with a floating-point tolerance.
 - `config/experiment_config.yaml` documents the protocol; the modules use the
   same values as class defaults and do not read the file.
 - Runtime figures depend on the machine; `data/runtime_metadata.json` records
   the reference platform. Use `--skip-runtime` when reproducing non-timing
   results without intentionally replacing those measurements.
+
+- `--skip-runtime` preserves the standalone runtime-study files; pilot execution times are measured again and may change even under that flag. Scientific outputs are deterministic in the pinned environment.
+- The scripted rehearsal checks record structure, summaries and break-even arithmetic only. It does not run a user interface or administer a SUS questionnaire; timing, confidence and SUS fields are assumed placeholders.
+- The strong-selector test uses held-out ensemble rows, with repeated modal scenarios potentially present on both sides. Nominal selection uses the modal instance; budgeted selection uses separately constructed uncertainty-set vertices.
+
+- `generate_interface_example.py` regenerates Figure 2 from synthetic scheduling seed 10, using raw cost units and the actual archive and selections. The example was chosen for its multi-point projected frontier and is not an aggregate performance estimate.
+
+- Full manuscript regeneration uses the default `data/` directory beside the scripts. `--outdir` redirects study tables only; macro and rehearsal generators use the package directory. For isolated reproduction, copy the whole package and run from that copy.
+- The pilot harness requires POSIX timers on the main thread. It enforces a restricted Python policy and a timeout, not operating-system or memory isolation. Repair rejects non-integer identifiers, records empty-technician removal, and assigns omissions using nominal workload.

@@ -67,6 +67,7 @@ def main(outdir: str = "data", fast: bool = False,
         runpy.run_module("generate_planner_rehearsal", run_name="__main__")
         print("\n[macros] regenerating results_macros.tex ...")
         importlib.import_module("make_macros").main()
+        importlib.import_module("generate_interface_example").main()
     print(f"\ndone in {time.time()-t0:.1f}s; artefacts in {outdir}/")
 
 

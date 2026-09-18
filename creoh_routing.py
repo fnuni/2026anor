@@ -318,7 +318,7 @@ class ExpectedCost(Objective):
 
 
 def tail_count(theta: float, M: int) -> int:
-    """q(theta) = ceil((1 - theta) M), robust to floating-point representation.
+    """q(theta) = max(1, ceil((1 - theta) M)), robust to floating-point representation.
 
     ``(1 - 0.7) * 40`` evaluates to ``12.000000000000002`` in IEEE arithmetic,
     so a bare ``ceil`` would return 13; the tolerance restores the intended
@@ -328,7 +328,8 @@ def tail_count(theta: float, M: int) -> int:
 
 
 class OWARisk(Objective):
-    """Upper-tail OWA. With uniform mass on the worst q = ceil((1-orness)*M)
+    """Upper-tail OWA. The legacy argument ``orness`` denotes theta, not OWA
+    orness. With uniform mass on the worst q = max(1, ceil((1-theta)*M))
     scenarios this is the finite-scenario analogue of upper-tail CVaR, so
     f2 >= f1 always holds (Proposition 1)."""
 
@@ -402,14 +403,9 @@ class ParetoArchive:
     def hypervolume(self, ref: tuple[float, float]) -> float:
         """Exact 2-D hypervolume of the (f1, f2) projection, minimisation.
 
-        Correction w.r.t. the first submission: the previous sweep advanced the
-        *x* frontier instead of the *y* frontier, so every archive member after
-        the first contributed a zero-width slab and the indicator collapsed to
-        the rectangle of the lowest-cost point alone.  The sweep below is the
-        standard staircase decomposition -- points are visited in increasing
-        f1 (hence strictly decreasing f2) and each contributes the slab
-        ``(ref1 - f1) * (prev_f2 - f2)`` -- and is verified against a Monte
-        Carlo estimate in ``test_smoke.py``.
+        Points are visited in increasing f1 with decreasing f2. Each adds
+        the slab (ref1 - f1) * (prev_f2 - f2). The implementation is checked
+        against independent integration in test_smoke.py.
         """
         pts = sorted({(fv.f1, fv.f2) for fv, _ in self.items})
         nd, best = [], math.inf

@@ -4,8 +4,9 @@ Every record is produced by this fixed-seed script from the per-profile
 assumptions stated below. No human participant is involved: the records are
 not observations of people or expert opinions, and they are released together
 with the seed and the assumptions so that they cannot be mistaken for
-human-subject evidence. Their only use is to fix interface variants, the time
-budget and the break-even thresholds of the prospective protocol.
+human-subject evidence. Their use is to illustrate assumption-dependent thresholds and candidate
+interface variants. The script does not execute an interface, select programs,
+measure elapsed decision time, or administer a SUS questionnaire.
 """
 import csv
 import json

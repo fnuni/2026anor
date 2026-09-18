@@ -49,6 +49,7 @@ import csv
 import glob
 import json
 import math
+from numbers import Integral
 import os
 import signal
 import time
@@ -79,7 +80,7 @@ class SandboxViolation(Exception):
     """Raised when generated code breaks the static code-generation policy."""
 
 
-class _Timeout(Exception):
+class _Timeout(BaseException):
     pass
 
 
@@ -110,6 +111,8 @@ class StaticPolicy:
         except SyntaxError as exc:
             raise SandboxViolation(f"syntax error: {exc}") from exc
         for node in ast.walk(tree):
+            if isinstance(node, ast.ExceptHandler) and node.type is None:
+                raise SandboxViolation("bare exception handler may suppress timeout")
             if isinstance(node, (ast.Import, ast.ImportFrom)):
                 mods = ([a.name.split(".")[0] for a in node.names]
                         if isinstance(node, ast.Import)
@@ -187,8 +190,8 @@ class Sandbox:
                     self.prev = signal.signal(signal.SIGALRM, handler)
                     signal.setitimer(signal.ITIMER_REAL, sandbox.timeout_s)
                     self.armed = True
-                except ValueError:             # not in the main thread
-                    self.armed = False
+                except (ValueError, AttributeError) as exc:
+                    raise SandboxViolation("wall-clock interrupt unavailable; run in the main thread on a POSIX platform") from exc
                 return self
 
             def __exit__(self, *exc):
@@ -228,7 +231,7 @@ class RepairPolicy:
     penalty vector, as in the reproducible-search experiments.
     """
 
-    def apply(self, machines, n: int) -> EvaluationOutcome:
+    def apply(self, machines, n: int, nominal_durations=None) -> EvaluationOutcome:
         if not isinstance(machines, (list, tuple)):
             return EvaluationOutcome("infeasible", "output is not a list")
         clean, seen, repaired = [], set(), False
@@ -237,10 +240,9 @@ class RepairPolicy:
                 return EvaluationOutcome("infeasible", "technician is not a list")
             row = []
             for j in mach:
-                try:
-                    j = int(j)
-                except (TypeError, ValueError):
+                if isinstance(j, bool) or not isinstance(j, Integral):
                     return EvaluationOutcome("infeasible", "non-integer task id")
+                j = int(j)
                 if not (0 <= j < n):
                     return EvaluationOutcome("infeasible", f"task id {j} out of range")
                 if j in seen:
@@ -249,7 +251,7 @@ class RepairPolicy:
                 seen.add(j); row.append(j)
             if row:
                 clean.append(row)
-            elif mach:
+            else:
                 repaired = True
         missing = [j for j in range(n) if j not in seen]
         if missing:
@@ -257,7 +259,9 @@ class RepairPolicy:
             if not clean:
                 clean.append([])
             for j in missing:
-                k = int(np.argmin([len(m) for m in clean]))
+                loads = ([sum(float(nominal_durations[i]) for i in m) for m in clean]
+                         if nominal_durations is not None else [len(m) for m in clean])
+                k = int(np.argmin(loads))
                 clean[k].append(j)
         if not clean:
             return EvaluationOutcome("infeasible", "empty assignment")
@@ -361,7 +365,7 @@ class LLMProposerPilot:
             return EvaluationOutcome("error",
                                      f"{type(exc).__name__}: {exc}"), 0.0
         dt = time.perf_counter() - t0
-        out = self.repair.apply(raw, inst.n)
+        out = self.repair.apply(raw, inst.n, inst.proc)
         return out, dt
 
     @staticmethod

@@ -130,6 +130,34 @@ def test_scheduling_robust_beats_nominal_on_tail():
     assert h["friedman_p"] < 0.05
 
 
+def test_repair_rejects_coercion_and_records_empty_technicians():
+    rp = L.RepairPolicy()
+    for task_id in (0.5, 0.0, "0", True):
+        assert rp.apply([[task_id]], 1).status == "infeasible"
+    out = rp.apply([[0], []], 1)
+    assert out.status == "ok" and out.repaired and out.machines == [[0]]
+    # Task count prefers machine 0; actual nominal load correctly prefers 1.
+    out = rp.apply([[0], [1, 2]], 4, [10, 1, 1, 3])
+    assert out.machines == [[0], [1, 2, 3]]
+
+
+def test_timeout_is_not_swallowed_by_generated_exception_handler():
+    sb = L.Sandbox(timeout_s=0.05)
+    fn = sb.load("def solve(instance, params):\n    try:\n        while True: pass\n    except Exception:\n        return [[0]]\n", "catch_exception")
+    try:
+        sb.call(fn, {}, {})
+    except L._Timeout:
+        pass
+    else:
+        raise AssertionError("generated handler swallowed timeout")
+    try:
+        sb.load("def solve(instance, params):\n    try: return [[0]]\n    except: return [[0]]\n", "bare_except")
+    except L.SandboxViolation:
+        pass
+    else:
+        raise AssertionError("bare handler admitted")
+
+
 if __name__ == "__main__":
     test_owa_tail_premium(); test_pareto_dominance()
     test_hypervolume_matches_monte_carlo()
@@ -138,4 +166,6 @@ if __name__ == "__main__":
     test_owa_tail_count_is_exact(); test_balance_gene_changes_assignment()
     test_ablation_full_is_the_reported_method()
     test_scheduling_robust_beats_nominal_on_tail()
+    test_repair_rejects_coercion_and_records_empty_technicians()
+    test_timeout_is_not_swallowed_by_generated_exception_handler()
     print("all smoke tests passed")
