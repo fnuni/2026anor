@@ -1,0 +1,17 @@
+{
+  "model": "qwen2.5-coder:7b",
+  "created_at": "2026-09-18T10:06:59.830071Z",
+  "message": {
+    "role": "assistant",
+    "content": "```python\ndef solve(instance, params):\n    n = instance['n']\n    proc = instance['proc']\n    volatility = instance['volatility']\n    zone = instance['zone']\n    shift = instance['shift']\n    overtime_rate = instance['overtime_rate']\n    technician_cost = instance['technician_cost']\n\n    # Initialize technician loads and task assignments\n    technician_loads = [0] * (n + 1)  # technician indices start from 1\n    task_assignments = [[] for _ in range(n)]\n\n    # Sort tasks by their volatility to handle volatile tasks first\n    task_indices = list(range(n))\n    task_indices.sort(key=lambda j: volatility[j], reverse=True)\n\n    for task in task_indices:\n        best_technician = None\n        best_cost = float('inf')\n\n        for tech in range(1, n + 1):\n            if technician_loads[tech] + proc[task] <= shift:\n                load = technician_loads[tech] + proc[task]\n                cost = technician_cost + load + overtime_rate * max(0, load - shift)\n                if cost < best_cost:\n                    best_technician = tech\n                    best_cost = cost\n\n        if best_technician is not None:\n            technician_loads[best_technician] += proc[task]\n            task_assignments[task] = best_technician\n\n    # Filter out empty technicians\n    machines = [tasks for tasks in task_assignments if tasks]\n\n    return machines\n```"
+  },
+  "done": true,
+  "done_reason": "stop",
+  "total_duration": 4970013375,
+  "load_duration": 8191542,
+  "prompt_eval_count": 857,
+  "prompt_eval_cached_count": 856,
+  "prompt_eval_duration": 16405000,
+  "eval_count": 316,
+  "eval_duration": 4940154000
+}

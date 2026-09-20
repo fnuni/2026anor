@@ -1,0 +1,17 @@
+{
+  "model": "qwen2.5-coder:7b",
+  "stream": false,
+  "messages": [
+    {
+      "role": "user",
+      "content": "ROLE\nYou generate one deterministic heuristic function for the specified operations-research\nproblem. You will be called several times; produce a different algorithmic idea each time.\n\nPROBLEM\nFuzzy field-service / parallel-machine scheduling with a convex overtime penalty.\nn independent work orders must be partitioned among an unlimited number of identical\ntechnicians, each working one shift. For a technician whose realised load is L the cost is\n\n    technician_cost + L + overtime_rate * max(0, L - shift)\n\nand the instance cost is the sum over the technicians actually opened. Task durations are\nimprecise: each task j carries a modal duration proc[j] and a volatility volatility[j]\ninherited from its congestion zone zone[j]. A scenario scales every task of zone g by a\ncommon-mode factor, so tasks sharing a zone move together.\n\nINTERFACE\n    def solve(instance, params):\n        ...\n        return machines      # list of lists of task indices\n\ninstance is a read-only dict with keys:\n    n                 int, number of tasks\n    proc              list[float], modal durations, length n\n    volatility        list[float], per-task volatility in [0, ~1], length n\n    zone              list[int], congestion zone of each task, length n\n    shift             float, regular shift length\n    overtime_rate     float, convex multiplier beyond the shift\n    technician_cost   float, fixed cost of opening one technician\n\nparams is a read-only dict with keys orness, alpha_grid, train_spread.\n\nThe returned partition must cover every task index 0..n-1 exactly once. Empty technicians\nare not allowed.\n\nALLOWED OPERATIONS\nPure Python and the math module only. No imports other than math. No file, network,\nsubprocess or global state. No attribute whose name starts with an underscore. The function\nmust be deterministic and must return within two seconds for n up to a few hundred.\n\nOBJECTIVE\nThe evaluator will execute the same code over an alpha-cut scenario ensemble and score it on\nmean cost, ordered-weighted tail risk and inter-scenario dispersion. It is the evaluator, not\nthis prompt, that defines success.\n\nTASK\nProduce one compact, self-contained heuristic. Output only the Python source.\n"
+    }
+  ],
+  "options": {
+    "temperature": 0.7,
+    "top_p": 0.9,
+    "num_ctx": 8192,
+    "num_predict": 4096,
+    "seed": 1003
+  }
+}

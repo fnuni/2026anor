@@ -1,0 +1,3 @@
+evaluator_on_llm_pool,f1_mean,f1_ci,f2_mean,f2_ci,f3_mean,f3_ci,p95_mean,p95_ci,hv_mean,hv_ci,ood_mean,ood_ci
+LLM pool + nominal evaluator,100.000,2.645,115.433,4.081,10.168,1.117,121.396,4.729,0.747,0.184,60.097,4.862
+LLM pool + fuzzy MO evaluator (C-R-EoH),99.321,2.508,114.034,3.982,9.626,1.145,119.970,4.670,1.039,0.086,59.476,4.950

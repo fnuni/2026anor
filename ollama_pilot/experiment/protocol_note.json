@@ -1,0 +1,12 @@
+{
+  "feedback_provenance": "Drafted by the assisting AI from actual execution logs and training summaries; not produced automatically by the evaluator. Files archived verbatim.",
+  "feedback_excludes": "OOD metrics",
+  "adaptation_limitation": "Same 30 instance seeds inform feedback and final evaluation; final results are a descriptive adaptive pilot, not an independent held-out test.",
+  "smoke_test": "Separate technical run; not part of the 18-candidate pool; no prompt or parameter tuning after smoke test.",
+  "generation_protocol": "3 generations of 6 fresh-context requests; later prompts append feedback to the original base prompt.",
+  "hardware": {
+    "model": "Mac16,6",
+    "ram_bytes": 38654705664,
+    "ram_gib": 36
+  }
+}

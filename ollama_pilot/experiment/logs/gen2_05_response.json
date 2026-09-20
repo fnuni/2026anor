@@ -1,0 +1,17 @@
+{
+  "model": "qwen2.5-coder:7b",
+  "created_at": "2026-09-18T10:06:04.754008Z",
+  "message": {
+    "role": "assistant",
+    "content": "```python\nimport math\n\ndef solve(instance, params):\n    n = instance['n']\n    proc = instance['proc']\n    volatility = instance['volatility']\n    zone = instance['zone']\n    shift = instance['shift']\n    overtime_rate = instance['overtime_rate']\n    technician_cost = instance['technician_cost']\n    orness = params['ornoess']\n    alpha_grid = params['alpha_grid']\n    train_spread = params['train_spread']\n\n    # Initialize the machine schedule and task assignments\n    machines = [[] for _ in range(10)]  # Assuming a maximum of 10 machines for simplicity\n    machine_loads = [0.0] * 10\n\n    # Assign tasks to machines based on their volatility and zone\n    for j in range(n):\n        best_machine = 0\n        best_cost = math.inf\n        for i in range(10):\n            L = machine_loads[i] + proc[j]\n            cost = technician_cost + L + overtime_rate * max(0, L - shift)\n            if cost < best_cost:\n                best_cost = cost\n                best_machine = i\n        machines[best_machine].append(j)\n        machine_loads[best_machine] += proc[j]\n\n    return machines\n```"
+  },
+  "done": true,
+  "done_reason": "stop",
+  "total_duration": 4282844208,
+  "load_duration": 8232166,
+  "prompt_eval_count": 787,
+  "prompt_eval_cached_count": 786,
+  "prompt_eval_duration": 16652000,
+  "eval_count": 267,
+  "eval_duration": 4253206000
+}

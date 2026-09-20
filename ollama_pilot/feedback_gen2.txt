@@ -1,0 +1,15 @@
+Feedback on generation 1, derived from the logged evaluation on 30 instances:
+All six programs passed static admission. Three programs (gen1_01, gen1_02,
+gen1_05) failed on all instances with KeyError: 'ornois'. The params dictionary
+has the key 'orness', not 'ornois'. Use only the keys in the interface.
+The other three programs succeeded on all 30 instances without repair.
+There were 90 successful and 90 failed executions, and no repair was applied.
+On the successful candidate pool, the nominal selector's normalized mean cost,
+OWA risk and P95 were 100.000, 115.433 and 121.396; the fuzzy selector's values
+were 99.321, 114.034 and 119.970. These are training-scenario metrics, not
+independent evidence of generalization. No OOD metric is used in this feedback.
+Generate a new deterministic scheduling heuristic, obeying the exact interface.
+Consider reserving capacity according to carried volatility and distributing
+high-volatility zones across technicians to trade nominal cost against tail risk.
+This last sentence is a design suggestion, not an observed causal diagnosis.
+Output only the Python source; do not import anything except math.

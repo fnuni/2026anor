@@ -1,0 +1,17 @@
+{
+  "model": "qwen2.5-coder:7b",
+  "created_at": "2026-09-18T10:06:46.514983Z",
+  "message": {
+    "role": "assistant",
+    "content": "```python\ndef solve(instance, params):\n    n = instance['n']\n    proc = instance['proc']\n    volatility = instance['volatility']\n    zone = instance['zone']\n    shift = instance['shift']\n    overtime_rate = instance['overtime_rate']\n    technician_cost = instance['technician_cost']\n    \n    # Group tasks by zone for common-mode scaling\n    zone_tasks = {z: [] for z in set(zone)}\n    for j in range(n):\n        zone_tasks[zone[j]].append(j)\n    \n    # Sort tasks within each zone by their volatility\n    for z, tasks in zone_tasks.items():\n        zone_tasks[z] = sorted(tasks, key=lambda j: volatility[j], reverse=True)\n    \n    # Initialize machines list\n    machines = []\n    \n    # Assign tasks to machines\n    for z, tasks in zone_tasks.items():\n        for j in tasks:\n            # Find a machine to assign the task to\n            assigned = False\n            for m in machines:\n                L = sum(proc[k] for k in m)\n                if L + proc[j] <= shift:\n                    m.append(j)\n                    assigned = True\n                    break\n            if not assigned:\n                machines.append([j])\n    \n    # Add fixed cost for each machine opened\n    for m in machines:\n        m.append(-technician_cost)\n    \n    return machines\n```"
+  },
+  "done": true,
+  "done_reason": "stop",
+  "total_duration": 4646948917,
+  "load_duration": 5796125,
+  "prompt_eval_count": 857,
+  "prompt_eval_cached_count": 496,
+  "prompt_eval_duration": 541830000,
+  "eval_count": 284,
+  "eval_duration": 4090050000
+}

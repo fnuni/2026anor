@@ -1,0 +1,17 @@
+{
+  "model": "qwen2.5-coder:7b",
+  "created_at": "2026-09-18T10:05:47.526777Z",
+  "message": {
+    "role": "assistant",
+    "content": "```python\ndef solve(instance, params):\n    n = instance['n']\n    proc = instance['proc']\n    volatility = instance['volatility']\n    zone = instance['zone']\n    shift = instance['shift']\n    overtime_rate = instance['overtime_rate']\n    technician_cost = instance['technician_cost']\n\n    # Create a list of tasks sorted by their volatility (high to low)\n    sorted_tasks = sorted(range(n), key=lambda j: volatility[j], reverse=True)\n\n    # Initialize a dictionary to store tasks per technician\n    technicians = {}\n\n    # Iterate over sorted tasks and assign them to technicians\n    for j in sorted_tasks:\n        # Find the technician with the least loaded zone\n        min_zone_load = float('inf')\n        min_zone = None\n        for z in set(zone):\n            if z not in technicians:\n                continue\n            zone_load = sum(proc[j] for j in technicians[z])\n            if zone_load < min_zone_load:\n                min_zone_load = zone_load\n                min_zone = z\n\n        # If no technician has this zone, create a new one\n        if min_zone is None:\n            min_zone = max(technicians.keys()) + 1 if technicians else 0\n            technicians[min_zone] = []\n\n        # Assign the task to the chosen technician\n        technicians[min_zone].append(j)\n\n    # Convert the dictionary to a list of lists\n    machines = list(technicians.values())\n\n    return machines\n```"
+  },
+  "done": true,
+  "done_reason": "stop",
+  "total_duration": 4875103792,
+  "load_duration": 6465458,
+  "prompt_eval_count": 787,
+  "prompt_eval_cached_count": 482,
+  "prompt_eval_duration": 501658000,
+  "eval_count": 304,
+  "eval_duration": 4362859000
+}

@@ -1,0 +1,20 @@
+{
+  "checks": "passed",
+  "candidates": 18,
+  "requests": 18,
+  "responses": 18,
+  "executions": 540,
+  "instances": 30,
+  "usable_candidates_each_instance": 7,
+  "status_counts": {
+    "error": 210,
+    "ok": 210,
+    "infeasible": 120
+  },
+  "exact_duplicate_sources": [],
+  "candidate_text_matches_raw_responses": true,
+  "evaluator_sources_unchanged": true,
+  "feedback_matches_requests": true,
+  "all_responses_completed_without_token_truncation": true,
+  "note": "Integrity and consistency checks; not an independent scientific replication."
+}

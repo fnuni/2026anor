@@ -1,0 +1,20 @@
+Feedback from the actual evaluations of generations 1 and 2 on 30 instances:
+All 12 programs passed static admission. Five ran successfully on all instances;
+seven failed on all instances. No repair was applied. Generation 2 added two
+successful programs (gen2_01 and gen2_03). Its other programs failed as follows:
+gen2_02, gen2_04 and gen2_05: KeyError: 'ornoess'; gen2_06: TypeError: list indices
+must be integers or slices, not float.
+Use the exact interface: params['orness'] is the only orness key. Both 'ornois'
+and 'ornoess' are invalid. Task identifiers must be integer indices from range(n),
+not processing-time values. When sorting, sort task indices with a key function
+rather than confusing sorted durations with indices. You may ignore params if
+not needed by the heuristic.
+Across the cumulative successful pool, nominal and fuzzy selection respectively
+have normalized mean costs 100.000 and 99.321, OWA risks 115.433 and 114.034, and
+P95 values 121.396 and 119.970. These training-scenario values did not improve
+relative to generation 1. No OOD result is used in this feedback.
+Generate a different deterministic heuristic that obeys the interface, covers
+every integer task index exactly once and returns only nonempty technician lists.
+As design suggestions (not established diagnoses), consider volatility-aware
+capacity reservations or preventing concentration of a single volatile zone.
+Output only Python source. Only math may be imported.
