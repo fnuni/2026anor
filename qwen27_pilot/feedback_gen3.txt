@@ -1,0 +1,20 @@
+Feedback from the actual cumulative evaluation of generations 1 and 2 over
+30 scheduling instances:
+All 12 programs passed static admission and succeeded on every instance:
+360 successful executions, no runtime errors, no invalid assignments, no repair.
+Both selectors used the same 12 usable programs on every instance.
+Normalized training means for nominal selection are: cost 100.000, OWA risk
+115.728, dispersion 10.333, P95 122.049. For fuzzy selection they are:
+cost 98.623, OWA risk 108.396, dispersion 6.344, P95 112.806.
+The cumulative within-pool P95 reduction is 7.57%, compared with a 0.06%
+selection gap in the first-generation pool. Each stage normalizes to its own
+nominal selector's mean cost; do not compare normalized levels across stages.
+These are adaptive training summaries, not independent generalization evidence.
+No OOD results are used in this feedback.
+Generate another deterministic heuristic that preserves the exact interface and
+covers every integer task index exactly once. As design suggestions, consider
+selective reserve for volatile loads, consolidation of calm-zone work, and local
+moves that reduce a risk-adjusted overtime proxy without opening unnecessarily
+many technicians. These are proposed directions, not causal diagnoses from the
+logs. Keep all decisions deterministic and the algorithm compact and efficient.
+Output only Python source, with no imports other than math.

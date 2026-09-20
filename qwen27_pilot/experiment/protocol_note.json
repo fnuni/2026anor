@@ -1,0 +1,13 @@
+{
+  "model_requested": "qwen3.8:27b-mlx",
+  "protocol": "3 generations of 6 fresh-context requests; same original base prompt, options and request seeds as Qwen 7B; no tools supplied; think=false for all main requests.",
+  "feedback_provenance": "Drafted by assisting AI from actual runtime outcomes and training summaries, not an autonomous evaluator component; no OOD feedback.",
+  "adaptation_limitation": "The same 30 instance seeds inform feedback and final evaluation; descriptive adaptive pilot, not independent confirmation.",
+  "hardware": {
+    "model": "Mac16,6",
+    "ram_gib": 36
+  },
+  "candidate_policy": "No manual correction or selective replacement; enclosing Markdown fence only removed; all responses retained.",
+  "identity_caveat": "Local tag qwen3.8:27b-mlx; Ollama show reports architecture qwen3_5, 27,781,081,984 parameters, NVFP4. Tag is not independently verified as an upstream release identity.",
+  "preliminary_run": "Default-thinking technical batch excluded in full: first completed response contained no code after 4096 thinking tokens; interrupted request records retained in preliminary_default_thinking."
+}

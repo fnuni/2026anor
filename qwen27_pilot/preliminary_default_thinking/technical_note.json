@@ -1,0 +1,5 @@
+{
+  "excluded_from_main_campaign": true,
+  "reason": "Default thinking consumed 4096 tokens with no code in first completed response. Entire preliminary batch stopped; all available requests/responses retained, including any interrupted request.",
+  "main_protocol_change": "Set think=false for all 18 main-campaign requests; no candidate selection based on measured performance."
+}

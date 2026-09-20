@@ -1,0 +1,20 @@
+# LLM proposer pilot -- backbone qwen3.8:27b-mlx, 30 instances
+programs generated 6, admitted by the static policy 6
+execution status: {'ok': 180}
+feasible before repair 100.0%, after repair 100.0%, repair rate 0.0%
+mean candidate pool per instance: 6.0
+
+evaluator on the same LLM pool                   f1       f2      f3      P95     HV    OOD%
+LLM pool + nominal evaluator                 100.00   114.92    9.79   121.01  1.102   61.51
+LLM pool + fuzzy MO evaluator (C-R-EoH)      100.08   114.89    9.73   120.93  1.102   61.14
+
+best candidate per generation (fuzzy tail objective):
+generation           f1       f2      f3      P95    OOD%
+generation 1     100.08   114.89    9.73   120.93   61.14
+
+tail reduction on the LLM pool: 0.06%
+  p95   p_holm=1.000e+00 delta=-0.006
+  f2    p_holm=1.000e+00 delta=-0.006
+  f3    p_holm=1.000e+00 delta=-0.012
+  hv    p_holm=1.000e+00 delta=+0.001
+  f1    p_holm=1.000e+00 delta=+0.012

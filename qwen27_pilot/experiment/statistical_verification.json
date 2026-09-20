@@ -1,0 +1,8 @@
+{
+  "raw_metric_rows": 60,
+  "instances_per_selector": 30,
+  "means_and_intervals_recomputed": true,
+  "wilcoxon_holm_and_cliffs_delta_recomputed": true,
+  "tail_reduction_recomputed": 8.39,
+  "replay_matches_original_excluding_timing": true
+}

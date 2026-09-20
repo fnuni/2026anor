@@ -1,0 +1,18 @@
+Feedback on the actual generation-1 evaluation over 30 scheduling instances:
+All six programs passed static admission and succeeded on every instance:
+180 successful executions, no runtime error, no invalid assignment, no repair.
+Both selectors used the same six usable programs on every instance.
+Normalized training means for nominal selection are: cost 100.000, OWA risk
+114.916, dispersion 9.792, P95 121.007. For fuzzy selection they are:
+cost 100.079, OWA risk 114.890, dispersion 9.734, P95 120.933.
+The within-pool P95 reduction is only 0.06%; producing feasible code alone
+has not provided much selection benefit on these training instances.
+These are training summaries, not independent generalization evidence.
+No OOD results are used in this feedback.
+Generate a different compact deterministic heuristic while preserving the exact
+interface and complete integer-index partition. As design suggestions, consider
+reserving capacity in proportion to the volatility actually assigned, avoiding
+concentration of a single volatile zone, and using marginal overtime cost versus
+technician-opening cost to decide whether to open another technician.
+These are proposed algorithmic directions, not observed causal diagnoses.
+Output only Python source, with no imports other than math.

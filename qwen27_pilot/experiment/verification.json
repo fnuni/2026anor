@@ -1,0 +1,16 @@
+{
+  "checks": "passed",
+  "candidate_count": 18,
+  "admitted": 18,
+  "executions": 540,
+  "status_counts": {
+    "ok": 540
+  },
+  "stop_reasons": {
+    "stop": 18
+  },
+  "source_matches_responses": true,
+  "feedback_matches_requests": true,
+  "evaluator_hashes_match": true,
+  "note": "Integrity checks, not independent replication."
+}
