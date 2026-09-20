@@ -482,8 +482,8 @@ class LLMPilotBlock(MacroBlock):
             LlmFeasPost=_pct(100 * d["feasible_after_repair_rate"], "{:.1f}"),
             LlmRepair=_pct(100 * d["repair_rate"], "{:.1f}"),
             LlmRuntime=f"${d['mean_program_runtime_ms']:.2f}$",
-            LlmPool=f"${d['mean_pool_size']:.1f}$",
-            LlmTailReduction=_pct(d["tail_reduction_pct"]))
+            LlmPool=f"{d['mean_pool_size']:.1f}".rstrip("0").rstrip("."),
+            LlmTailReduction=_pct(d["tail_reduction_pct"], "{:.1f}"))
         for k, mk, fmt in (("FOne", "f1", "{:.1f}"), ("FTwo", "f2", "{:.1f}"),
                            ("FThree", "f3", "{:.1f}"),
                            ("PNinetyFive", "p95", "{:.1f}"),
@@ -608,6 +608,10 @@ def main(out_path: str | None = None) -> str:
     with open(out_path, "w") as fh:
         fh.write("\n".join(lines) + "\n")
     print(f"wrote {total} macros to {out_path}")
+    import make_ollama_macros
+    make_ollama_macros.main()
+    import make_qwen27_macros
+    make_qwen27_macros.main()
     return out_path
 
 

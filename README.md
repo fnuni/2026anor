@@ -18,9 +18,9 @@ python run_all.py --fast               # skip the public-benchmark and theory sw
 python test_smoke.py                   # correctness checks, incl. sandbox probes
 ```
 
-No API key and no network access are required. The language-model pilot
-re-executes the programs released verbatim in `llm_candidates/`; it does not
-re-query a model.
+No API key and no network access are required. All three language-model pilots re-execute their released programs; they do not
+re-query a model. `creoh_ollama_pilot.py` and `creoh_qwen27_pilot.py` evaluate the saved Qwen-7B and Qwen-27B pools offline.
+The original generation logs are preserved separately from regenerated results.
 
 ## Modules
 
@@ -38,7 +38,10 @@ re-query a model.
 | `creoh_stress.py` | Fig. 4 | Out-of-distribution degradation at three amplification levels. |
 | `creoh_planner.py` | 9 | Dial response sweep, selection stability, planner regret over six risk profiles, two-way parameter guidance. |
 | `generate_planner_rehearsal.py` | 9.4 | Fixed-seed **scripted prototype rehearsal** (feasibility dry-run) of the planner-study protocol. **No human participants**: every record is generated from the per-profile assumptions stated in the script and is flagged `SCRIPTED_REHEARSAL_NOT_HUMAN_DATA`. Writes `data/planner_rehearsal_records.csv`, `data/planner_rehearsal_summary.json` and `planner_rehearsal_macros.tex`, plus the computed Figure 2 in `interface_example.tex`. |
-| `make_macros.py` | — | Emits `results_macros.tex` from `data/`. |
+| `creoh_ollama_pilot.py` | 8.8 | Offline replay of the Qwen-7B pilot pool (`ollama_pilot/`) through the unchanged evaluator. |
+| `creoh_qwen27_pilot.py` | 8.8 | Offline replay of the Qwen-27B pilot pool (`qwen27_pilot/`), with raw per-instance metrics. |
+| `make_macros.py` | — | Emits `results_macros.tex` from `data/` and calls the two pilot macro generators. |
+| `pilot_macros.py`, `make_ollama_macros.py`, `make_qwen27_macros.py` | — | Emit `ollama_macros.tex` (Qwen-7B) and `qwen27_macros.tex` (Qwen-27B) with the same number formats as the Claude pilot. |
 
 ## Instances
 
@@ -56,7 +59,18 @@ Because time windows are not used, files identical in the fields consumed by
 the model are collapsed before inference: 6 distinct routing inputs and 4
 distinct scheduling inputs. Counting all 56 files would be pseudoreplication.
 
-## Language-model pilot
+## Language-model pilots
+
+Three pilots apply the unchanged evaluator to programs written by language
+models. Naming follows the manuscript:
+
+| Pilot | Model | Folder | Interface |
+| --- | --- | --- | --- |
+| Claude | Anthropic Claude Opus 5 (`claude-opus-5`) | `llm_candidates/` | interactive chat, not logged |
+| Qwen-7B | Qwen2.5-Coder 7B (`qwen2.5-coder:7b`, Q4_K_M) | `ollama_pilot/` | local Ollama API, logged |
+| Qwen-27B | local tag `qwen3.8:27b-mlx` (arch. `qwen3_5`, NVFP4) | `qwen27_pilot/` | local Ollama API, logged, `think=false` |
+
+### Claude pilot
 
 ```
 llm_candidates/
@@ -114,3 +128,92 @@ metadata JSON with the full protocol. `scheduling_raw_runs.csv` and `routing_raw
 
 - Full manuscript regeneration uses the default `data/` directory beside the scripts. `--outdir` redirects study tables only; macro and rehearsal generators use the package directory. For isolated reproduction, copy the whole package and run from that copy.
 - The pilot harness requires POSIX timers on the main thread. It enforces a restricted Python policy and a timeout, not operating-system or memory isolation. Repair rejects non-integer identifiers, records empty-technician removal, and assigns omissions using nominal workload.
+
+
+### Qwen-7B pilot
+
+The additional pilot uses **Qwen2.5-Coder 7B (Q4_K_M)** through local Ollama 0.34.2,
+on 18 September 2026. It comprises 3 generations of 6 programs and the same
+30 scheduling instance seeds as the Claude pilot. All 18 programs pass static
+admission, but only 7 execute successfully on all instances: 210 successful
+executions, 210 runtime errors and 120 invalid outputs. No repair is applied.
+Fuzzy selection reduces P95 by **1.2%** within the usable Qwen-7B pool, compared
+with **10.4%** within the Claude pool. Later Qwen-7B generations do not improve
+selected cost, risk or P95. This is not a controlled ranking of the models.
+
+- `ollama_pilot/experiment/candidates/`: all 18 programs, including failures.
+- `ollama_pilot/experiment/logs/`: full requests/responses, including prompts,
+  seeds and sampling settings.
+- `ollama_pilot/feedback_gen2.txt`, `feedback_gen3.txt`: feedback drafted by the
+  assisting AI from execution logs and training summaries; no OOD feedback.
+- `ollama_pilot/experiment/backbone.json`: original model digest/configuration,
+  Ollama version and evaluator hashes.
+- `ollama_pilot/experiment/protocol_note.json`: provenance, hardware and limits.
+- `ollama_pilot/experiment/evaluation_gen1/` through `evaluation_gen3/`: original
+  cumulative evaluations; only generation 3 is the final 18-program pool.
+- `data/ollama_pilot/`: final evaluation used for the manuscript, regenerated by
+  `creoh_ollama_pilot.py` and the additional stage in `run_all.py`.
+- `make_ollama_macros.py`: emits `ollama_macros.tex`, also called by `make_macros.py`.
+
+```bash
+python creoh_ollama_pilot.py                 # offline replay; no Ollama required
+python make_ollama_macros.py                # regenerate Qwen manuscript values
+python ollama_pilot/verify_results.py        # integrity of original recorded run
+```
+
+The same 30 instance seeds inform feedback and final evaluation, so the paired
+statistics are descriptive of an adaptive pilot, not an independent held-out
+confirmation. Claude and Qwen-7B used different generation interfaces, sampling
+control and feedback. Cost indices and hypervolume are normalized within each
+pool and must not be used as absolute cross-model comparisons. There is no
+claim of model-independent gains or an autonomous reflection loop.
+
+The connection test is excluded from the scientific pool. `ollama_pilot/README.md`
+documents the original execution protocol. Generation via `ollama_pilot/pilot_ollama.py`
+requires a running local Ollama service, whereas reproduction from saved code
+does not. Existing generation requests are never silently overwritten.
+
+
+
+### Qwen-27B pilot
+
+The local tag `qwen3.8:27b-mlx` was evaluated in a separate 18-program,
+30-instance campaign. **All 18 programs were usable: 540/540 executions succeeded,
+with no repair.** The within-pool P95 reduction was **8.4%** (Holm-adjusted
+p = 1.9e-5; Cliff's delta -0.43), versus 10.4% for Claude and
+1.2% for Qwen-7B. These are descriptive within-pool effects, not a
+controlled ranking of models. Cost indices and hypervolume are pool-specific.
+
+Ollama reports 27.8B parameters, architecture `qwen3_5`, NVFP4 quantization,
+and safetensors format. The local tag is not independently verified as an
+upstream release identity; the full digest and configuration are preserved.
+The main campaign sets `think=false`. A preliminary default-thinking batch
+returned no code in its first completed response after 4096 thinking tokens;
+the batch was stopped with a second request pending and is excluded in full.
+The completed preliminary response and both request records are retained.
+All 18 main responses are complete, and no generated code was manually repaired.
+
+- `qwen27_pilot/experiment/`: original requests, responses, all candidates,
+  cumulative evaluations, feedback provenance and integrity checks.
+- `qwen27_pilot/preliminary_default_thinking/`: excluded technical batch.
+- `qwen27_pilot/feedback_gen2.txt` and `feedback_gen3.txt`: actual feedback;
+  AI-drafted from training summaries, without OOD feedback.
+- `data/qwen27_pilot/`: replayed final results, including raw per-instance metrics.
+- `creoh_qwen27_pilot.py`: offline replay through the unchanged evaluator.
+- `make_qwen27_macros.py` and `qwen27_macros.tex`: generated manuscript values.
+
+```bash
+python creoh_qwen27_pilot.py
+python make_qwen27_macros.py
+python qwen27_pilot/verify_results.py
+python qwen27_pilot/verify_statistics.py
+```
+
+`run_all.py` includes this third pilot and `make_macros.py` regenerates its
+macros. The adaptive-evaluation caveat also applies to this run: feedback and
+final evaluation share the same 30 instance seeds. The per-generation results
+do not demonstrate monotonic improvement or an autonomous reflection loop.
+
+## License
+
+Code released under the MIT License (`LICENSE`); citation metadata in `CITATION.cff`. Public instances keep their original terms.
