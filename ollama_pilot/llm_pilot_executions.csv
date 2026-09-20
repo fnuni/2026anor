@@ -1,0 +1,541 @@
+seed,program,generation,status,detail,repaired,runtime_ms
+0,gen1_01,1,error,KeyError: 'ornois',False,0.0
+0,gen1_02,1,error,KeyError: 'ornois',False,0.0
+0,gen1_03,1,ok,,False,0.023
+0,gen1_04,1,ok,,False,0.049
+0,gen1_05,1,error,KeyError: 'ornois',False,0.0
+0,gen1_06,1,ok,,False,0.049
+0,gen2_01,2,ok,,False,0.047
+0,gen2_02,2,error,KeyError: 'ornoess',False,0.0
+0,gen2_03,2,ok,,False,0.023
+0,gen2_04,2,error,KeyError: 'ornoess',False,0.0
+0,gen2_05,2,error,KeyError: 'ornoess',False,0.0
+0,gen2_06,2,error,"TypeError: list indices must be integers or slices, not float",False,0.0
+0,gen3_01,3,infeasible,non-integer task id,False,0.05
+0,gen3_02,3,ok,,False,0.018
+0,gen3_03,3,infeasible,non-integer task id,False,0.02
+0,gen3_04,3,infeasible,technician is not a list,False,0.217
+0,gen3_05,3,ok,,False,0.015
+0,gen3_06,3,infeasible,non-integer task id,False,0.05
+1,gen1_01,1,error,KeyError: 'ornois',False,0.0
+1,gen1_02,1,error,KeyError: 'ornois',False,0.0
+1,gen1_03,1,ok,,False,0.021
+1,gen1_04,1,ok,,False,0.048
+1,gen1_05,1,error,KeyError: 'ornois',False,0.0
+1,gen1_06,1,ok,,False,0.048
+1,gen2_01,2,ok,,False,0.046
+1,gen2_02,2,error,KeyError: 'ornoess',False,0.0
+1,gen2_03,2,ok,,False,0.022
+1,gen2_04,2,error,KeyError: 'ornoess',False,0.0
+1,gen2_05,2,error,KeyError: 'ornoess',False,0.0
+1,gen2_06,2,error,"TypeError: list indices must be integers or slices, not float",False,0.0
+1,gen3_01,3,infeasible,non-integer task id,False,0.047
+1,gen3_02,3,ok,,False,0.018
+1,gen3_03,3,infeasible,non-integer task id,False,0.019
+1,gen3_04,3,infeasible,technician is not a list,False,0.215
+1,gen3_05,3,ok,,False,0.015
+1,gen3_06,3,infeasible,non-integer task id,False,0.047
+2,gen1_01,1,error,KeyError: 'ornois',False,0.0
+2,gen1_02,1,error,KeyError: 'ornois',False,0.0
+2,gen1_03,1,ok,,False,0.019
+2,gen1_04,1,ok,,False,0.045
+2,gen1_05,1,error,KeyError: 'ornois',False,0.0
+2,gen1_06,1,ok,,False,0.046
+2,gen2_01,2,ok,,False,0.046
+2,gen2_02,2,error,KeyError: 'ornoess',False,0.0
+2,gen2_03,2,ok,,False,0.023
+2,gen2_04,2,error,KeyError: 'ornoess',False,0.0
+2,gen2_05,2,error,KeyError: 'ornoess',False,0.0
+2,gen2_06,2,error,"TypeError: list indices must be integers or slices, not float",False,0.0
+2,gen3_01,3,infeasible,non-integer task id,False,0.045
+2,gen3_02,3,ok,,False,0.017
+2,gen3_03,3,infeasible,non-integer task id,False,0.02
+2,gen3_04,3,infeasible,technician is not a list,False,0.216
+2,gen3_05,3,ok,,False,0.016
+2,gen3_06,3,infeasible,non-integer task id,False,0.065
+3,gen1_01,1,error,KeyError: 'ornois',False,0.0
+3,gen1_02,1,error,KeyError: 'ornois',False,0.0
+3,gen1_03,1,ok,,False,0.021
+3,gen1_04,1,ok,,False,0.044
+3,gen1_05,1,error,KeyError: 'ornois',False,0.0
+3,gen1_06,1,ok,,False,0.046
+3,gen2_01,2,ok,,False,0.046
+3,gen2_02,2,error,KeyError: 'ornoess',False,0.0
+3,gen2_03,2,ok,,False,0.022
+3,gen2_04,2,error,KeyError: 'ornoess',False,0.0
+3,gen2_05,2,error,KeyError: 'ornoess',False,0.0
+3,gen2_06,2,error,"TypeError: list indices must be integers or slices, not float",False,0.0
+3,gen3_01,3,infeasible,non-integer task id,False,0.048
+3,gen3_02,3,ok,,False,0.018
+3,gen3_03,3,infeasible,non-integer task id,False,0.021
+3,gen3_04,3,infeasible,technician is not a list,False,0.231
+3,gen3_05,3,ok,,False,0.015
+3,gen3_06,3,infeasible,non-integer task id,False,0.08
+4,gen1_01,1,error,KeyError: 'ornois',False,0.0
+4,gen1_02,1,error,KeyError: 'ornois',False,0.0
+4,gen1_03,1,ok,,False,0.02
+4,gen1_04,1,ok,,False,0.046
+4,gen1_05,1,error,KeyError: 'ornois',False,0.0
+4,gen1_06,1,ok,,False,0.049
+4,gen2_01,2,ok,,False,0.045
+4,gen2_02,2,error,KeyError: 'ornoess',False,0.0
+4,gen2_03,2,ok,,False,0.022
+4,gen2_04,2,error,KeyError: 'ornoess',False,0.0
+4,gen2_05,2,error,KeyError: 'ornoess',False,0.0
+4,gen2_06,2,error,"TypeError: list indices must be integers or slices, not float",False,0.0
+4,gen3_01,3,infeasible,non-integer task id,False,0.049
+4,gen3_02,3,ok,,False,0.018
+4,gen3_03,3,infeasible,non-integer task id,False,0.02
+4,gen3_04,3,infeasible,technician is not a list,False,0.265
+4,gen3_05,3,ok,,False,0.026
+4,gen3_06,3,infeasible,non-integer task id,False,0.099
+5,gen1_01,1,error,KeyError: 'ornois',False,0.0
+5,gen1_02,1,error,KeyError: 'ornois',False,0.0
+5,gen1_03,1,ok,,False,0.019
+5,gen1_04,1,ok,,False,0.044
+5,gen1_05,1,error,KeyError: 'ornois',False,0.0
+5,gen1_06,1,ok,,False,0.046
+5,gen2_01,2,ok,,False,0.045
+5,gen2_02,2,error,KeyError: 'ornoess',False,0.0
+5,gen2_03,2,ok,,False,0.022
+5,gen2_04,2,error,KeyError: 'ornoess',False,0.0
+5,gen2_05,2,error,KeyError: 'ornoess',False,0.0
+5,gen2_06,2,error,"TypeError: list indices must be integers or slices, not float",False,0.0
+5,gen3_01,3,infeasible,non-integer task id,False,0.045
+5,gen3_02,3,ok,,False,0.017
+5,gen3_03,3,infeasible,non-integer task id,False,0.02
+5,gen3_04,3,infeasible,technician is not a list,False,0.229
+5,gen3_05,3,ok,,False,0.016
+5,gen3_06,3,infeasible,non-integer task id,False,0.086
+6,gen1_01,1,error,KeyError: 'ornois',False,0.0
+6,gen1_02,1,error,KeyError: 'ornois',False,0.0
+6,gen1_03,1,ok,,False,0.02
+6,gen1_04,1,ok,,False,0.046
+6,gen1_05,1,error,KeyError: 'ornois',False,0.0
+6,gen1_06,1,ok,,False,0.047
+6,gen2_01,2,ok,,False,0.046
+6,gen2_02,2,error,KeyError: 'ornoess',False,0.0
+6,gen2_03,2,ok,,False,0.022
+6,gen2_04,2,error,KeyError: 'ornoess',False,0.0
+6,gen2_05,2,error,KeyError: 'ornoess',False,0.0
+6,gen2_06,2,error,"TypeError: list indices must be integers or slices, not float",False,0.0
+6,gen3_01,3,infeasible,non-integer task id,False,0.046
+6,gen3_02,3,ok,,False,0.017
+6,gen3_03,3,infeasible,non-integer task id,False,0.019
+6,gen3_04,3,infeasible,technician is not a list,False,0.233
+6,gen3_05,3,ok,,False,0.016
+6,gen3_06,3,infeasible,non-integer task id,False,0.053
+7,gen1_01,1,error,KeyError: 'ornois',False,0.0
+7,gen1_02,1,error,KeyError: 'ornois',False,0.0
+7,gen1_03,1,ok,,False,0.02
+7,gen1_04,1,ok,,False,0.047
+7,gen1_05,1,error,KeyError: 'ornois',False,0.0
+7,gen1_06,1,ok,,False,0.049
+7,gen2_01,2,ok,,False,0.048
+7,gen2_02,2,error,KeyError: 'ornoess',False,0.0
+7,gen2_03,2,ok,,False,0.023
+7,gen2_04,2,error,KeyError: 'ornoess',False,0.0
+7,gen2_05,2,error,KeyError: 'ornoess',False,0.0
+7,gen2_06,2,error,"TypeError: list indices must be integers or slices, not float",False,0.0
+7,gen3_01,3,infeasible,non-integer task id,False,0.048
+7,gen3_02,3,ok,,False,0.018
+7,gen3_03,3,infeasible,non-integer task id,False,0.02
+7,gen3_04,3,infeasible,technician is not a list,False,0.227
+7,gen3_05,3,ok,,False,0.015
+7,gen3_06,3,infeasible,non-integer task id,False,0.049
+8,gen1_01,1,error,KeyError: 'ornois',False,0.0
+8,gen1_02,1,error,KeyError: 'ornois',False,0.0
+8,gen1_03,1,ok,,False,0.063
+8,gen1_04,1,ok,,False,0.046
+8,gen1_05,1,error,KeyError: 'ornois',False,0.0
+8,gen1_06,1,ok,,False,0.047
+8,gen2_01,2,ok,,False,0.047
+8,gen2_02,2,error,KeyError: 'ornoess',False,0.0
+8,gen2_03,2,ok,,False,0.023
+8,gen2_04,2,error,KeyError: 'ornoess',False,0.0
+8,gen2_05,2,error,KeyError: 'ornoess',False,0.0
+8,gen2_06,2,error,"TypeError: list indices must be integers or slices, not float",False,0.0
+8,gen3_01,3,infeasible,non-integer task id,False,0.044
+8,gen3_02,3,ok,,False,0.017
+8,gen3_03,3,infeasible,non-integer task id,False,0.019
+8,gen3_04,3,infeasible,technician is not a list,False,0.229
+8,gen3_05,3,ok,,False,0.014
+8,gen3_06,3,infeasible,non-integer task id,False,0.046
+9,gen1_01,1,error,KeyError: 'ornois',False,0.0
+9,gen1_02,1,error,KeyError: 'ornois',False,0.0
+9,gen1_03,1,ok,,False,0.019
+9,gen1_04,1,ok,,False,0.046
+9,gen1_05,1,error,KeyError: 'ornois',False,0.0
+9,gen1_06,1,ok,,False,0.049
+9,gen2_01,2,ok,,False,0.046
+9,gen2_02,2,error,KeyError: 'ornoess',False,0.0
+9,gen2_03,2,ok,,False,0.022
+9,gen2_04,2,error,KeyError: 'ornoess',False,0.0
+9,gen2_05,2,error,KeyError: 'ornoess',False,0.0
+9,gen2_06,2,error,"TypeError: list indices must be integers or slices, not float",False,0.0
+9,gen3_01,3,infeasible,non-integer task id,False,0.048
+9,gen3_02,3,ok,,False,0.017
+9,gen3_03,3,infeasible,non-integer task id,False,0.019
+9,gen3_04,3,infeasible,technician is not a list,False,0.217
+9,gen3_05,3,ok,,False,0.015
+9,gen3_06,3,infeasible,non-integer task id,False,0.049
+10,gen1_01,1,error,KeyError: 'ornois',False,0.0
+10,gen1_02,1,error,KeyError: 'ornois',False,0.0
+10,gen1_03,1,ok,,False,0.02
+10,gen1_04,1,ok,,False,0.049
+10,gen1_05,1,error,KeyError: 'ornois',False,0.0
+10,gen1_06,1,ok,,False,0.051
+10,gen2_01,2,ok,,False,0.051
+10,gen2_02,2,error,KeyError: 'ornoess',False,0.0
+10,gen2_03,2,ok,,False,0.024
+10,gen2_04,2,error,KeyError: 'ornoess',False,0.0
+10,gen2_05,2,error,KeyError: 'ornoess',False,0.0
+10,gen2_06,2,error,"TypeError: list indices must be integers or slices, not float",False,0.0
+10,gen3_01,3,infeasible,non-integer task id,False,0.05
+10,gen3_02,3,ok,,False,0.019
+10,gen3_03,3,infeasible,non-integer task id,False,0.02
+10,gen3_04,3,infeasible,technician is not a list,False,0.231
+10,gen3_05,3,ok,,False,0.016
+10,gen3_06,3,infeasible,non-integer task id,False,0.052
+11,gen1_01,1,error,KeyError: 'ornois',False,0.0
+11,gen1_02,1,error,KeyError: 'ornois',False,0.0
+11,gen1_03,1,ok,,False,0.02
+11,gen1_04,1,ok,,False,0.047
+11,gen1_05,1,error,KeyError: 'ornois',False,0.0
+11,gen1_06,1,ok,,False,0.051
+11,gen2_01,2,ok,,False,0.049
+11,gen2_02,2,error,KeyError: 'ornoess',False,0.0
+11,gen2_03,2,ok,,False,0.024
+11,gen2_04,2,error,KeyError: 'ornoess',False,0.0
+11,gen2_05,2,error,KeyError: 'ornoess',False,0.0
+11,gen2_06,2,error,"TypeError: list indices must be integers or slices, not float",False,0.0
+11,gen3_01,3,infeasible,non-integer task id,False,0.05
+11,gen3_02,3,ok,,False,0.019
+11,gen3_03,3,infeasible,non-integer task id,False,0.021
+11,gen3_04,3,infeasible,technician is not a list,False,0.228
+11,gen3_05,3,ok,,False,0.015
+11,gen3_06,3,infeasible,non-integer task id,False,0.05
+12,gen1_01,1,error,KeyError: 'ornois',False,0.0
+12,gen1_02,1,error,KeyError: 'ornois',False,0.0
+12,gen1_03,1,ok,,False,0.02
+12,gen1_04,1,ok,,False,0.047
+12,gen1_05,1,error,KeyError: 'ornois',False,0.0
+12,gen1_06,1,ok,,False,0.099
+12,gen2_01,2,ok,,False,0.05
+12,gen2_02,2,error,KeyError: 'ornoess',False,0.0
+12,gen2_03,2,ok,,False,0.024
+12,gen2_04,2,error,KeyError: 'ornoess',False,0.0
+12,gen2_05,2,error,KeyError: 'ornoess',False,0.0
+12,gen2_06,2,error,"TypeError: list indices must be integers or slices, not float",False,0.0
+12,gen3_01,3,infeasible,non-integer task id,False,0.048
+12,gen3_02,3,ok,,False,0.019
+12,gen3_03,3,infeasible,non-integer task id,False,0.02
+12,gen3_04,3,infeasible,technician is not a list,False,0.231
+12,gen3_05,3,ok,,False,0.015
+12,gen3_06,3,infeasible,non-integer task id,False,0.049
+13,gen1_01,1,error,KeyError: 'ornois',False,0.0
+13,gen1_02,1,error,KeyError: 'ornois',False,0.0
+13,gen1_03,1,ok,,False,0.02
+13,gen1_04,1,ok,,False,0.049
+13,gen1_05,1,error,KeyError: 'ornois',False,0.0
+13,gen1_06,1,ok,,False,0.051
+13,gen2_01,2,ok,,False,0.049
+13,gen2_02,2,error,KeyError: 'ornoess',False,0.0
+13,gen2_03,2,ok,,False,0.024
+13,gen2_04,2,error,KeyError: 'ornoess',False,0.0
+13,gen2_05,2,error,KeyError: 'ornoess',False,0.0
+13,gen2_06,2,error,"TypeError: list indices must be integers or slices, not float",False,0.0
+13,gen3_01,3,infeasible,non-integer task id,False,0.05
+13,gen3_02,3,ok,,False,0.018
+13,gen3_03,3,infeasible,non-integer task id,False,0.02
+13,gen3_04,3,infeasible,technician is not a list,False,0.232
+13,gen3_05,3,ok,,False,0.016
+13,gen3_06,3,infeasible,non-integer task id,False,0.052
+14,gen1_01,1,error,KeyError: 'ornois',False,0.0
+14,gen1_02,1,error,KeyError: 'ornois',False,0.0
+14,gen1_03,1,ok,,False,0.023
+14,gen1_04,1,ok,,False,0.052
+14,gen1_05,1,error,KeyError: 'ornois',False,0.0
+14,gen1_06,1,ok,,False,0.053
+14,gen2_01,2,ok,,False,0.051
+14,gen2_02,2,error,KeyError: 'ornoess',False,0.0
+14,gen2_03,2,ok,,False,0.025
+14,gen2_04,2,error,KeyError: 'ornoess',False,0.0
+14,gen2_05,2,error,KeyError: 'ornoess',False,0.0
+14,gen2_06,2,error,"TypeError: list indices must be integers or slices, not float",False,0.0
+14,gen3_01,3,infeasible,non-integer task id,False,0.052
+14,gen3_02,3,ok,,False,0.019
+14,gen3_03,3,infeasible,non-integer task id,False,0.021
+14,gen3_04,3,infeasible,technician is not a list,False,0.24
+14,gen3_05,3,ok,,False,0.016
+14,gen3_06,3,infeasible,non-integer task id,False,0.054
+15,gen1_01,1,error,KeyError: 'ornois',False,0.0
+15,gen1_02,1,error,KeyError: 'ornois',False,0.0
+15,gen1_03,1,ok,,False,0.021
+15,gen1_04,1,ok,,False,0.05
+15,gen1_05,1,error,KeyError: 'ornois',False,0.0
+15,gen1_06,1,ok,,False,0.052
+15,gen2_01,2,ok,,False,0.05
+15,gen2_02,2,error,KeyError: 'ornoess',False,0.0
+15,gen2_03,2,ok,,False,0.023
+15,gen2_04,2,error,KeyError: 'ornoess',False,0.0
+15,gen2_05,2,error,KeyError: 'ornoess',False,0.0
+15,gen2_06,2,error,"TypeError: list indices must be integers or slices, not float",False,0.0
+15,gen3_01,3,infeasible,non-integer task id,False,0.06
+15,gen3_02,3,ok,,False,0.027
+15,gen3_03,3,infeasible,non-integer task id,False,0.024
+15,gen3_04,3,infeasible,technician is not a list,False,0.239
+15,gen3_05,3,ok,,False,0.018
+15,gen3_06,3,infeasible,non-integer task id,False,0.053
+16,gen1_01,1,error,KeyError: 'ornois',False,0.0
+16,gen1_02,1,error,KeyError: 'ornois',False,0.0
+16,gen1_03,1,ok,,False,0.025
+16,gen1_04,1,ok,,False,0.048
+16,gen1_05,1,error,KeyError: 'ornois',False,0.0
+16,gen1_06,1,ok,,False,0.051
+16,gen2_01,2,ok,,False,0.051
+16,gen2_02,2,error,KeyError: 'ornoess',False,0.0
+16,gen2_03,2,ok,,False,0.024
+16,gen2_04,2,error,KeyError: 'ornoess',False,0.0
+16,gen2_05,2,error,KeyError: 'ornoess',False,0.0
+16,gen2_06,2,error,"TypeError: list indices must be integers or slices, not float",False,0.0
+16,gen3_01,3,infeasible,non-integer task id,False,0.05
+16,gen3_02,3,ok,,False,0.018
+16,gen3_03,3,infeasible,non-integer task id,False,0.021
+16,gen3_04,3,infeasible,technician is not a list,False,0.227
+16,gen3_05,3,ok,,False,0.015
+16,gen3_06,3,infeasible,non-integer task id,False,0.05
+17,gen1_01,1,error,KeyError: 'ornois',False,0.0
+17,gen1_02,1,error,KeyError: 'ornois',False,0.0
+17,gen1_03,1,ok,,False,0.02
+17,gen1_04,1,ok,,False,0.045
+17,gen1_05,1,error,KeyError: 'ornois',False,0.0
+17,gen1_06,1,ok,,False,0.046
+17,gen2_01,2,ok,,False,0.046
+17,gen2_02,2,error,KeyError: 'ornoess',False,0.0
+17,gen2_03,2,ok,,False,0.023
+17,gen2_04,2,error,KeyError: 'ornoess',False,0.0
+17,gen2_05,2,error,KeyError: 'ornoess',False,0.0
+17,gen2_06,2,error,"TypeError: list indices must be integers or slices, not float",False,0.0
+17,gen3_01,3,infeasible,non-integer task id,False,0.045
+17,gen3_02,3,ok,,False,0.018
+17,gen3_03,3,infeasible,non-integer task id,False,0.019
+17,gen3_04,3,infeasible,technician is not a list,False,0.218
+17,gen3_05,3,ok,,False,0.015
+17,gen3_06,3,infeasible,non-integer task id,False,0.047
+18,gen1_01,1,error,KeyError: 'ornois',False,0.0
+18,gen1_02,1,error,KeyError: 'ornois',False,0.0
+18,gen1_03,1,ok,,False,0.02
+18,gen1_04,1,ok,,False,0.045
+18,gen1_05,1,error,KeyError: 'ornois',False,0.0
+18,gen1_06,1,ok,,False,0.045
+18,gen2_01,2,ok,,False,0.045
+18,gen2_02,2,error,KeyError: 'ornoess',False,0.0
+18,gen2_03,2,ok,,False,0.022
+18,gen2_04,2,error,KeyError: 'ornoess',False,0.0
+18,gen2_05,2,error,KeyError: 'ornoess',False,0.0
+18,gen2_06,2,error,"TypeError: list indices must be integers or slices, not float",False,0.0
+18,gen3_01,3,infeasible,non-integer task id,False,0.046
+18,gen3_02,3,ok,,False,0.018
+18,gen3_03,3,infeasible,non-integer task id,False,0.019
+18,gen3_04,3,infeasible,technician is not a list,False,0.215
+18,gen3_05,3,ok,,False,0.016
+18,gen3_06,3,infeasible,non-integer task id,False,0.05
+19,gen1_01,1,error,KeyError: 'ornois',False,0.0
+19,gen1_02,1,error,KeyError: 'ornois',False,0.0
+19,gen1_03,1,ok,,False,0.019
+19,gen1_04,1,ok,,False,0.046
+19,gen1_05,1,error,KeyError: 'ornois',False,0.0
+19,gen1_06,1,ok,,False,0.047
+19,gen2_01,2,ok,,False,0.046
+19,gen2_02,2,error,KeyError: 'ornoess',False,0.0
+19,gen2_03,2,ok,,False,0.024
+19,gen2_04,2,error,KeyError: 'ornoess',False,0.0
+19,gen2_05,2,error,KeyError: 'ornoess',False,0.0
+19,gen2_06,2,error,"TypeError: list indices must be integers or slices, not float",False,0.0
+19,gen3_01,3,infeasible,non-integer task id,False,0.047
+19,gen3_02,3,ok,,False,0.017
+19,gen3_03,3,infeasible,non-integer task id,False,0.02
+19,gen3_04,3,infeasible,technician is not a list,False,0.217
+19,gen3_05,3,ok,,False,0.014
+19,gen3_06,3,infeasible,non-integer task id,False,0.048
+20,gen1_01,1,error,KeyError: 'ornois',False,0.0
+20,gen1_02,1,error,KeyError: 'ornois',False,0.0
+20,gen1_03,1,ok,,False,0.019
+20,gen1_04,1,ok,,False,0.043
+20,gen1_05,1,error,KeyError: 'ornois',False,0.0
+20,gen1_06,1,ok,,False,0.045
+20,gen2_01,2,ok,,False,0.046
+20,gen2_02,2,error,KeyError: 'ornoess',False,0.0
+20,gen2_03,2,ok,,False,0.022
+20,gen2_04,2,error,KeyError: 'ornoess',False,0.0
+20,gen2_05,2,error,KeyError: 'ornoess',False,0.0
+20,gen2_06,2,error,"TypeError: list indices must be integers or slices, not float",False,0.0
+20,gen3_01,3,infeasible,non-integer task id,False,0.045
+20,gen3_02,3,ok,,False,0.017
+20,gen3_03,3,infeasible,non-integer task id,False,0.068
+20,gen3_04,3,infeasible,technician is not a list,False,0.217
+20,gen3_05,3,ok,,False,0.015
+20,gen3_06,3,infeasible,non-integer task id,False,0.046
+21,gen1_01,1,error,KeyError: 'ornois',False,0.0
+21,gen1_02,1,error,KeyError: 'ornois',False,0.0
+21,gen1_03,1,ok,,False,0.019
+21,gen1_04,1,ok,,False,0.048
+21,gen1_05,1,error,KeyError: 'ornois',False,0.0
+21,gen1_06,1,ok,,False,0.047
+21,gen2_01,2,ok,,False,0.049
+21,gen2_02,2,error,KeyError: 'ornoess',False,0.0
+21,gen2_03,2,ok,,False,0.022
+21,gen2_04,2,error,KeyError: 'ornoess',False,0.0
+21,gen2_05,2,error,KeyError: 'ornoess',False,0.0
+21,gen2_06,2,error,"TypeError: list indices must be integers or slices, not float",False,0.0
+21,gen3_01,3,infeasible,non-integer task id,False,0.045
+21,gen3_02,3,ok,,False,0.017
+21,gen3_03,3,infeasible,non-integer task id,False,0.019
+21,gen3_04,3,infeasible,technician is not a list,False,0.217
+21,gen3_05,3,ok,,False,0.015
+21,gen3_06,3,infeasible,non-integer task id,False,0.047
+22,gen1_01,1,error,KeyError: 'ornois',False,0.0
+22,gen1_02,1,error,KeyError: 'ornois',False,0.0
+22,gen1_03,1,ok,,False,0.019
+22,gen1_04,1,ok,,False,0.045
+22,gen1_05,1,error,KeyError: 'ornois',False,0.0
+22,gen1_06,1,ok,,False,0.051
+22,gen2_01,2,ok,,False,0.046
+22,gen2_02,2,error,KeyError: 'ornoess',False,0.0
+22,gen2_03,2,ok,,False,0.022
+22,gen2_04,2,error,KeyError: 'ornoess',False,0.0
+22,gen2_05,2,error,KeyError: 'ornoess',False,0.0
+22,gen2_06,2,error,"TypeError: list indices must be integers or slices, not float",False,0.0
+22,gen3_01,3,infeasible,non-integer task id,False,0.045
+22,gen3_02,3,ok,,False,0.018
+22,gen3_03,3,infeasible,non-integer task id,False,0.019
+22,gen3_04,3,infeasible,technician is not a list,False,0.22
+22,gen3_05,3,ok,,False,0.016
+22,gen3_06,3,infeasible,non-integer task id,False,0.05
+23,gen1_01,1,error,KeyError: 'ornois',False,0.0
+23,gen1_02,1,error,KeyError: 'ornois',False,0.0
+23,gen1_03,1,ok,,False,0.021
+23,gen1_04,1,ok,,False,0.049
+23,gen1_05,1,error,KeyError: 'ornois',False,0.0
+23,gen1_06,1,ok,,False,0.049
+23,gen2_01,2,ok,,False,0.049
+23,gen2_02,2,error,KeyError: 'ornoess',False,0.0
+23,gen2_03,2,ok,,False,0.024
+23,gen2_04,2,error,KeyError: 'ornoess',False,0.0
+23,gen2_05,2,error,KeyError: 'ornoess',False,0.0
+23,gen2_06,2,error,"TypeError: list indices must be integers or slices, not float",False,0.0
+23,gen3_01,3,infeasible,non-integer task id,False,0.049
+23,gen3_02,3,ok,,False,0.019
+23,gen3_03,3,infeasible,non-integer task id,False,0.021
+23,gen3_04,3,infeasible,technician is not a list,False,0.232
+23,gen3_05,3,ok,,False,0.016
+23,gen3_06,3,infeasible,non-integer task id,False,0.05
+24,gen1_01,1,error,KeyError: 'ornois',False,0.0
+24,gen1_02,1,error,KeyError: 'ornois',False,0.0
+24,gen1_03,1,ok,,False,0.021
+24,gen1_04,1,ok,,False,0.048
+24,gen1_05,1,error,KeyError: 'ornois',False,0.0
+24,gen1_06,1,ok,,False,0.053
+24,gen2_01,2,ok,,False,0.045
+24,gen2_02,2,error,KeyError: 'ornoess',False,0.0
+24,gen2_03,2,ok,,False,0.022
+24,gen2_04,2,error,KeyError: 'ornoess',False,0.0
+24,gen2_05,2,error,KeyError: 'ornoess',False,0.0
+24,gen2_06,2,error,"TypeError: list indices must be integers or slices, not float",False,0.0
+24,gen3_01,3,infeasible,non-integer task id,False,0.052
+24,gen3_02,3,ok,,False,0.02
+24,gen3_03,3,infeasible,non-integer task id,False,0.019
+24,gen3_04,3,infeasible,technician is not a list,False,0.224
+24,gen3_05,3,ok,,False,0.015
+24,gen3_06,3,infeasible,non-integer task id,False,0.049
+25,gen1_01,1,error,KeyError: 'ornois',False,0.0
+25,gen1_02,1,error,KeyError: 'ornois',False,0.0
+25,gen1_03,1,ok,,False,0.019
+25,gen1_04,1,ok,,False,0.091
+25,gen1_05,1,error,KeyError: 'ornois',False,0.0
+25,gen1_06,1,ok,,False,0.045
+25,gen2_01,2,ok,,False,0.046
+25,gen2_02,2,error,KeyError: 'ornoess',False,0.0
+25,gen2_03,2,ok,,False,0.022
+25,gen2_04,2,error,KeyError: 'ornoess',False,0.0
+25,gen2_05,2,error,KeyError: 'ornoess',False,0.0
+25,gen2_06,2,error,"TypeError: list indices must be integers or slices, not float",False,0.0
+25,gen3_01,3,infeasible,non-integer task id,False,0.046
+25,gen3_02,3,ok,,False,0.017
+25,gen3_03,3,infeasible,non-integer task id,False,0.019
+25,gen3_04,3,infeasible,technician is not a list,False,0.215
+25,gen3_05,3,ok,,False,0.015
+25,gen3_06,3,infeasible,non-integer task id,False,0.049
+26,gen1_01,1,error,KeyError: 'ornois',False,0.0
+26,gen1_02,1,error,KeyError: 'ornois',False,0.0
+26,gen1_03,1,ok,,False,0.019
+26,gen1_04,1,ok,,False,0.045
+26,gen1_05,1,error,KeyError: 'ornois',False,0.0
+26,gen1_06,1,ok,,False,0.051
+26,gen2_01,2,ok,,False,0.049
+26,gen2_02,2,error,KeyError: 'ornoess',False,0.0
+26,gen2_03,2,ok,,False,0.024
+26,gen2_04,2,error,KeyError: 'ornoess',False,0.0
+26,gen2_05,2,error,KeyError: 'ornoess',False,0.0
+26,gen2_06,2,error,"TypeError: list indices must be integers or slices, not float",False,0.0
+26,gen3_01,3,infeasible,non-integer task id,False,0.052
+26,gen3_02,3,ok,,False,0.022
+26,gen3_03,3,infeasible,non-integer task id,False,0.02
+26,gen3_04,3,infeasible,technician is not a list,False,0.251
+26,gen3_05,3,ok,,False,0.016
+26,gen3_06,3,infeasible,non-integer task id,False,0.053
+27,gen1_01,1,error,KeyError: 'ornois',False,0.0
+27,gen1_02,1,error,KeyError: 'ornois',False,0.0
+27,gen1_03,1,ok,,False,0.02
+27,gen1_04,1,ok,,False,0.047
+27,gen1_05,1,error,KeyError: 'ornois',False,0.0
+27,gen1_06,1,ok,,False,0.049
+27,gen2_01,2,ok,,False,0.048
+27,gen2_02,2,error,KeyError: 'ornoess',False,0.0
+27,gen2_03,2,ok,,False,0.024
+27,gen2_04,2,error,KeyError: 'ornoess',False,0.0
+27,gen2_05,2,error,KeyError: 'ornoess',False,0.0
+27,gen2_06,2,error,"TypeError: list indices must be integers or slices, not float",False,0.0
+27,gen3_01,3,infeasible,non-integer task id,False,0.048
+27,gen3_02,3,ok,,False,0.018
+27,gen3_03,3,infeasible,non-integer task id,False,0.022
+27,gen3_04,3,infeasible,technician is not a list,False,0.228
+27,gen3_05,3,ok,,False,0.015
+27,gen3_06,3,infeasible,non-integer task id,False,0.05
+28,gen1_01,1,error,KeyError: 'ornois',False,0.0
+28,gen1_02,1,error,KeyError: 'ornois',False,0.0
+28,gen1_03,1,ok,,False,0.02
+28,gen1_04,1,ok,,False,0.047
+28,gen1_05,1,error,KeyError: 'ornois',False,0.0
+28,gen1_06,1,ok,,False,0.052
+28,gen2_01,2,ok,,False,0.048
+28,gen2_02,2,error,KeyError: 'ornoess',False,0.0
+28,gen2_03,2,ok,,False,0.023
+28,gen2_04,2,error,KeyError: 'ornoess',False,0.0
+28,gen2_05,2,error,KeyError: 'ornoess',False,0.0
+28,gen2_06,2,error,"TypeError: list indices must be integers or slices, not float",False,0.0
+28,gen3_01,3,infeasible,non-integer task id,False,0.049
+28,gen3_02,3,ok,,False,0.018
+28,gen3_03,3,infeasible,non-integer task id,False,0.02
+28,gen3_04,3,infeasible,technician is not a list,False,0.229
+28,gen3_05,3,ok,,False,0.015
+28,gen3_06,3,infeasible,non-integer task id,False,0.05
+29,gen1_01,1,error,KeyError: 'ornois',False,0.0
+29,gen1_02,1,error,KeyError: 'ornois',False,0.0
+29,gen1_03,1,ok,,False,0.02
+29,gen1_04,1,ok,,False,0.046
+29,gen1_05,1,error,KeyError: 'ornois',False,0.0
+29,gen1_06,1,ok,,False,0.049
+29,gen2_01,2,ok,,False,0.099
+29,gen2_02,2,error,KeyError: 'ornoess',False,0.0
+29,gen2_03,2,ok,,False,0.024
+29,gen2_04,2,error,KeyError: 'ornoess',False,0.0
+29,gen2_05,2,error,KeyError: 'ornoess',False,0.0
+29,gen2_06,2,error,"TypeError: list indices must be integers or slices, not float",False,0.0
+29,gen3_01,3,infeasible,non-integer task id,False,0.048
+29,gen3_02,3,ok,,False,0.018
+29,gen3_03,3,infeasible,non-integer task id,False,0.02
+29,gen3_04,3,infeasible,technician is not a list,False,0.227
+29,gen3_05,3,ok,,False,0.015
+29,gen3_06,3,infeasible,non-integer task id,False,0.048
