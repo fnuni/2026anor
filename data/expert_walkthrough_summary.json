@@ -1,0 +1,58 @@
+{
+  "booklets": 10,
+  "experience_over_five": 6,
+  "comprehension_correct": 50,
+  "reading_correct": 140,
+  "portfolio_decisions": 30,
+  "portfolio_selected_N": 1,
+  "portfolio_zero_regret": 22,
+  "portfolio_mean_regret": 0.06,
+  "nominal_mean_regret": 1.02,
+  "dial_set": 28,
+  "dial_within_0_05": 22,
+  "repeated_same_option": 7,
+  "single_recommendation": {
+    "adopt": 11,
+    "alternatives": 8,
+    "reject": 1
+  },
+  "format_A_risk_median": 4,
+  "decisive_column": {
+    "one_in_twenty": 14,
+    "selector": 7,
+    "average_cost": 4,
+    "answered": 28
+  },
+  "mean_confidence": {
+    "B": 5.7,
+    "A": 5.2
+  },
+  "vignettes": {
+    "dial": {
+      "correct": 18,
+      "ease": 3.7
+    },
+    "summary": {
+      "correct": 19,
+      "ease": 4.7
+    }
+  },
+  "SUS": {
+    "n": 9,
+    "mean": 77.5,
+    "range": [
+      62.5,
+      80.0
+    ]
+  },
+  "agreement": {
+    "understood_dial": 4.8,
+    "options_helped": 3.9,
+    "prefer_single": 2.8
+  },
+  "requested_features": {
+    "workloads": 8,
+    "past_days": 5,
+    "written_explanation": 5
+  }
+}

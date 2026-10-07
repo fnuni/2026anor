@@ -16,6 +16,7 @@ python run_all.py                      # everything (15-35 min, hardware-depende
 python run_all.py --skip-runtime       # deterministic results; keep reference timings
 python run_all.py --fast               # skip the public-benchmark and theory sweeps
 python test_smoke.py                   # correctness checks, incl. sandbox probes
+python verify_expert_walkthrough.py    # recompute every value in the walkthrough table
 ```
 
 No API key and no network access are required. All three language-model pilots re-execute their released programs; they do not
@@ -98,6 +99,10 @@ manuscript. The program files are not edited.
 `data/` holds, for every study, the aggregated table, the statistics with raw
 and Holm-adjusted p-values and effect sizes, the raw per-unit records, and a
 metadata JSON with the full protocol. `scheduling_raw_runs.csv` and `routing_raw_runs.csv` include rounded per-scenario cost vectors. Other studies release unit-level summaries and the code needed to reconstruct scenario evaluations.
+`expert_walkthrough_summary.json` records the independently checked values
+reported in the manuscript. `verify_expert_walkthrough.py` recomputes those
+values directly from the checked-control records in the released workbook; it
+does not rely on cached spreadsheet formula results.
 
 ## Notes
 
@@ -213,6 +218,17 @@ python qwen27_pilot/verify_statistics.py
 macros. The adaptive-evaluation caveat also applies to this run: feedback and
 final evaluation share the same 30 instance seeds. The per-generation results
 do not demonstrate monotonic improvement or an autonomous reflection loop.
+
+## Anonymous expert walkthrough
+
+`expert_consultation/` contains the ten anonymous completed booklets
+(`Booklet_P01.pdf` … `Booklet_P10.pdf`, with completion times and file
+properties removed) and `Expert_consultation_data.xlsx` with the checked Word
+control records, answer keys, option data and pre-specified checks. Relative to
+archived release `c`, this resubmission package adds `Booklet_P06.pdf` through
+`Booklet_P10.pdf` and replaces the five-participant workbook with the complete
+ten-participant version. Run `python verify_expert_walkthrough.py` to recompute
+the full manuscript summary from that workbook.
 
 ## License
 

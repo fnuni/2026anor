@@ -1,3 +1,4 @@
 # Required to reproduce every artefact (pinned versions in requirements-lock.txt).
 numpy>=1.24
 scipy>=1.10
+openpyxl>=3.1
