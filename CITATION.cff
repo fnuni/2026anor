@@ -1,6 +1,6 @@
 cff-version: 1.2.0
 message: "If you use this repository, please cite the associated article."
-title: "C-R-EoH: Evaluator-Centred Collaborative Intelligence for Robust Automatic Heuristic Design under Fuzzy Uncertainty"
+title: "C-R-EoH: Evaluator-Centered Collaborative Intelligence for Robust Automatic Heuristic Design under Fuzzy Uncertainty"
 authors:
   - family-names: Nucci
     given-names: Francesco
@@ -10,7 +10,7 @@ authors:
     given-names: Gabriele
     orcid: "https://orcid.org/0000-0003-1507-8188"
     affiliation: University of Salento
-version: 4.0.0
+version: e
 date-released: 2026-10-07
 license: MIT
 repository-code: "https://github.com/fnuni/2026anor"

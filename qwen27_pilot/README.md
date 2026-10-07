@@ -2,8 +2,11 @@
 
 The exact local Ollama tag is `qwen3.8:27b-mlx`; in the manuscript this pilot is called **Qwen-27B**. Ollama reports 27,781,081,984
 parameters, architecture `qwen3_5`, safetensors format and NVFP4 quantization.
-The upstream release identity is not inferred from the local tag. Model digest,
-full configuration and Ollama version are recorded in `experiment/backbone.json`.
+The logged digest `5642e97495e1a088883805981563dcdc4a040c2f53388b7a41d1f24d3622cf7e`
+matches the Ollama registry's `qwen3.8:27b-nvfp4` MLX build. Its public
+checkpoint, `mlx-community/Qwen3.8-27B-nvfp4`, is an NVFP4 MLX quantization of
+`Qwen/Qwen3.8-27B`. The full configuration and Ollama version are recorded in
+`experiment/backbone.json`.
 
 The main campaign uses three generations of six fresh-context requests with
 `think=false`, temperature 0.7, top_p 0.9, num_ctx 8192, num_predict 4096,

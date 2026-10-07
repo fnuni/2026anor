@@ -57,6 +57,7 @@ from scipy.stats import spearmanr, wilcoxon
 from creoh_routing import (ExpectedCost, OWARisk, ScenarioStability, FitnessVector,
                            ParetoArchive, p95, cliffs_delta, holm, dial_scores)
 import creoh_scheduling as sched
+from creoh_baselines import MinMaxRobustMethod, SAACVaRMethod
 
 
 # ==========================================================================
@@ -112,6 +113,13 @@ class ArchiveView:
         self.det = det
         self.det_norm = (np.array([f1(det.train), f2(det.train), f3(det.train)])
                          - lo) / (np.ptp(self.raw, 0) + 1e-9)
+
+    def normalise_candidate(self, candidate) -> np.ndarray:
+        """Place any single-selector recommendation in the archive scale."""
+        f1, f2, f3 = ExpectedCost(), OWARisk(0.7), ScenarioStability()
+        raw = np.array([f1(candidate.train), f2(candidate.train),
+                        f3(candidate.train)])
+        return (raw - self.lo) / (np.ptp(self.raw, 0) + 1e-9)
 
     def select(self, theta: float) -> int:
         """The dial rule of the manuscript applied to the archive members.
@@ -248,18 +256,27 @@ class PlannerRegret(PlannerAnalysis):
         }
 
     def run(self) -> dict:
-        res = {p.label: dict(regret_dial=[], regret_det=[], regret_random=[],
-                             oracle_util=[]) for p in PROFILES}
+        res = {p.label: dict(regret_dial=[], regret_det=[], regret_wald=[],
+                             regret_saa=[], regret_random=[], oracle_util=[])
+               for p in PROFILES}
         rng = np.random.default_rng(11)
         for _seed, _pool, view in self.views():
+            wald, _ = MinMaxRobustMethod().select(_pool)
+            saa, _ = SAACVaRMethod(beta=0.9, lam=0.5).select(_pool)
             for p in PROFILES:
                 u = p.utility(view.norm)
                 oracle = float(u.max())
                 dial = float(u[view.select(self.theta_map[p.label])])
                 det = float(p.utility(view.det_norm[None, :])[0])
+                wald_u = float(p.utility(
+                    view.normalise_candidate(wald)[None, :])[0])
+                saa_u = float(p.utility(
+                    view.normalise_candidate(saa)[None, :])[0])
                 rand = float(u[rng.integers(0, len(u))])
                 res[p.label]["regret_dial"].append(oracle - dial)
                 res[p.label]["regret_det"].append(oracle - det)
+                res[p.label]["regret_wald"].append(oracle - wald_u)
+                res[p.label]["regret_saa"].append(oracle - saa_u)
                 res[p.label]["regret_random"].append(oracle - rand)
                 res[p.label]["oracle_util"].append(oracle)
         out, raw_p, stats = {}, {}, []
@@ -330,7 +347,9 @@ def run(seeds: int = 30, outdir: str = "data") -> dict:
         w = csv.writer(fh)
         w.writerow(["profile", "w_cost", "w_tail", "w_stability", "theta",
                     "regret_dial", "regret_dial_ci", "regret_deterministic",
-                    "regret_deterministic_ci", "regret_random",
+                    "regret_deterministic_ci", "regret_wald",
+                    "regret_wald_ci", "regret_saa_mean_cvar",
+                    "regret_saa_mean_cvar_ci", "regret_random",
                     "wilcoxon_p_holm", "cliffs_delta"])
         st = {r[0]: r for r in regret["stats"]}
         for lab, wc, wt, ws in regret["profiles"]:
@@ -338,6 +357,8 @@ def run(seeds: int = 30, outdir: str = "data") -> dict:
             w.writerow([lab, wc, wt, ws, regret["theta_map"][lab],
                         r["regret_dial"][0], r["regret_dial"][1],
                         r["regret_det"][0], r["regret_det"][1],
+                        r["regret_wald"][0], r["regret_wald"][1],
+                        r["regret_saa"][0], r["regret_saa"][1],
                         r["regret_random"][0],
                         f"{st[lab][2]:.6f}", f"{st[lab][3]:.3f}"])
     with open(os.path.join(outdir, "planner_parameter_guidance.csv"), "w",
@@ -370,12 +391,14 @@ def run(seeds: int = 30, outdir: str = "data") -> dict:
           f"{stab['mean_distinct_selections']} +- {stab['ci_distinct']}, "
           f"mean plateau width {stab['mean_plateau_width_theta']:.3f} in theta")
     print("\nplanner regret (lower is better):")
-    print(f"{'profile':30s} {'dial':>10} {'determ.':>10} {'random':>10} "
+    print(f"{'profile':30s} {'dial':>10} {'determ.':>10} {'wald':>10} "
+          f"{'saa':>10} {'random':>10} "
           f"{'p_holm':>10} {'delta':>7}")
     st = {r[0]: r for r in regret["stats"]}
     for lab, *_ in regret["profiles"]:
         r = regret["regret"][lab]
         print(f"{lab:30s} {r['regret_dial'][0]:10.4f} {r['regret_det'][0]:10.4f} "
+              f"{r['regret_wald'][0]:10.4f} {r['regret_saa'][0]:10.4f} "
               f"{r['regret_random'][0]:10.4f} {st[lab][2]:10.2e} "
               f"{st[lab][3]:+7.3f}")
     print("\nrecommended theta by uncertainty spread:")

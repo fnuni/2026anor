@@ -1,12 +1,12 @@
-# C-R-EoH — Evaluator-Centred Collaborative Intelligence for Robust AHD under Fuzzy Uncertainty
+# C-R-EoH — Evaluator-Centered Collaborative Intelligence for Robust AHD under Fuzzy Uncertainty
 
-Reproducibility repository for the manuscript *Evaluator-Centred Collaborative
+Reproducibility repository for the manuscript *Evaluator-Centered Collaborative
 Intelligence for Robust Automatic Heuristic Design under Fuzzy Uncertainty*
 (revision of ANOR-D-26-02279, Annals of Operations Research, Special Issue on
 Collaborative Intelligence in Operations Research).
 
 **Benchmark results are computed by the released evaluators and typeset from generated macros. Rehearsal records are generated from stated assumptions and are not empirical findings.** `run_all.py` regenerates the
-deterministic artefacts in `data/`, `results_macros.tex`, and the scripted
+deterministic artifacts in `data/`, `results_macros.tex`, and the scripted
 planner-rehearsal records and `planner_rehearsal_macros.tex`, plus the computed Figure 2 in `interface_example.tex`. Runtime values are hardware-specific
 and are regenerated only when that stage is included.
 
@@ -35,7 +35,7 @@ The original generation logs are preserved separately from regenerated results.
 | `creoh_ablation.py` | 8.6 | Ablation over the same 30 instances with CIs, paired Wilcoxon tests and Cliff's δ; the full configuration is the reported method (checked in `test_smoke.py`). |
 | `creoh_runtime.py` | 8.7 | Measured wall-clock overhead, scaling in *n*, *M*, *B*, and the verified structural/scenario cost decomposition. |
 | `creoh_llm_pilot.py` | 8.8 | Sandboxed harness for the real-LLM proposer pilot: static policy, execution timeout, deterministic repair policy, evaluation with the unchanged evaluator. |
-| `creoh_theory.py` | 5, 8.9 | Numerical verification of the eight propositions, the invariance-breaking study, and the robustness opportunity index with the realised reduction on the same pools. |
+| `creoh_theory.py` | 5, 8.9 | Numerical verification of the eight propositions, the invariance-breaking study, and the robustness opportunity index with the realized reduction on the same pools. |
 | `creoh_stress.py` | Fig. 4 | Out-of-distribution degradation at three amplification levels. |
 | `creoh_planner.py` | 9 | Dial response sweep, selection stability, planner regret over six risk profiles, two-way parameter guidance. |
 | `generate_planner_rehearsal.py` | 9.4 | Fixed-seed **scripted prototype rehearsal** (feasibility dry-run) of the planner-study protocol. **No human participants**: every record is generated from the per-profile assumptions stated in the script and is flagged `SCRIPTED_REHEARSAL_NOT_HUMAN_DATA`. Writes `data/planner_rehearsal_records.csv`, `data/planner_rehearsal_summary.json` and `planner_rehearsal_macros.tex`, plus the computed Figure 2 in `interface_example.tex`. |
@@ -190,8 +190,11 @@ p = 1.9e-5; Cliff's delta -0.43), versus 10.4% for Claude and
 controlled ranking of models. Cost indices and hypervolume are pool-specific.
 
 Ollama reports 27.8B parameters, architecture `qwen3_5`, NVFP4 quantization,
-and safetensors format. The local tag is not independently verified as an
-upstream release identity; the full digest and configuration are preserved.
+and safetensors format. The logged digest
+`5642e97495e1a088883805981563dcdc4a040c2f53388b7a41d1f24d3622cf7e`
+matches the Ollama registry's `qwen3.8:27b-nvfp4` MLX build. Its public
+checkpoint, `mlx-community/Qwen3.8-27B-nvfp4`, is an NVFP4 MLX quantization of
+`Qwen/Qwen3.8-27B`; the full local configuration is preserved.
 The main campaign sets `think=false`. A preliminary default-thinking batch
 returned no code in its first completed response after 4096 thinking tokens;
 the batch was stopped with a second request pending and is excluded in full.

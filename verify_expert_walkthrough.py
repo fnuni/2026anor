@@ -12,6 +12,7 @@ from collections import defaultdict
 from pathlib import Path
 
 from openpyxl import load_workbook
+from scipy.stats import binom
 
 
 ROOT = Path(__file__).resolve().parent
@@ -96,6 +97,8 @@ def compute():
     quiz_correct = 0
     reading_correct = 0
     portfolio = []
+    random_zero_probs = []
+    shown_option_counts = []
     nominal_regrets = []
     dial_regrets = []
     single = []
@@ -138,13 +141,21 @@ def compute():
                 shown_labels = ["N"] + repeat_letters[form]
                 shown = shown_labels[d1 - 1]
                 selected = repetition[(form, shown)]
+                evaluated_labels = ["N"] + [repetition[(form, label)]
+                                               for label in repeat_letters[form]]
                 repeat_same += selected == original_choices[instance]
             else:
                 shown_labels = ["N"] + portfolio_labels[instance]
+                evaluated_labels = shown_labels
                 selected = shown_labels[d1 - 1]
                 original_choices[instance] = selected
 
             portfolio.append((selected, regret(instance, selected, weights)))
+            shown_option_counts.append(len(shown_labels))
+            random_zero_probs.append(
+                sum(regret(instance, label, weights) <= 0.0005
+                    for label in evaluated_labels) / len(evaluated_labels)
+            )
             nominal_regrets.append(regret(instance, "N", weights))
             d4 = one(tags, f"C{case}_D4")
             if d4 is not None:
@@ -177,6 +188,10 @@ def compute():
         for position, field in ((1, "workloads"), (3, "past_days"), (4, "written_explanation")):
             requests[field] += f"F2_{position}" in tags
 
+    random_expected = sum(random_zero_probs)
+    random_p = float(binom.sf(
+        sum(value <= 0.0005 for _, value in portfolio) - 1,
+        len(portfolio), random_expected / len(portfolio)))
     return {
         "booklets": len(forms),
         "experience_over_five": experience_over_five,
@@ -187,6 +202,9 @@ def compute():
         "portfolio_zero_regret": sum(value <= 0.0005 for _, value in portfolio),
         "portfolio_mean_regret": mean(value for _, value in portfolio),
         "nominal_mean_regret": mean(nominal_regrets),
+        "random_choice_mean_options": round(statistics.mean(shown_option_counts), 1),
+        "random_choice_zero_regret_expected": round(random_expected, 1),
+        "random_choice_binomial_p": random_p,
         "dial_set": len(dial_regrets),
         "dial_within_0_05": sum(value <= best + 0.05 + 1e-12 for value, best in dial_regrets),
         "repeated_same_option": repeat_same,

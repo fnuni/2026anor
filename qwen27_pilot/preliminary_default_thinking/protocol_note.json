@@ -8,5 +8,5 @@
     "ram_gib": 36
   },
   "candidate_policy": "No manual correction or selective replacement; enclosing Markdown fence only removed; all responses retained.",
-  "identity_caveat": "Local tag qwen3.8:27b-mlx; Ollama show reports architecture qwen3_5, 27,781,081,984 parameters, NVFP4. Tag is not independently verified as an upstream release identity."
+  "identity_caveat": "Local tag qwen3.8:27b-mlx; Ollama show reports architecture qwen3_5, 27,781,081,984 parameters and NVFP4. Logged digest 5642e97495e1a088883805981563dcdc4a040c2f53388b7a41d1f24d3622cf7e matches the Ollama registry qwen3.8:27b-nvfp4 MLX build; public checkpoint mlx-community/Qwen3.8-27B-nvfp4 is an NVFP4 MLX quantization of Qwen/Qwen3.8-27B."
 }

@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Regenerate every released artefact, then the manuscript's number macros.
+"""Regenerate every released artifact, then the manuscript's number macros.
 
 Deterministic given the fixed seeds. No API key and no network access are
 required: the language-model pilot re-executes the generated programs that are
@@ -20,7 +20,7 @@ from dataclasses import dataclass, field
 
 @dataclass
 class Stage:
-    """One released study, its module and the artefacts it writes."""
+    """One released study, its module and the artifacts it writes."""
     key: str
     module: str
     label: str
@@ -70,7 +70,7 @@ def main(outdir: str = "data", fast: bool = False,
         print("\n[macros] regenerating results_macros.tex ...")
         importlib.import_module("make_macros").main()
         importlib.import_module("generate_interface_example").main()
-    print(f"\ndone in {time.time()-t0:.1f}s; artefacts in {outdir}/")
+    print(f"\ndone in {time.time()-t0:.1f}s; artifacts in {outdir}/")
 
 
 if __name__ == "__main__":
@@ -79,6 +79,6 @@ if __name__ == "__main__":
     ap.add_argument("--fast", action="store_true",
                     help="skip the public-benchmark and theory sweeps")
     ap.add_argument("--skip-runtime", action="store_true",
-                    help="preserve released hardware-specific timing artefacts")
+                    help="preserve released hardware-specific timing artifacts")
     a = ap.parse_args()
     main(a.outdir, a.fast, a.skip_runtime)
