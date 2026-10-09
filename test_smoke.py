@@ -139,6 +139,11 @@ def test_repair_rejects_coercion_and_records_empty_technicians():
     # Task count prefers machine 0; actual nominal load correctly prefers 1.
     out = rp.apply([[0], [1, 2]], 4, [10, 1, 1, 3])
     assert out.machines == [[0], [1, 2, 3]]
+    # Keep empty technicians until omissions have been assigned by workload.
+    out = rp.apply([[0], []], 2, [10, 5])
+    assert out.status == "ok" and out.repaired and out.machines == [[0], [1]]
+    out = rp.apply([[0], [0]], 2, [10, 5])
+    assert out.machines == [[0], [1]]
 
 
 def test_timeout_is_not_swallowed_by_generated_exception_handler():
@@ -158,6 +163,58 @@ def test_timeout_is_not_swallowed_by_generated_exception_handler():
         raise AssertionError("bare handler admitted")
 
 
+def test_process_deadline_stops_finally_and_module_loops():
+    import time
+    sb = L.Sandbox(timeout_s=0.1)
+    source = "def solve(instance, params):\n    try:\n        while True: pass\n    finally:\n        while True: pass\n"
+    fn = sb.load(source, "finally_loop")
+    start = time.monotonic()
+    try:
+        sb.call(fn, {}, {})
+    except L._Timeout:
+        pass
+    else:
+        raise AssertionError("finally escaped the parent-enforced deadline")
+    assert time.monotonic() - start < 1.0
+    try:
+        sb.load("while True: pass", "module_loop")
+    except L._Timeout:
+        pass
+    else:
+        raise AssertionError("module-level code escaped the deadline")
+
+
+def test_process_execution_has_fresh_state_and_fails_closed():
+    from unittest.mock import patch
+    sb = L.Sandbox()
+    source = "def solve(instance, params, counter=[0]):\n    counter[0] += 1\n    instance['n'] = 99\n    return [[counter[0]]]\n"
+    fn = sb.load(source, "fresh_state")
+    instance = {"n": 2}
+    assert sb.call(fn, instance, {}) == [[1]]
+    assert sb.call(fn, instance, {}) == [[1]] and instance == {"n": 2}
+    for result in ("([0, 1],)", "[(0, 1)]"):
+        fn = sb.load(f"def solve(instance, params):\n    return {result}\n", "tuple_output")
+        assert L.RepairPolicy().apply(sb.call(fn, {"n": 2}, {}), 2).status == "infeasible"
+    with patch.object(L.multiprocessing, "get_all_start_methods", return_value=["spawn"]):
+        try:
+            sb.call(fn, instance, {})
+        except L.SandboxViolation:
+            pass
+        else:
+            raise AssertionError("execution admitted without the required process mode")
+
+
+def test_holm_rejects_nonfinite_p_values():
+    for invalid in (float("nan"), float("inf"), -0.01, 1.01):
+        try:
+            R.holm({"valid": 0.01, "invalid": invalid})
+        except ValueError:
+            pass
+        else:
+            raise AssertionError("invalid p-value silently entered Holm correction")
+    assert R.holm({"a": 0.01, "b": 0.02}) == {"a": 0.02, "b": 0.02}
+
+
 if __name__ == "__main__":
     test_owa_tail_premium(); test_pareto_dominance()
     test_hypervolume_matches_monte_carlo()
@@ -168,4 +225,7 @@ if __name__ == "__main__":
     test_scheduling_robust_beats_nominal_on_tail()
     test_repair_rejects_coercion_and_records_empty_technicians()
     test_timeout_is_not_swallowed_by_generated_exception_handler()
+    test_process_deadline_stops_finally_and_module_loops()
+    test_process_execution_has_fresh_state_and_fails_closed()
+    test_holm_rejects_nonfinite_p_values()
     print("all smoke tests passed")

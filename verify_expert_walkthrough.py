@@ -2,7 +2,8 @@
 
 The workbook contains the checked Word-control tags in its ``Raw`` sheet and
 the pre-specified case, option, selector, repetition and answer-key tables in
-the remaining sheets.  No cached Excel formula values are used here.
+the remaining sheets. Summary values are independently recomputed from inputs;
+cached formula results are checked separately for errors and flag consistency.
 """
 from __future__ import annotations
 
@@ -244,9 +245,32 @@ def compare(actual, expected, path="summary"):
         raise AssertionError(f"Value differs at {path}: {actual!r} != {expected!r}")
 
 
+def verify_cached_checks():
+    wb = load_workbook(WORKBOOK, data_only=True, read_only=True)
+    errors = [(ws.title, cell.coordinate, cell.value) for ws in wb
+              for row in ws for cell in row if cell.data_type == "e"]
+    assert not errors, errors
+    checks = rows(wb["Checks"])
+    header = checks[0]
+    total_column = header.index("Number of X flags")
+    flag_columns = [i for i, value in enumerate(header)
+                    if value and "flag" in value.lower() and i != total_column]
+    counts = {}
+    for row in checks[1:]:
+        if row[0] and row[0].startswith("P"):
+            count = sum(row[i] == "X" for i in flag_columns)
+            assert row[total_column] == count, (row[0], row[total_column], count)
+            counts[row[0]] = count
+    assert len(counts) == 10 and sum(counts.values()) == 11, counts
+    wb.close()
+    return counts
+
+
 if __name__ == "__main__":
     actual = compute()
     expected = json.loads(EXPECTED.read_text(encoding="utf-8"))
     compare(actual, expected)
+    counts = verify_cached_checks()
     print(json.dumps(actual, indent=2, ensure_ascii=False))
     print("expert walkthrough: all released summary values verified")
+    print("cached formulas: no errors; inconsistency flags:", counts)

@@ -7,7 +7,7 @@ Collaborative Intelligence in Operations Research).
 
 **Benchmark results are computed by the released evaluators and typeset from generated macros. Rehearsal records are generated from stated assumptions and are not empirical findings.** `run_all.py` regenerates the
 deterministic artifacts in `data/`, `results_macros.tex`, and the scripted
-planner-rehearsal records and `planner_rehearsal_macros.tex`, plus the computed Figure 2 in `interface_example.tex`. Runtime values are hardware-specific
+planner-rehearsal records and `planner_rehearsal_macros.tex`. Runtime values are hardware-specific
 and are regenerated only when that stage is included.
 
 ```bash
@@ -34,12 +34,12 @@ The original generation logs are preserved separately from regenerated results.
 | `creoh_mechanism.py` | 8.5 | Cost-term decomposition, crossing analysis, workforce-equity measures, archive size and spread. Answers *why* the tail, the stability and the hypervolume move. |
 | `creoh_ablation.py` | 8.6 | Ablation over the same 30 instances with CIs, paired Wilcoxon tests and Cliff's δ; the full configuration is the reported method (checked in `test_smoke.py`). |
 | `creoh_runtime.py` | 8.7 | Measured wall-clock overhead, scaling in *n*, *M*, *B*, and the verified structural/scenario cost decomposition. |
-| `creoh_llm_pilot.py` | 8.8 | Sandboxed harness for the real-LLM proposer pilot: static policy, execution timeout, deterministic repair policy, evaluation with the unchanged evaluator. |
+| `creoh_llm_pilot.py` | 8.8 | Sandboxed harness for the real-LLM proposer pilot: static policy, parent-enforced process deadline, deterministic repair policy and shared objectives/selectors. |
 | `creoh_theory.py` | 5, 8.9 | Numerical verification of the eight propositions, the invariance-breaking study, and the robustness opportunity index with the realized reduction on the same pools. |
-| `creoh_stress.py` | Fig. 4 | Out-of-distribution degradation at three amplification levels. |
+| `creoh_stress.py` | Online Resource 1, Fig. S1 | Out-of-distribution degradation at three amplification levels. |
 | `creoh_planner.py` | 9 | Dial response sweep, selection stability, planner regret over six risk profiles, two-way parameter guidance. |
-| `generate_planner_rehearsal.py` | 9.4 | Fixed-seed **scripted prototype rehearsal** (feasibility dry-run) of the planner-study protocol. **No human participants**: every record is generated from the per-profile assumptions stated in the script and is flagged `SCRIPTED_REHEARSAL_NOT_HUMAN_DATA`. Writes `data/planner_rehearsal_records.csv`, `data/planner_rehearsal_summary.json` and `planner_rehearsal_macros.tex`, plus the computed Figure 2 in `interface_example.tex`. |
-| `creoh_ollama_pilot.py` | 8.8 | Offline replay of the Qwen-7B pilot pool (`ollama_pilot/`) through the unchanged evaluator. |
+| `generate_planner_rehearsal.py` | Online Resource 1, S7.1 | Fixed-seed **scripted prototype rehearsal** (feasibility dry-run) of the planner-study protocol. **No human participants**: every record is generated from the per-profile assumptions stated in the script and is flagged `SCRIPTED_REHEARSAL_NOT_HUMAN_DATA`. Writes `data/planner_rehearsal_records.csv`, `data/planner_rehearsal_summary.json` and `planner_rehearsal_macros.tex`. |
+| `creoh_ollama_pilot.py` | 8.8 | Offline replay of the Qwen-7B pilot pool (`ollama_pilot/`) through the corrected harness with shared objectives and selectors. |
 | `creoh_qwen27_pilot.py` | 8.8 | Offline replay of the Qwen-27B pilot pool (`qwen27_pilot/`), with raw per-instance metrics. |
 | `make_macros.py` | — | Emits `results_macros.tex` from `data/` and calls the two pilot macro generators. |
 | `pilot_macros.py`, `make_ollama_macros.py`, `make_qwen27_macros.py` | — | Emit `ollama_macros.tex` (Qwen-7B) and `qwen27_macros.tex` (Qwen-27B) with the same number formats as the Claude pilot. |
@@ -62,7 +62,7 @@ distinct scheduling inputs. Counting all 56 files would be pseudoreplication.
 
 ## Language-model pilots
 
-Three pilots apply the unchanged evaluator to programs written by language
+Three pilots apply the shared objectives and selectors to programs written by language
 models. Naming follows the manuscript:
 
 | Pilot | Model | Folder | Interface |
@@ -132,7 +132,7 @@ does not rely on cached spreadsheet formula results.
 - `generate_interface_example.py` regenerates Figure 2 from synthetic scheduling seed 10, using raw cost units and the actual archive and selections. The example was chosen for its multi-point projected frontier and is not an aggregate performance estimate.
 
 - Full manuscript regeneration uses the default `data/` directory beside the scripts. `--outdir` redirects study tables only; macro and rehearsal generators use the package directory. For isolated reproduction, copy the whole package and run from that copy.
-- The pilot harness requires POSIX timers on the main thread. It enforces a restricted Python policy and a timeout, not operating-system or memory isolation. Repair rejects non-integer identifiers, records empty-technician removal, and assigns omissions using nominal workload.
+- The pilot harness requires POSIX `fork` on the main thread. Each admission/execution runs in a fresh child process; the parent kills and joins the worker at the two-second deadline, including loops in exception/finally blocks and module-level code. Results cross as JSON. This is process separation with a restricted Python policy, without an operating-system security sandbox or memory quota. Repair keeps the first occurrence of each integer task, assigns omissions to the least nominally loaded technician while retaining empty lists, then removes empty technicians. Invalid identifiers or structural outputs are refused. Runtime includes process overhead.
 
 
 ### Qwen-7B pilot
@@ -163,7 +163,7 @@ selected cost, risk or P95. This is not a controlled ranking of the models.
 ```bash
 python creoh_ollama_pilot.py                 # offline replay; no Ollama required
 python make_ollama_macros.py                # regenerate Qwen manuscript values
-python ollama_pilot/verify_results.py        # integrity of original recorded run
+python ollama_pilot/verify_results.py        # original provenance and corrected replay consistency
 ```
 
 The same 30 instance seeds inform feedback and final evaluation, so the paired
@@ -207,7 +207,7 @@ All 18 main responses are complete, and no generated code was manually repaired.
 - `qwen27_pilot/feedback_gen2.txt` and `feedback_gen3.txt`: actual feedback;
   AI-drafted from training summaries, without OOD feedback.
 - `data/qwen27_pilot/`: replayed final results, including raw per-instance metrics.
-- `creoh_qwen27_pilot.py`: offline replay through the unchanged evaluator.
+- `creoh_qwen27_pilot.py`: offline replay through the corrected harness with shared objectives and selectors.
 - `make_qwen27_macros.py` and `qwen27_macros.tex`: generated manuscript values.
 
 ```bash
@@ -236,3 +236,29 @@ the full manuscript summary from that workbook.
 ## License
 
 Code released under the MIT License (`LICENSE`); citation metadata in `CITATION.cff`. Public instances keep their original terms.
+
+## Release f (9 October 2026)
+
+The fixed code snapshot is [release f](https://github.com/fnuni/2026anor/releases/tag/f).
+The [Zenodo archive](https://doi.org/10.5281/zenodo.22843394) lists all versions;
+use the version-specific DOI identified in the release notes when citing a snapshot.
+
+This package contains only the latest corrected evaluator sources. Original
+model-generation exchanges, candidate programs and cumulative evaluation records
+remain research evidence. `pilot_provenance.py` identifies their historical
+evaluator by the immutable release-e commit and DOI, and checks the hashes and
+scientific results of the corrected replay separately. The original generation
+metadata is not relabeled as a new generation campaign.
+
+Release f replaces the suppressible in-process timer with a parent-controlled
+process deadline, corrects the documented repair order, and records a
+non-rejection convention (`p=1`) when all paired differences are zero. Holm
+correction rejects non-finite or out-of-range inputs. `test_smoke.py` covers these
+paths, including loops in `finally` and at module level and fresh execution state.
+The saved pilots retain their scientific results and status/repair counts;
+wall-clock timings are measured again and include process overhead.
+
+The expert workbook retains its original formulas, styles and responses, with
+refreshed formula caches. `verify_expert_walkthrough.py` independently recomputes
+the manuscript summaries, checks all cached cells for formula errors and
+confirms the eleven inconsistency flags.

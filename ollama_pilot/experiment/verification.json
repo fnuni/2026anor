@@ -13,7 +13,22 @@
   },
   "exact_duplicate_sources": [],
   "candidate_text_matches_raw_responses": true,
-  "evaluator_sources_unchanged": true,
+  "generation_reference": {
+    "release": "e",
+    "commit": "c5a4fc997dfd5b90fb5d45b13879f083adeaedf5",
+    "doi": "10.5281/zenodo.23219351",
+    "evaluator_sha256": {
+      "creoh_llm_pilot.py": "7aa7309eafca7b15960cf817ac36a4cf706567ae1a203d4a547fef8c321e250b",
+      "creoh_scheduling.py": "3629ffcb2ec802994b884235d164b5c61c2ac8797322b8fd238bdf4bfb48f87d",
+      "creoh_routing.py": "826ec9c2e83f5e212d489c0a5294b637177eedffc569abe8e9b19615f64819bd"
+    }
+  },
+  "replay_evaluator_sha256": {
+    "creoh_llm_pilot.py": "2e2c2ce3a1521b9a5ce167cee57d2716123f6d0590a5080623d586225a613c9f",
+    "creoh_scheduling.py": "3629ffcb2ec802994b884235d164b5c61c2ac8797322b8fd238bdf4bfb48f87d",
+    "creoh_routing.py": "23f437ceb5f5f8a67546d4389bc540d86716b4cf11390b5f0e85b5e8382698ab"
+  },
+  "replay_scientific_results_match_generation_record": true,
   "feedback_matches_requests": true,
   "all_responses_completed_without_token_truncation": true,
   "note": "Integrity and consistency checks; not an independent scientific replication."

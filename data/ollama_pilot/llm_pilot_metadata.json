@@ -115,6 +115,19 @@
     }
   },
   "seeds": 30,
+  "replay_evaluator_sha256": {
+    "creoh_llm_pilot.py": "2e2c2ce3a1521b9a5ce167cee57d2716123f6d0590a5080623d586225a613c9f",
+    "creoh_scheduling.py": "3629ffcb2ec802994b884235d164b5c61c2ac8797322b8fd238bdf4bfb48f87d",
+    "creoh_routing.py": "23f437ceb5f5f8a67546d4389bc540d86716b4cf11390b5f0e85b5e8382698ab"
+  },
+  "execution_policy": {
+    "timeout_seconds": 2.0,
+    "enforcement": "parent-controlled POSIX fork worker; killed at deadline",
+    "fresh_namespace_each_call": true,
+    "runtime_includes_process_overhead": true,
+    "memory_quota": false,
+    "operating_system_security_sandbox": false
+  },
   "programs_generated": 18,
   "programs_admitted": 18,
   "static_rejections": [],
@@ -144,7 +157,7 @@
   "feasible_before_repair_rate": 0.3889,
   "feasible_after_repair_rate": 0.3889,
   "repair_rate": 0.0,
-  "mean_program_runtime_ms": 0.032,
+  "mean_program_runtime_ms": 1.101,
   "mean_pool_size": 7.0,
   "summary": {
     "LLM pool + nominal evaluator": {

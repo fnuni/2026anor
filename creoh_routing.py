@@ -546,6 +546,8 @@ def cliffs_delta(a, b) -> float:
 
 
 def holm(pvals: dict[str, float]) -> dict[str, float]:
+    if any(not math.isfinite(p) or not 0.0 <= p <= 1.0 for p in pvals.values()):
+        raise ValueError("Holm correction requires finite p-values in [0, 1]")
     items = sorted(pvals.items(), key=lambda kv: kv[1])
     m = len(items)
     out, prev = {}, 0.0

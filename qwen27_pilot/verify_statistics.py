@@ -30,8 +30,10 @@ for k,pval,padj,d in m['stats']:
 reduction=round(100*(values[labels[0]]['p95'].mean()-values[labels[1]]['p95'].mean())/values[labels[0]]['p95'].mean(),2)
 assert reduction==m['tail_reduction_pct']
 original=json.loads((b/'qwen27_pilot/experiment/evaluation_gen3/llm_pilot_metadata.json').read_text())
-for d in [original,m]:d.pop('mean_program_runtime_ms')
-assert original==m
+assert set(original) <= set(m)
+for key in original:
+ if key != 'mean_program_runtime_ms':
+  assert original[key]==m[key],key
 report={'raw_metric_rows':len(rows),'instances_per_selector':30,'means_and_intervals_recomputed':True,'wilcoxon_holm_and_cliffs_delta_recomputed':True,'tail_reduction_recomputed':reduction,'replay_matches_original_excluding_timing':True}
 (b/'qwen27_pilot/experiment/statistical_verification.json').write_text(json.dumps(report,indent=2)+'\n')
 print(json.dumps(report,indent=2))

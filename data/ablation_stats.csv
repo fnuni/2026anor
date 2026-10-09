@@ -6,7 +6,7 @@ No OWA risk objective,hv,0.179712,1.000000,-0.004
 No stability objective,p95,0.179712,1.000000,-0.011
 No stability objective,f2,0.179712,1.000000,-0.004
 No stability objective,f3,0.465209,1.000000,-0.051
-No stability objective,hv,nan,1.000000,0.000
+No stability objective,hv,1.000000,1.000000,0.000
 No robustness buffer,p95,0.000157,0.002192,0.097
 No robustness buffer,f2,0.000041,0.000615,0.076
 No robustness buffer,f3,0.000180,0.002334,0.122

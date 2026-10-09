@@ -6,6 +6,9 @@ import json
 import math
 from pathlib import Path
 import pilot_ollama as connector
+import sys
+sys.path.insert(0, str(connector.SOURCE))
+from pilot_provenance import verify_replay
 
 root = Path(__file__).resolve().parent / 'experiment'
 meta = json.loads((root/'evaluation_gen3/llm_pilot_metadata.json').read_text())
@@ -27,8 +30,7 @@ for name in sorted(expected):
     source = (root/'candidates'/f'{name}.py').read_text()
     assert source == connector.extract(response['message']['content'])
     sources[hashlib.sha256(source.encode()).hexdigest()].append(name)
-for name, digest in backbone['evaluator_sha256'].items():
-    assert hashlib.sha256((connector.SOURCE/name).read_bytes()).hexdigest() == digest
+replay_checks = verify_replay('ollama_pilot', backbone, meta)
 assert meta['backbone'] == backbone
 rows = list(csv.DictReader((root/'evaluation_gen3/llm_pilot_executions.csv').open()))
 assert len(rows) == 540
@@ -47,7 +49,7 @@ for row in main:
 report = dict(checks='passed', candidates=18, requests=18, responses=18,
               executions=540, instances=30, usable_candidates_each_instance=7,
               status_counts=counts, exact_duplicate_sources=[v for v in sources.values() if len(v)>1],
-              candidate_text_matches_raw_responses=True, evaluator_sources_unchanged=True,
+              candidate_text_matches_raw_responses=True, **replay_checks,
               feedback_matches_requests=True, all_responses_completed_without_token_truncation=True,
               note='Integrity and consistency checks; not an independent scientific replication.')
 (root/'verification.json').write_text(json.dumps(report,indent=2)+'\n')

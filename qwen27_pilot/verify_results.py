@@ -2,6 +2,9 @@
 from pathlib import Path
 import collections, csv, hashlib, json
 import pilot_ollama as connector
+import sys
+sys.path.insert(0, str(connector.SOURCE))
+from pilot_provenance import verify_replay
 ROOT = Path(__file__).resolve().parent / 'experiment'
 
 def main():
@@ -21,9 +24,8 @@ def main():
         stop[res.get('done_reason','unspecified')]+=1
         assert (ROOT/'candidates'/f'{name}.py').read_text()==connector.extract(res['message']['content'])
     meta=json.loads((ROOT/'backbone.json').read_text())
-    for name,sha in meta['evaluator_sha256'].items():
-        assert hashlib.sha256((connector.SOURCE/name).read_bytes()).hexdigest()==sha
     final=json.loads((ROOT/'evaluation_gen3/llm_pilot_metadata.json').read_text())
+    replay_checks=verify_replay('qwen27_pilot', meta, final)
     assert final['backbone']==meta and final['programs_generated']==18
     rows=list(csv.DictReader((ROOT/'evaluation_gen3/llm_pilot_executions.csv').open()))
     admitted={r['program'] for r in rows}
@@ -35,7 +37,7 @@ def main():
     report={'checks':'passed','candidate_count':18,'admitted':len(admitted),
             'executions':len(rows),'status_counts':statuses,'stop_reasons':dict(stop),
             'source_matches_responses':True,'feedback_matches_requests':True,
-            'evaluator_hashes_match':True,'note':'Integrity checks, not independent replication.'}
+            **replay_checks,'note':'Integrity checks, not independent replication.'}
     (ROOT/'verification.json').write_text(json.dumps(report,indent=2)+'\n')
     print(json.dumps(report,indent=2))
 

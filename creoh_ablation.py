@@ -184,10 +184,12 @@ def run(seeds: int = 30, n: int = 40, budget: int = 120, orness: float = 0.7,
         if v.name == "Full C-R-EoH":
             continue
         for k in ("p95", "f2", "f3", "hv"):
-            try:
-                _, p = wilcoxon(d[k], full[k])
-            except ValueError:
+            differences = np.asarray(d[k], float) - np.asarray(full[k], float)
+            if np.all(differences == 0):
+                # Degenerate signed-rank sample: retain the comparison as p=1.
                 p = 1.0
+            else:
+                _, p = wilcoxon(d[k], full[k])
             raw_p[f"{v.name}|{k}"] = float(p)
             stats_rows.append([v.name, k, float(p), cliffs_delta(d[k], full[k])])
     adj = holm(raw_p)

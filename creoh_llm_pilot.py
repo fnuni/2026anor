@@ -34,9 +34,10 @@ Protocol, fully disclosed
   two generations prompted with the author-written reflection blocks.
 * **Output.** Each response is stored as one ``.py`` file in
   ``llm_candidates/``; the program text is not edited by the authors.
-* **Evaluation.** The evaluator, repair policy, archive, selection rule and
-  statistics are byte-identical to the ones used for the reproducible-search
-  experiments.  Only the proposer changed.
+* **Evaluation.** Objective functions, archive and selection rules are shared
+  with the reproducible-search experiments. Release f corrects process timeout
+  enforcement and repair ordering. Original generation records identify the
+  historical evaluator by release e; saved programs are replayed unchanged.
 
 Because provider-side model updates are outside the authors' control, the
 pilot is reported as evidence about the *evaluator under noisy proposals*, and
@@ -49,9 +50,12 @@ import csv
 import glob
 import json
 import math
+import hashlib
+import multiprocessing
 from numbers import Integral
 import os
-import signal
+import tempfile
+import threading
 import time
 from abc import ABC, abstractmethod
 from dataclasses import dataclass, field
@@ -112,7 +116,7 @@ class StaticPolicy:
             raise SandboxViolation(f"syntax error: {exc}") from exc
         for node in ast.walk(tree):
             if isinstance(node, ast.ExceptHandler) and node.type is None:
-                raise SandboxViolation("bare exception handler may suppress timeout")
+                raise SandboxViolation("bare exception handlers are disallowed")
             if isinstance(node, (ast.Import, ast.ImportFrom)):
                 mods = ([a.name.split(".")[0] for a in node.names]
                         if isinstance(node, ast.Import)
@@ -157,50 +161,96 @@ def _guarded_import(name, *_args, **_kwargs):
 SAFE_BUILTINS["__import__"] = _guarded_import
 
 
+@dataclass(frozen=True)
+class ProgramHandle:
+    """Source handle: generated code never executes in the evaluator process."""
+    source: str
+    name: str
+
+
+def _isolated_worker(source, name, instance, params, result_path, load_only):
+    """Write a JSON result after execution; never unpickle generated output."""
+    try:
+        env = {"__builtins__": dict(SAFE_BUILTINS), "math": math}
+        exec(compile(source, f"<llm:{name}>", "exec"), env)  # noqa: S102
+        fn = env.get("solve")
+        if not callable(fn):
+            raise SandboxViolation("no callable solve(instance, params)")
+        result = None if load_only else fn(instance, params)
+        # JSON would otherwise turn tuple outputs into admissible list outputs.
+        # Preserve rejection of malformed outer/technician structures.
+        if not load_only:
+            result = ([row if isinstance(row, list) else None for row in result]
+                      if isinstance(result, list) else None)
+        payload = json.dumps({"status": "ok", "result": result}, allow_nan=False)
+    except BaseException as exc:                         # child errors cross as text
+        payload = json.dumps({"status": "error", "type": type(exc).__name__,
+                              "detail": str(exc)})
+    with open(result_path, "w", encoding="utf-8") as fh:
+        fh.write(payload)
+
+
 class Sandbox:
-    """Compiles and runs one generated program under policy and time limits."""
+    """Parent-enforced process deadline on POSIX; no OS or memory sandbox."""
 
     def __init__(self, timeout_s: float = 2.0):
+        if not math.isfinite(timeout_s) or timeout_s <= 0:
+            raise ValueError("timeout_s must be positive and finite")
         self.timeout_s = timeout_s
         self.policy = StaticPolicy()
 
     def load(self, source: str, name: str):
-        tree = self.policy.check(source)
-        env = {"__builtins__": dict(SAFE_BUILTINS), "math": math}
-        code = compile(tree, filename=f"<llm:{name}>", mode="exec")
-        with self._limit():
-            exec(code, env)                    # noqa: S102 - sandboxed by policy
-        fn = env.get("solve")
-        if not callable(fn):
-            raise SandboxViolation("no callable solve(instance, params)")
-        return fn
+        self.policy.check(source)
+        handle = ProgramHandle(source, name)
+        self._execute(handle, None, None, load_only=True)
+        return handle
 
-    def call(self, fn, instance: dict, params: dict):
-        with self._limit():
-            return fn(instance, params)
+    def call(self, fn: ProgramHandle, instance: dict, params: dict):
+        if not isinstance(fn, ProgramHandle):
+            raise SandboxViolation("expected an admitted program source handle")
+        return self._execute(fn, instance, params, load_only=False)
 
-    def _limit(self):
-        sandbox = self
-
-        class _Ctx:
-            def __enter__(self):
-                def handler(signum, frame):
+    def _execute(self, handle, instance, params, load_only):
+        if ("fork" not in multiprocessing.get_all_start_methods()
+                or threading.current_thread() is not threading.main_thread()):
+            raise SandboxViolation("process deadline unavailable; run in the main thread on a POSIX platform")
+        context = multiprocessing.get_context("fork")
+        with tempfile.TemporaryDirectory(prefix="creoh-worker-") as directory:
+            result_path = os.path.join(directory, "result.json")
+            child = context.Process(target=_isolated_worker,
+                                    args=(handle.source, handle.name, instance,
+                                          params, result_path, load_only))
+            try:
+                child.start()
+                child.join(self.timeout_s)
+                if child.is_alive():
+                    child.kill()                         # cannot be swallowed by finally
+                    child.join()
                     raise _Timeout("execution timeout")
-                try:
-                    self.prev = signal.signal(signal.SIGALRM, handler)
-                    signal.setitimer(signal.ITIMER_REAL, sandbox.timeout_s)
-                    self.armed = True
-                except (ValueError, AttributeError) as exc:
-                    raise SandboxViolation("wall-clock interrupt unavailable; run in the main thread on a POSIX platform") from exc
-                return self
-
-            def __exit__(self, *exc):
-                if getattr(self, "armed", False):
-                    signal.setitimer(signal.ITIMER_REAL, 0.0)
-                    signal.signal(signal.SIGALRM, self.prev)
-                return False
-
-        return _Ctx()
+                if child.exitcode != 0 or not os.path.isfile(result_path):
+                    raise RuntimeError(f"isolated worker exited with code {child.exitcode}")
+                with open(result_path, encoding="utf-8") as fh:
+                    response = json.load(fh)
+                if response["status"] == "error":
+                    types = {c.__name__: c for c in (SandboxViolation, ValueError,
+                        IndexError, TypeError, KeyError, ZeroDivisionError,
+                        NameError, UnboundLocalError, OverflowError, RuntimeError)}
+                    error = types.get(response["type"], RuntimeError)
+                    detail = response["detail"]
+                    if error is KeyError:
+                        # KeyError.__str__ already quotes its argument.
+                        try:
+                            detail = ast.literal_eval(detail)
+                        except (ValueError, SyntaxError):
+                            pass
+                    raise error(detail)
+                return response["result"]
+            finally:
+                if child.pid is not None:
+                    if child.is_alive():
+                        child.kill()
+                        child.join()
+                    child.close()
 
 
 # ==========================================================================
@@ -249,9 +299,8 @@ class RepairPolicy:
                     repaired = True
                     continue
                 seen.add(j); row.append(j)
-            if row:
-                clean.append(row)
-            else:
+            clean.append(row)                            # omissions can fill an empty row
+            if not row:
                 repaired = True
         missing = [j for j in range(n) if j not in seen]
         if missing:
@@ -263,6 +312,7 @@ class RepairPolicy:
                          if nominal_durations is not None else [len(m) for m in clean])
                 k = int(np.argmin(loads))
                 clean[k].append(j)
+        clean = [row for row in clean if row]              # third repair, after omissions
         if not clean:
             return EvaluationOutcome("infeasible", "empty assignment")
         return EvaluationOutcome("ok", "", repaired, clean)
@@ -318,7 +368,7 @@ class LLMCandidate:
 
 
 class LLMProposerPilot:
-    """Evaluates the released LLM programs with the unchanged evaluator."""
+    """Replays saved LLM programs with the shared objectives and selectors."""
 
     def __init__(self, seeds: int = 30, n: int = 40, orness: float = 0.7,
                  spread: float = 0.15, timeout_s: float = 2.0):
@@ -526,6 +576,14 @@ class LLMProposerPilot:
 
         meta = dict(
             backbone=BACKBONE, seeds=self.seeds,
+            replay_evaluator_sha256={name: hashlib.sha256(open(
+                os.path.join(HERE, name), "rb").read()).hexdigest() for name in
+                ("creoh_llm_pilot.py", "creoh_scheduling.py", "creoh_routing.py")},
+            execution_policy={"timeout_seconds": self.sandbox.timeout_s,
+                "enforcement": "parent-controlled POSIX fork worker; killed at deadline",
+                "fresh_namespace_each_call": True,
+                "runtime_includes_process_overhead": True,
+                "memory_quota": False, "operating_system_security_sandbox": False},
             programs_generated=len(progs),
             programs_admitted=len(loaded),
             static_rejections=[[p.name, p.detail] for p in progs

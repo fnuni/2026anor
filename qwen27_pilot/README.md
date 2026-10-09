@@ -11,7 +11,7 @@ checkpoint, `mlx-community/Qwen3.8-27B-nvfp4`, is an NVFP4 MLX quantization of
 The main campaign uses three generations of six fresh-context requests with
 `think=false`, temperature 0.7, top_p 0.9, num_ctx 8192, num_predict 4096,
 and seeds 1000 * generation + candidate index. No tools are supplied.
-The original base prompt, evaluator and 30 instance seeds are unchanged.
+The original base prompt and 30 instance seeds are retained. The corrected offline replay shares the original objectives and selectors; generation hashes identify release e, while replay hashes identify the current evaluator.
 Feedback is drafted by the assisting AI from actual execution outcomes and
 training summaries; no OOD metrics are fed back. The same instances inform
 feedback and final evaluation, so this is a descriptive adaptive pilot.
